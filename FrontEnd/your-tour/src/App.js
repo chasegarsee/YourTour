@@ -5,6 +5,7 @@ function App() {
   return (
     <div>
       <h1>Your Tour</h1>
+      <h2>HELLO WORLD</h2>
     </div>
   );
 }
