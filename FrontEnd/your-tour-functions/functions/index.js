@@ -30,7 +30,7 @@ app.get('/restaurants', (req, res) => {
         .catch((err) => console.error(err))
 });
 
-app.post('restaurant', (req, res) => {
+app.post('/restaurant', (req, res) => {
     const newRestaurant = {
         address: req.body.address,
         description: req.body.description,
@@ -51,7 +51,7 @@ app.post('restaurant', (req, res) => {
 
 
 
-exports.getOneDayPackage = functions.https.onRequest((req, res) => {
+app.get('/packages', (req, res) => {
     db.collection("oneDayPackage")
         .get()
         .then((data) => {
@@ -65,7 +65,7 @@ exports.getOneDayPackage = functions.https.onRequest((req, res) => {
         .catch((err) => console.error(err))
 });
 
-exports.createOneDayPackage = functions.https.onRequest((req, res) => {
+app.post('/package', (req, res) => {
     const newPackage = {
         attractions: {
             description: req.body.attractions.description,
@@ -95,20 +95,5 @@ exports.createOneDayPackage = functions.https.onRequest((req, res) => {
             console.error("Something Whent Wrong", err)
         })
 })
-
-exports.getTwoDayPackage = functions.https.onRequest((req, res) => {
-    db.collection("twoDayPackage")
-        .get()
-        .then((data) => {
-            let twoDayPackages = []
-            data.forEach(doc => {
-                twoDayPackages.push(doc.data())
-                console.log("THIS THE DOC", doc)
-            });
-            return res.json(twoDayPackages);
-        })
-        .catch((err) => console.error(err))
-});
-
 
 exports.api = functions.https.onRequest(app)
