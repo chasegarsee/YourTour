@@ -57,7 +57,10 @@ app.get('/packages', (req, res) => {
         .then((data) => {
             let packages = []
             data.forEach(doc => {
-                packages.push(doc.data())
+                packages.push({
+                    packagesId: doc.id,
+                    ...doc.data()
+                })
                 console.log("THIS THE DOC", doc)
             });
             return res.json(packages);
