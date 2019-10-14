@@ -2,7 +2,7 @@ const functions = require('firebase-functions');
 const admin = require("firebase-admin");
 const express = require("express");
 
-const serviceAccount = require("/Users/FW_Digital_Media/Documents/git/YourTour/FrontEnd/your-tour-functions/your-tour-2a49d-firebase-adminsdk-kelob-5de597f5ed.json");
+const serviceAccount = require("/Users/FW_Digital_Media/Documents/git/YourTour/BackEnd/your-tour-functions/your-tour-2a49d-firebase-adminsdk-kelob-5de597f5ed.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
