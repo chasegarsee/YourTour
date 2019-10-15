@@ -5,24 +5,10 @@ import Restaurants from "./Restaurants"
 
 function ViewRestaruants(props) {
 
-
-    useEffect(() => { props.getRestaurants() })
-
-    const dragStart = e => {
-        const target = e.target
-        e.dataTransfer.setData("card_id", target.id)
-
-        setTimeout(() => {
-            target.style.display = "none"
-        }, 0)
-    }
-
-    const dragOver = e => {
-        e.stopPropagation()
-    }
+    useEffect(() => { props.getRestaurants() }, [])
 
     return (
-        <div style={{ backgroundColor: "grey", boxSizing: "border-box", height: "100vh" }}>
+        <div style={{ backgroundColor: "grey", height: "100vh" }}>
 
             <h1>Restaurants</h1>
             <div>
