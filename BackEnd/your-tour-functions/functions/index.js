@@ -9,8 +9,10 @@ admin.initializeApp({
     databaseURL: "https://your-tour-2a49d.firebaseio.com"
 });
 
+const cors = require('cors');
+const app = express();
+app.use(cors({ origin: true }));
 
-const app = express()
 
 const db = admin.firestore()
 

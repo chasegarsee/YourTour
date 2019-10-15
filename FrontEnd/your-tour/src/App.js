@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
+import ViewRestaruants from './Components/Restaurants/ViewRestaurants';
+
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <h1>Your Tour</h1>
-      <h2>HELLO WORLD</h2>
+      <ViewRestaruants />
     </div>
   );
 }
