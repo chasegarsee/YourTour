@@ -28,7 +28,7 @@ function ViewRestaruants(props) {
             <div>
                 {props.restaurantData.map(r => (
                     <Restaurants
-                        id="card-1"
+                        id={r.restaurantsId}
                         className="card"
                         draggable="true"
                         key={r.restaurantsId}
