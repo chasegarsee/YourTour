@@ -1,16 +1,44 @@
 import React, { Component } from "react"
+import styled from "styled-components"
 
-export default class Restaurants extends Component {
+function Restaurants(props) {
 
-    render() {
-        console.log("PROPS", this.props.item)
-        return (
-            <div>
-                <h1>{this.props.item.name}</h1>
-                <p>{this.props.item.genre}</p>
-                <p>{this.props.item.description}</p>
-                <p>{this.props.item.address}</p>
-            </div >
-        )
+    const dragStart = e => {
+        const target = e.target
+        e.dataTransfer.setData("card_id", target.id)
+
+        setTimeout(() => {
+            target.style.display = "none"
+        }, 0)
     }
+
+    const dragOver = e => {
+        e.stopPropagation()
+    }
+
+
+    console.log("PROPS", props.item)
+    return (
+        <RestaurantDiv
+            id={props.id}
+            className={props.className}
+            draggable={props.draggable}
+            onDragStart={dragStart}
+            onDragOver={dragOver}>
+            <h1>{props.item.name}</h1>
+            <p>{props.item.genre}</p>
+            <p>{props.item.description}</p>
+            <p>{props.item.address}</p>
+        </RestaurantDiv >
+    )
 }
+
+
+export default Restaurants
+
+const RestaurantDiv = styled.div`
+border: solid 1px red;
+width: 100%;
+border-radius: 7px;
+`
+
