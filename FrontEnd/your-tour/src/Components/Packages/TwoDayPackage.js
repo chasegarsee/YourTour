@@ -1,6 +1,6 @@
 import React from "react"
 
-function OneDayPackage(props) {
+function TwoDayPackage(props) {
 
     const drop = e => {
         e.preventDefault()
@@ -16,15 +16,15 @@ function OneDayPackage(props) {
         e.preventDefault()
     }
     return (
-        <div style={{ width: "500px", height: "100vh" }} id={props.id}
+        <div style={{}} id={props.id}
             className={props.className}
             onDrop={drop}
             onDragOver={dragOver}>
-            <h1>One Day Package</h1>
+            <h1>Two Day Package</h1>
             {props.children}
         </div>
     )
 
 }
 
-export default OneDayPackage
+export default TwoDayPackage

@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
 import ViewRestaruants from './Components/Restaurants/ViewRestaurants';
+import Packages from './Components/Packages/Packages';
 import OneDayPackage from './Components/Packages/OneDayPackage';
-import OneDayPackageRestaurants from './Components/Packages/OneDayPackageRestaurants';
-
+import TwoDayPackage from './Components/Packages/TwoDayPackage';
+import WeekendPackage from './Components/Packages/WeekendPackage';
+import PackageTab from './Components/Packages/PackageTab';
 
 function App() {
   return (
@@ -11,13 +13,12 @@ function App() {
       <h1>Your Tour</h1>
       <div style={{ display: "flex", justifyContent: "space-evenly" }}>
 
-        <OneDayPackage id="board-1" className="board">
-          <OneDayPackageRestaurants />
-        </OneDayPackage>
+        <Packages id="board-1" className="board" />
 
-        <OneDayPackage id="board-2" className="board">
+        <Packages id="board-2" className="board">
+
           <ViewRestaruants />
-        </OneDayPackage>
+        </Packages>
 
       </div>
     </div>

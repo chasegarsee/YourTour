@@ -1,6 +1,6 @@
 import React from "react"
 
-function OneDayPackage(props) {
+function WeekendPackage(props) {
 
     const drop = e => {
         e.preventDefault()
@@ -20,11 +20,11 @@ function OneDayPackage(props) {
             className={props.className}
             onDrop={drop}
             onDragOver={dragOver}>
-            <h1>One Day Package</h1>
+            <h1>Weekend Package</h1>
             {props.children}
         </div>
     )
 
 }
 
-export default OneDayPackage
+export default WeekendPackage
