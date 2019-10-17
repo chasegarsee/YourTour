@@ -1,6 +1,6 @@
 import React from "react"
 import { Route } from "react-router-dom";
-import Restaurants from "./Restaurants/Restaurants";
+import Restaurants from "../Restaurants/Restaurants";
 import Bars from "./Bars/Bars";
 import Attractions from "./Attractions/Attractions";
 import PlacesTab from "./PlacesTab";
@@ -20,8 +20,11 @@ function Places(props) {
     const dragOver = e => {
         e.preventDefault()
     }
+
+    console.log("PRAAHHPPS", props)
     return (
-        <div>
+
+        < div >
             <div style={{ width: "500px", height: "100vh", backgroundColor: "#f3f3f3" }} id={props.id}
                 className={props.className}
                 onDrop={drop}
@@ -34,14 +37,14 @@ function Places(props) {
             </div>
 
 
-        </div>
+        </div >
     )
 
 }
 
 const routes = [
     {
-        path: "/restaurants",
+        path: "/restaurants/",
         component: Restaurants,
         key: "restaurants",
 

@@ -27,10 +27,11 @@ function Packages(props) {
                 onDrop={drop}
                 onDragOver={dragOver}>
                 <PackageTab />
-                {props.children}
                 {routes.map(({ path, component: c, key }) => (
                     <Route exact path={path} component={c} key={key} />
                 ))}
+                {props.children}
+
             </div>
 
 

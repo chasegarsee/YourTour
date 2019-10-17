@@ -1,44 +1,44 @@
-import React, { useEffect } from "react"
-import { connect } from "react-redux";
-import { getRestaurants } from "../../../actions"
-import Restaurants from "./Restaurants"
+// import React, { useEffect } from "react"
+// import { connect } from "react-redux";
+// import { getRestaurants } from "../../../actions"
+// import Restaurants from "./Restaurants"
 
-function ViewRestaruants(props) {
+// function ViewRestaruants(props) {
 
-    useEffect(() => { props.getRestaurants() }, [])
+//     useEffect(() => { props.getRestaurants() }, [])
 
-    console.log("VIEW RESTAURANT PROPS", props)
-    console.log("VIEW RESTAURANT PROPS DATA", props.restaurantData)
-    return (
-        <div style={{ backgroundColor: "grey", height: "100vh" }}>
+//     console.log("VIEW RESTAURANT PROPS", props)
+//     console.log("VIEW RESTAURANT PROPS DATA", props.restaurantData)
+//     return (
+//         <div style={{ backgroundColor: "grey", height: "100vh" }}>
 
-            <h1>Restaurants</h1>
-            <div>
-                {props.restaurantData.map(r => (
-                    <Restaurants
-                        id={r.restaurantsId}
-                        className="card"
-                        draggable="true"
-                        key={r.restaurantsId}
-                        item={r} />
+//             <h1>Restaurants</h1>
+//             <div>
+//                 {props.restaurantData.map(r => (
+//                     <Restaurants
+//                         id={r.restaurantsId}
+//                         className="card"
+//                         draggable="true"
+//                         key={r.restaurantsId}
+//                         info={r} />
 
-                ))}
-            </div>
-        </div>
-    )
-}
+//                 ))}
+//             </div>
+//         </div>
+//     )
+// }
 
 
-const mapStateToProps = state => {
-    return {
-        restaurantData: state.restaruants.restaurantData,
-        restaurantDataStart: state.restaruants.getRestaurantsStart,
-        restaurantDataSuccess: state.restaruants.getRestaurantsSuccess,
-        restaurantDataFailure: state.restaruants.getRestaurantsFailure,
-        error: state.error
-    }
-}
+// const mapStateToProps = state => {
+//     return {
+//         restaurantData: state.restaruants.restaurantData,
+//         restaurantDataStart: state.restaruants.getRestaurantsStart,
+//         restaurantDataSuccess: state.restaruants.getRestaurantsSuccess,
+//         restaurantDataFailure: state.restaruants.getRestaurantsFailure,
+//         error: state.error
+//     }
+// }
 
-export default connect(
-    mapStateToProps, { getRestaurants }
-)(ViewRestaruants)
+// export default connect(
+//     mapStateToProps, { getRestaurants }
+// )(ViewRestaruants)
