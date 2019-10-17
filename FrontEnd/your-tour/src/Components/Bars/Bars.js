@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-function Restaurants(props) {
+function Bars(props) {
 
     const dragStart = e => {
         const target = e.target
@@ -26,7 +26,6 @@ function Restaurants(props) {
             onDragStart={dragStart}
             onDragOver={dragOver}>
             <h1>{props.info.name}</h1>
-            <p>{props.info.genre}</p>
             <p>{props.info.description}</p>
             <p>{props.info.address}</p>
         </RestaurantDiv >
@@ -34,11 +33,10 @@ function Restaurants(props) {
 }
 
 
-export default Restaurants
+export default Bars
 
 const RestaurantDiv = styled.div`
 border: solid 1px red;
 width: 100%;
 border-radius: 7px;
 `
-

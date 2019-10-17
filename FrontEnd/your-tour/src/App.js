@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import ViewRestaruants from './Components/Restaurants/ViewRestaurants';
 import Packages from './Components/Packages/Packages';
+import ViewBars from './Components/Bars/ViewBars';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Packages id="board-2" className="board">
 
           <ViewRestaruants />
+          <ViewBars />
         </Packages>
 
       </div>

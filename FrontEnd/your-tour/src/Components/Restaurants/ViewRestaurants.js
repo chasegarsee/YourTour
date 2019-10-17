@@ -18,7 +18,7 @@ function ViewRestaruants(props) {
                         className="card"
                         draggable="true"
                         key={r.restaurantsId}
-                        item={r} />
+                        info={r} />
                 ))}
             </div>
         </div>
