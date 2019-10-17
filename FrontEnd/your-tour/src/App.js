@@ -2,10 +2,6 @@ import React from 'react';
 import './App.css';
 import ViewRestaruants from './Components/Restaurants/ViewRestaurants';
 import Packages from './Components/Packages/Packages';
-import OneDayPackage from './Components/Packages/OneDayPackage';
-import TwoDayPackage from './Components/Packages/TwoDayPackage';
-import WeekendPackage from './Components/Packages/WeekendPackage';
-import PackageTab from './Components/Packages/PackageTab';
 
 function App() {
   return (

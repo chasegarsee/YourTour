@@ -8,7 +8,7 @@ export const GET_RESTAURANTS_FAILURE = "GET_RESTAURANTS_FAILURE";
 
 export const getRestaurants = () => dispatch => {
     dispatch({ type: GET_RESTAURANTS_START });
-    return axios.get("http://localhost:5000/your-tour-2a49d/us-central1/api/restaurants/", {
+    return axios.get(`${BASE_URL}/restaurants/`, {
         headers: {
             "Content-Type": "application.json",
         }
