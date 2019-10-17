@@ -24,12 +24,13 @@ function Places(props) {
     console.log("PRAAHHPPS", props)
     return (
 
-        < div >
+        <div>
             <div style={{ width: "500px", height: "100vh", backgroundColor: "#f3f3f3" }} id={props.id}
                 className={props.className}
                 onDrop={drop}
                 onDragOver={dragOver}>
-                <PlacesTab />
+                <PlacesTab
+                />
                 {props.children}
                 {routes.map(({ path, component: c, key }) => (
                     <Route exact path={path} component={c} key={key} />
@@ -37,25 +38,25 @@ function Places(props) {
             </div>
 
 
-        </div >
+        </div>
     )
 
 }
 
 const routes = [
     {
-        path: "/restaurants/",
+        path: `/restaurants`,
         component: Restaurants,
         key: "restaurants",
 
     },
     {
-        path: "/bars",
+        path: `/bars`,
         component: Bars,
         key: "bars"
     },
     {
-        path: "/attractions",
+        path: `/attractions`,
         component: Attractions,
         key: "attractions"
     }

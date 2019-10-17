@@ -19,7 +19,8 @@ function Restaurants(props) {
     const dragOver = e => {
         e.stopPropagation()
     }
-    console.log('SOME DOPE PROOOPS', props)
+
+
     return (
 
         <RestaurantDiv
@@ -30,7 +31,12 @@ function Restaurants(props) {
             onDragOver={dragOver}>
             <h1>RESTAURANTS</h1>
             {props.restaurantData.map(r => (
-                <div style={{ border: "solid 1px red" }}>
+                <div style={{ border: "solid 1px red" }}
+                    id={r.restaurantsId}
+                    className="card"
+                    draggable="true"
+                    key={r.restaurantsId}
+                >
                     <h1>{r.name}</h1>
                     <p>{r.genre}</p>
                     <p>{r.description}</p>

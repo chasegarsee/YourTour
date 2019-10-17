@@ -20,6 +20,8 @@ function Packages(props) {
     const dragOver = e => {
         e.preventDefault()
     }
+
+
     return (
         <div>
             <div style={{ width: "500px", height: "100vh", backgroundColor: "#f3f3f3" }} id={props.id}
@@ -28,7 +30,7 @@ function Packages(props) {
                 onDragOver={dragOver}>
                 <PackageTab />
                 {routes.map(({ path, component: c, key }) => (
-                    <Route exact path={path} component={c} key={key} />
+                    <Route path={path} component={c} key={key} />
                 ))}
                 {props.children}
 
@@ -40,19 +42,22 @@ function Packages(props) {
 
 }
 
+
+
+
 const routes = [
     {
-        path: "/one-day-package",
+        path: `/one-day-package`,
         component: OneDayPackage,
         key: "onedaypackage"
     },
     {
-        path: "/two-day-package",
+        path: `/two-day-package`,
         component: TwoDayPackage,
         key: "twodaypackage"
     },
     {
-        path: "/weekend-package",
+        path: `/weekend-package`,
         component: WeekendPackage,
         key: "weekendpackage"
     }
