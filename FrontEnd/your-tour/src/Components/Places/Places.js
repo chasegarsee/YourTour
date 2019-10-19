@@ -29,11 +29,11 @@ function Places(props) {
                 className={props.className}
                 onDrop={drop}
                 onDragOver={dragOver}>
-                <PlacesTab
+                <PlacesTab placesRoutes={placesRoutes}
                 />
                 {props.children}
-                {routes.map(({ path, component: c, key }) => (
-                    <Route exact path={path} component={c} key={key} />
+                {placesRoutes.map(({ path, component: c, key }) => (
+                    <Route path={`${path}`} component={c} key={key} />
                 ))}
             </div>
 
@@ -43,22 +43,29 @@ function Places(props) {
 
 }
 
-const routes = [
+
+const placesRoutes = [
     {
         path: `/restaurants`,
         component: Restaurants,
+        name: "Restaurants",
         key: "restaurants",
+        id: "restaurants",
 
     },
     {
         path: `/bars`,
         component: Bars,
-        key: "bars"
+        name: "Bars",
+        key: "bars",
+        id: "bars"
     },
     {
         path: `/attractions`,
         component: Attractions,
-        key: "attractions"
+        name: "Attractions",
+        key: "attractions",
+        id: "attractions"
     }
 ]
 

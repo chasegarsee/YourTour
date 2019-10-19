@@ -3,8 +3,6 @@ import { NavLink } from "react-router-dom";
 import { Button } from "react-bootstrap"
 
 function PlacesTab(props) {
-
-
     return (
         <div style={{
             display: "flex",
@@ -12,16 +10,14 @@ function PlacesTab(props) {
             borderRadius: "7px",
             padding: "5px"
         }}>
-            <Button variant="secondary" style={{ borderRadius: "0", padding: "0" }} >
-                <NavLink style={{ color: "white" }} to={`/restaurants`} >Restaurants</NavLink>
-            </Button>
-            <Button variant="secondary" style={{ borderRadius: "0", padding: "0" }}>
-                <NavLink style={{ color: "white" }} to={`/bars`}>Bars</NavLink>
-            </Button>
-            <Button variant="secondary" style={{ borderRadius: "0", padding: "0", size: "lg" }}>
-                <NavLink style={{ color: "white" }} to={`/attractions`}>Attractions</NavLink>
-            </Button>
-        </div >
+            {props.placesRoutes.map(({ name, id }) => (
+                <div key={id}>
+                    <Button variant="secondary" style={{ borderRadius: "0", padding: "0" }} >
+                        <NavLink style={{ color: "white" }} to={`${id}`}>{name}</NavLink>
+                    </Button>
+                </div>
+            ))}
+        </div>
     )
 }
 

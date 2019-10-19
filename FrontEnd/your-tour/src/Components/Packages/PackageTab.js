@@ -11,15 +11,13 @@ function PackageTab(props) {
             borderRadius: "7px",
             padding: "5px"
         }}>
-            <Button variant="secondary" style={{ borderRadius: "0", padding: "0" }} >
-                <NavLink style={{ color: "white" }} to="/one-day-package">One Day Package</NavLink>
-            </Button>
-            <Button variant="secondary" style={{ borderRadius: "0", padding: "0" }}>
-                <NavLink style={{ color: "white" }} to="/two-day-package">Two Day Package</NavLink>
-            </Button>
-            <Button variant="secondary" style={{ borderRadius: "0", padding: "0", size: "lg" }}>
-                <NavLink style={{ color: "white" }} to="/weekend-package">Weekend Package</NavLink>
-            </Button>
+            {props.packageRoutes.map(({ name, id }) => (
+                <div key={id}>
+                    <Button variant="secondary" style={{ borderRadius: "0", padding: "0" }} >
+                        <NavLink style={{ color: "white" }} to={`${id}`}>{name}</NavLink>
+                    </Button>
+                </div>
+            ))}
         </div>
     )
 }

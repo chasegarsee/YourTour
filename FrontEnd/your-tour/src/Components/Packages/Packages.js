@@ -28,8 +28,8 @@ function Packages(props) {
                 className={props.className}
                 onDrop={drop}
                 onDragOver={dragOver}>
-                <PackageTab />
-                {routes.map(({ path, component: c, key }) => (
+                <PackageTab packageRoutes={packageRoutes} />
+                {packageRoutes.map(({ path, component: c, key }) => (
                     <Route path={path} component={c} key={key} />
                 ))}
                 {props.children}
@@ -45,21 +45,27 @@ function Packages(props) {
 
 
 
-const routes = [
+const packageRoutes = [
     {
         path: `/one-day-package`,
         component: OneDayPackage,
-        key: "onedaypackage"
+        name: "One Day Package",
+        key: "onedaypackage",
+        id: "one-day-package"
     },
     {
         path: `/two-day-package`,
         component: TwoDayPackage,
-        key: "twodaypackage"
+        name: "Two Day Package",
+        key: "twodaypackage",
+        id: "two-day-package"
     },
     {
         path: `/weekend-package`,
         component: WeekendPackage,
-        key: "weekendpackage"
+        name: "Weekend Package",
+        key: "weekendpackage",
+        id: "weekend-package"
     }
 ]
 
