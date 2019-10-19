@@ -1,15 +1,11 @@
 import React from "react"
 import { NavLink } from "react-router-dom";
 import { Button } from "react-bootstrap"
+import { TabButtonDiv } from "../../styles/Elements"
 
 function PlacesTab(props) {
     return (
-        <div style={{
-            display: "flex",
-            justifyContent: "space-between",
-            borderRadius: "7px",
-            padding: "5px"
-        }}>
+        <TabButtonDiv>
             {props.placesRoutes.map(({ name, id }) => (
                 <div key={id}>
                     <Button variant="secondary" style={{ borderRadius: "0", padding: "0" }} >
@@ -17,7 +13,7 @@ function PlacesTab(props) {
                     </Button>
                 </div>
             ))}
-        </div>
+        </TabButtonDiv>
     )
 }
 
