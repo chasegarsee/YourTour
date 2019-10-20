@@ -1,11 +1,13 @@
 import React from "react"
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import Restaurants from "../Restaurants/Restaurants";
 import Bars from "./Bars/Bars";
 import Attractions from "./Attractions/Attractions";
 import PlacesTab from "./PlacesTab";
 
-function Places(props) {
+function Places({ match }) {
+    // console.log("WHATT?", match.url)
+    // const allThePlaces = placesRoutes.find(({ id }) => id === match.params.placeId)
 
     const drop = e => {
         e.preventDefault()
@@ -21,19 +23,20 @@ function Places(props) {
         e.preventDefault()
     }
 
-    console.log("PRAAHHPPS", props)
+    // console.log("PRAAHHPPS", props)
     return (
 
         <div>
-            <div style={{ width: "500px", height: "100vh", backgroundColor: "#f3f3f3" }} id={props.id}
-                className={props.className}
+            <div style={{ width: "500px", height: "100vh", backgroundColor: "#f3f3f3" }}
+                // id={props.id}
+                //  className={props.className}
                 onDrop={drop}
                 onDragOver={dragOver}>
                 <PlacesTab placesRoutes={placesRoutes}
                 />
-                {props.children}
-                {placesRoutes.map(({ path, component: c, key }) => (
-                    <Route path={`${path}`} component={c} key={key} />
+                {/* {props.children} */}
+                {placesRoutes.map(({ id, component: c, key }) => (
+                    <Route path={`/one-day-package/${id}`} component={c} key={id} />
                 ))}
             </div>
 

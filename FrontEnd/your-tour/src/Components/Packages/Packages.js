@@ -5,7 +5,8 @@ import TwoDayPackage from "./TwoDayPackage";
 import OneDayPackage from "./OneDayPackage";
 import WeekendPackage from "./WeekendPackage";
 
-function Packages(props) {
+function Packages(props, { match }) {
+    console.log("AHSDFLJKH???", props.match)
 
     const drop = e => {
         e.preventDefault()
@@ -24,26 +25,21 @@ function Packages(props) {
 
     return (
         <div>
-            <div style={{ width: "500px", height: "100vh", backgroundColor: "#f3f3f3" }} id={props.id}
+            <div style={{ width: "500px", height: "100vh", backgroundColor: "#f3f3f3" }}
+                id={props.id}
                 className={props.className}
                 onDrop={drop}
                 onDragOver={dragOver}>
                 <PackageTab packageRoutes={packageRoutes} />
-                {packageRoutes.map(({ path, component: c, key }) => (
-                    <Route path={path} component={c} key={key} />
+                {packageRoutes.map(({ id, component: c, key }) => (
+                    <Route path={`/${id}`} component={c} key={key} />
                 ))}
                 {props.children}
-
             </div>
-
-
         </div>
     )
 
 }
-
-
-
 
 const packageRoutes = [
     {
