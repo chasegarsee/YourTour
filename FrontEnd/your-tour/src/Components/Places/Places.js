@@ -5,7 +5,7 @@ import Bars from "./Bars/Bars";
 import Attractions from "./Attractions/Attractions";
 import PlacesTab from "./PlacesTab";
 
-function Places({ match }) {
+function Places(props) {
     // console.log("WHATT?", match.url)
     // const allThePlaces = placesRoutes.find(({ id }) => id === match.params.placeId)
 
@@ -13,9 +13,8 @@ function Places({ match }) {
         e.preventDefault()
         const card_id = e.dataTransfer.getData("card_id")
 
-        const card = document.getElementById(card_id)
+        const card = document.getElementById((card_id), { clone: true })
         card.style.display = "block"
-
         e.target.appendChild(card)
     }
 
@@ -28,13 +27,13 @@ function Places({ match }) {
 
         <div>
             <div style={{ width: "500px", height: "100vh", backgroundColor: "#f3f3f3" }}
-                // id={props.id}
-                //  className={props.className}
+                id={props.id}
+                className={props.className}
                 onDrop={drop}
                 onDragOver={dragOver}>
                 <PlacesTab placesRoutes={placesRoutes}
                 />
-                {/* {props.children} */}
+                {props.children}
                 {placesRoutes.map(({ id, component: c, key }) => (
                     <Route path={`/one-day-package/${id}`} component={c} key={id} />
                 ))}

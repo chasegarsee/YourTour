@@ -12,7 +12,7 @@ function Packages(props, { match }) {
         e.preventDefault()
         const card_id = e.dataTransfer.getData("card_id")
 
-        const card = document.getElementById(card_id)
+        const card = document.getElementById((card_id), { clone: true })
         card.style.display = "block"
 
         e.target.appendChild(card)
