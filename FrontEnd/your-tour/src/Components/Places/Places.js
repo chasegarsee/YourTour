@@ -1,7 +1,7 @@
 import React from "react"
 import { Route, withRouter } from "react-router-dom";
 import Restaurants from "../Restaurants/Restaurants";
-import Bars from "./Bars/Bars";
+import Bars from "../Bars/Bars";
 import Attractions from "./Attractions/Attractions";
 import PlacesTab from "./PlacesTab";
 
@@ -13,7 +13,7 @@ function Places(props) {
         e.preventDefault()
         const card_id = e.dataTransfer.getData("card_id")
 
-        const card = document.getElementById((card_id), { clone: true })
+        const card = document.getElementById(card_id)
         card.style.display = "block"
         e.target.appendChild(card)
     }
