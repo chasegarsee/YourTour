@@ -11,3 +11,10 @@ export {
     GET_BARS_FAILURE,
     getBars
 } from "./barsActions"
+
+export {
+    GET_ATTRACTIONS_START,
+    GET_ATTRACTIONS_SUCCESS,
+    GET_ATTRACTIONS_FAILURE,
+    getAttractions
+} from "./attractionsActions"
