@@ -1,8 +1,6 @@
 import React from 'react';
 import './App.css';
-import ViewRestaruants from './Components/Restaurants/ViewRestaurants';
 import Packages from './Components/Packages/Packages';
-import ViewBars from './Components/Bars/ViewBars';
 import Places from './Components/Places/Places';
 
 function App(props) {

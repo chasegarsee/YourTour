@@ -1,8 +1,8 @@
 import React from "react"
-import { Route, withRouter } from "react-router-dom";
-import Restaurants from "../Restaurants/Restaurants";
-import Bars from "../Bars/Bars";
-import Attractions from "./Attractions/Attractions";
+import { Route } from "react-router-dom";
+import Restaurants from "../Restaurants";
+import Bars from "../Bars";
+import Attractions from "../Attractions"
 import PlacesTab from "./PlacesTab";
 
 function Places(props) {
