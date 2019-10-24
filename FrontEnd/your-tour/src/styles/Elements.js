@@ -10,3 +10,7 @@ export const TabButtonDiv = styled.div`
 export const SmallButton = styled.div`
   border: solid 1px red;
 `;
+
+export const BigButton = styled.div`
+  border: solid 2px blue;
+`;
