@@ -13,4 +13,5 @@ export const SmallButton = styled.div`
 
 export const BigButton = styled.div`
   border: solid 2px blue;
+  border-radius: 7px;
 `;
