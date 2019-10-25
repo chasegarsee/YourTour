@@ -4,6 +4,7 @@ import Restaurants from "../Restaurants";
 import Bars from "../Bars";
 import Attractions from "../Attractions";
 import PlacesTab from "./PlacesTab";
+import { PlacesDiv } from "../../styles/Elements";
 
 function Places(props) {
   // console.log("WHATT?", match.url)
@@ -25,8 +26,7 @@ function Places(props) {
   // console.log("PRAAHHPPS", props)
   return (
     <div>
-      <div
-        style={{ width: "500px", height: "100vh", backgroundColor: "#f3f3f3" }}
+      <PlacesDiv
         id={props.id}
         className={props.className}
         onDrop={drop}
@@ -37,7 +37,7 @@ function Places(props) {
         {placesRoutes.map(({ id, component: c, key }) => (
           <Route path={`/one-day-package/${id}`} component={c} key={id} />
         ))}
-      </div>
+      </PlacesDiv>
     </div>
   );
 }

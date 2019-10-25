@@ -7,11 +7,14 @@ export const TabButtonDiv = styled.div`
   padding: 5px;
 `;
 
-export const SmallButton = styled.div`
-  border: solid 1px red;
+export const PackagesDiv = styled.div`
+  width: 500px;
+  height: 100vh;
+  background-color: #282c34;
 `;
 
-export const BigButton = styled.div`
-  border: solid 2px blue;
-  border-radius: 7px;
+export const PlacesDiv = styled.div`
+  width: 500px;
+  height: 100vh;
+  background-color: #282c34;
 `;
