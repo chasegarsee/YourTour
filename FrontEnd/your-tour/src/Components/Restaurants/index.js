@@ -30,7 +30,7 @@ function Restaurants(props) {
       onDragStart={dragStart}
       onDragOver={dragOver}
     >
-      <StyledH1>RESTAURANTS</StyledH1>
+      <StyledH1>Restaurants</StyledH1>
       {props.restaurantData.map(r => (
         <div
           id={r.restaurantsId}

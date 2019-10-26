@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { useAuth0 } from "../Auth0/Auth0";
 import { NavButton } from "../../styles/Buttons";
 import { StyledH1 } from "../../styles/Elements";
 
 function NavBar(props) {
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   return (
     <NavBarContainer>
       <LogoDiv>
@@ -13,7 +15,12 @@ function NavBar(props) {
         <StyledH1>Your Tour</StyledH1>
       </div>
       <div>
-        <NavButton>Log In</NavButton>
+        {!isAuthenticated && (
+          <NavButton onClick={() => loginWithRedirect({})}>Log In</NavButton>
+        )}
+        {isAuthenticated && (
+          <NavButton onClick={() => logout()}>Log Out</NavButton>
+        )}
       </div>
     </NavBarContainer>
   );
