@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { NavButton } from "../../styles/Buttons";
+import { StyledH1 } from "../../styles/Elements";
 
 function NavBar(props) {
   return (
@@ -25,6 +26,7 @@ const NavBarContainer = styled.div`
   justify-content: space-between;
   background-color: rgb(26, 29, 33);
   padding: 5px;
+  align-items: center;
   /* background: linear-gradient(to right, #fc28a8, #03edf9) !important; */
   border-bottom: 3px solid blueviolet;
 `;
@@ -43,9 +45,4 @@ const PyledP = styled.p`
   color: white;
   margin: 0;
   font-size: 1.6rem;
-`;
-
-const StyledH1 = styled.h1`
-  color: white;
-  margin: 0;
 `;

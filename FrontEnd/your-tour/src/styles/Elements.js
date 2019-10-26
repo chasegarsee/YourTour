@@ -18,3 +18,8 @@ export const PlacesDiv = styled.div`
   height: 100vh;
   background-color: #282c34;
 `;
+
+export const StyledH1 = styled.h1`
+  color: white;
+  margin: 0;
+`;

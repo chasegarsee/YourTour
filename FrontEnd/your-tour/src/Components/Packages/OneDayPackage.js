@@ -1,5 +1,5 @@
 import React from "react";
-
+import { StyledH1 } from "../../styles/Elements";
 function OneDayPackage(props) {
   const drop = e => {
     e.preventDefault();
@@ -22,7 +22,7 @@ function OneDayPackage(props) {
       onDrop={drop}
       onDragOver={dragOver}
     >
-      <h1>One Day Package</h1>
+      <StyledH1>One Day Package</StyledH1>
       {props.children}
     </div>
   );

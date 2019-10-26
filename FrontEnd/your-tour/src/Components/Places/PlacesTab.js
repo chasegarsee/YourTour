@@ -1,22 +1,26 @@
-import React from "react"
+import React from "react";
 import { NavLink } from "react-router-dom";
-import { Button } from "react-bootstrap"
-import { TabButtonDiv } from "../../styles/Elements"
+import { Button } from "react-bootstrap";
+import { TabButtonDiv } from "../../styles/Elements";
+import { TabButton } from "../../styles/Buttons";
 
 function PlacesTab(props) {
-
-
-    return (
-        <TabButtonDiv>
-            {props.placesRoutes.map(({ name, id }) => (
-                <div key={id}>
-                    <Button variant="secondary" style={{ borderRadius: "0", padding: "0" }} >
-                        <NavLink style={{ color: "white" }} to={`/one-day-package/${id}`}>{name}</NavLink>
-                    </Button>
-                </div>
-            ))}
-        </TabButtonDiv>
-    )
+  return (
+    <TabButtonDiv>
+      {props.placesRoutes.map(({ name, id }) => (
+        <div key={id}>
+          <TabButton>
+            <NavLink
+              style={{ color: "black", textDecoration: "none" }}
+              to={`/one-day-package/${id}`}
+            >
+              {name}
+            </NavLink>
+          </TabButton>
+        </div>
+      ))}
+    </TabButtonDiv>
+  );
 }
 
-export default PlacesTab
+export default PlacesTab;
