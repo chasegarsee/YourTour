@@ -8,6 +8,7 @@ import rootReducer from "./reducers";
 import "./index.css";
 import App from "./App";
 import { Auth0Provider } from "../src/Components/Auth0/Auth0";
+import config from "./auth_config.json";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -28,8 +29,8 @@ const store = createStore(
 
 ReactDOM.render(
   <Auth0Provider
-    domain={process.env.REACT_APP_DOMAIN}
-    client_id={process.env.REACT_APP_CLIENT_ID}
+    domain={config.domain}
+    client_id={config.clientId}
     redirect_uri={window.location.origin}
     onRedirectCallback={onRedirectCallback}
   >

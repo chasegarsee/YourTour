@@ -17,23 +17,16 @@ function App(props) {
 
   return (
     <div className="App">
-      <Router>
-        <NavBar />
-        <div
-          style={{
-            height: "100vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-        >
-          <StyledH1>Please Log In</StyledH1>
-        </div>
-        <Switch>
+      {/* <Router> */}
+      <NavBar />
+      <Header>
+        <StyledH1>Please Log In</StyledH1>
+      </Header>
+      {/* <Switch>
           <Route exact path="/" />
           <Route path="/home" component={HomePage} />
         </Switch>
-      </Router>
+      </Router> */}
     </div>
   );
 }
@@ -47,6 +40,13 @@ export default App;
 <Places id="board-2" className="board" />
 </PackageContainer> */
 }
+
+const Header = styled.header`
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const PackageContainer = styled.div`
   display: flex;
