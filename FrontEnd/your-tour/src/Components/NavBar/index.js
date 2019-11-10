@@ -35,13 +35,21 @@ const NavBarContainer = styled.div`
   padding: 5px;
   align-items: center;
   /* background: linear-gradient(to right, #fc28a8, #03edf9) !important; */
-  border-bottom: 3px solid blueviolet;
+  box-shadow: 0 10px 20px blueviolet;
 `;
 
 const LogoDiv = styled.div`
   width: 50px;
   height: 50px;
-  border: solid 2px white;
+
+  animation: pulse 10s infinite;
+
+  @keyframes pulse {
+    50% {
+      box-shadow: 0 1px 20px blueviolet;
+    }
+  }
+  box-shadow: 0 1px 10px greenyellow;
   border-radius: 100%;
   display: flex;
   justify-content: center;
