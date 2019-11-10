@@ -16,5 +16,9 @@ export {
     GET_ATTRACTIONS_START,
     GET_ATTRACTIONS_SUCCESS,
     GET_ATTRACTIONS_FAILURE,
-    getAttractions
+    getAttractions,
+    ADD_ATTRACTION_START,
+    ADD_ATTRACTION_SUCCESS,
+    ADD_ATTRACTION_FAILURE,
+    addAttraction
 } from "./attractionsActions"

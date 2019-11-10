@@ -22,3 +22,25 @@ export const getAttractions = () => dispatch => {
             dispatch({ type: GET_ATTRACTIONS_FAILURE, payload: err });
         });
 }
+
+
+export const ADD_ATTRACTION_START = "ADD_ATTRACTION_START"
+export const ADD_ATTRACTION_SUCCESS = "ADD_ATTRACTION_SUCCESS"
+export const ADD_ATTRACTION_FAILURE = "ADD_ATTRACTION_FAILURE"
+
+export const addAttraction = () => dispatch => {
+    dispatch({ type: ADD_ATTRACTION_START });
+
+    return axios.post(`${BASE_URL}/attractions`, {
+        headers: {
+            "Content-Type": "application.json"
+        }
+    })
+        .then(res => {
+            dispatch({ type: ADD_ATTRACTION_SUCCESS, payload: res.data })
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch({ type: ADD_ATTRACTION_FAILURE, payload: err })
+        })
+}
