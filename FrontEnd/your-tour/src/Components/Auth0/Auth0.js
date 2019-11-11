@@ -15,7 +15,7 @@ export const Auth0Provider = ({
   const [user, setUser] = useState();
   const [auth0Client, setAuth0] = useState();
   const [loading, setLoading] = useState(true);
-  const [popupOpen, setPopupOpen] = useState(false);
+  const [popupOpen, setPopupOpen] = useState(true);
 
   useEffect(() => {
     const initAuth0 = async () => {
@@ -60,7 +60,7 @@ export const Auth0Provider = ({
     setLoading(true);
     await auth0Client.handleRedirectCallback();
     const user = await auth0Client.getUser();
-    setLoading(false);
+    setLoading(true);
     setIsAuthenticated(true);
     setUser(user);
   };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useAuth0 } from "./Components/Auth0/Auth0";
 import "./App.css";
@@ -12,7 +12,9 @@ import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function App(props) {
-  const { loading } = useAuth0();
+  const { loading, user } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
   if (loading) {
     return (
       <div
@@ -36,9 +38,18 @@ function App(props) {
     <div className="App">
       <Router>
         <NavBar />
-        <Header>
-          <StyledH1>Please Log In</StyledH1>
-        </Header>
+        {!isAuthenticated && (
+          <Header>
+            <StyledH1>Please Log In</StyledH1>
+          </Header>
+        )}
+        {isAuthenticated && (
+          <div>
+            <h2>{user.name}</h2>
+            <p>{user.email}</p>
+            <code>{JSON.stringify(user, null, 2)}</code>
+          </div>
+        )}
         <Switch>
           <Route exact path="/" />
           <Route path="/home" component={HomePage} />

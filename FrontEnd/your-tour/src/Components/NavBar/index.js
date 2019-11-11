@@ -5,11 +5,12 @@ import { NavButton } from "../../styles/Buttons";
 import { StyledH1 } from "../../styles/Elements";
 
 function NavBar(props) {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
   return (
     <NavBarContainer>
       <LogoDiv>
-        <StyledP>YT</StyledP>
+        {!isAuthenticated && <StyledP>YT</StyledP>}
+        {isAuthenticated && <StyledImg src={user.picture} alt="Profile" />}
       </LogoDiv>
       <div>
         <StyledH1>Your Tour</StyledH1>
@@ -54,6 +55,12 @@ const LogoDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const StyledImg = styled.img`
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
 `;
 
 const StyledP = styled.p`
