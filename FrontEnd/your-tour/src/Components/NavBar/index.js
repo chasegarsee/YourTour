@@ -9,7 +9,7 @@ function NavBar(props) {
   return (
     <NavBarContainer>
       <LogoDiv>
-        <PyledP>YT</PyledP>
+        <StyledP>YT</StyledP>
       </LogoDiv>
       <div>
         <StyledH1>Your Tour</StyledH1>
@@ -56,7 +56,7 @@ const LogoDiv = styled.div`
   align-items: center;
 `;
 
-const PyledP = styled.p`
+const StyledP = styled.p`
   color: white;
   margin: 0;
   font-size: 1.6rem;

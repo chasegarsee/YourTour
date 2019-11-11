@@ -51,7 +51,21 @@ app.post('/restaurant', (req, res) => {
         })
 })
 
-
+app.get('/bars', (req, res) => {
+    db.collection("bars")
+        .get()
+        .then(data => {
+            let bars = []
+            data.forEach(doc => {
+                bars.push({
+                    barsId: doc.id,
+                    ...doc.data()
+                })
+            });
+            return res.json(bars);
+        })
+        .catch((err) => console.error(err))
+});
 
 app.get('/packages', (req, res) => {
     db.collection("oneDayPackage")
@@ -100,5 +114,41 @@ app.post('/package', (req, res) => {
             console.error("Something Whent Wrong", err)
         })
 })
+
+
+app.get('/attractions', (req, res) => {
+    db.collection("attractions")
+        .get()
+        .then(data => {
+            let attractions = []
+            data.forEach(doc => {
+                attractions.push({
+                    attractionsId: doc.id,
+                    ...doc.data()
+                })
+            });
+            return res.json(attractions);
+        })
+        .catch((err) => console.error(err))
+});
+
+app.post('/attractions', (req, res) => {
+    const newAttraction = {
+        name: req.body.name,
+        address: req.body.address,
+        description: req.body.description,
+    }
+    db.collection("attractions")
+        .add(newAttraction)
+        .then(doc => {
+            res.json({ message: `document ${doc.id} created successfully` })
+        })
+        .catch(err => {
+            res.status(500).json({ error: "BIG OOF" })
+            console.error(err)
+        })
+})
+
+
 
 exports.api = functions.https.onRequest(app)

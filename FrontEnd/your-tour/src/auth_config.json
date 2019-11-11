@@ -1,4 +1,5 @@
 {
   "domain": "dev-qt2nq2gr.auth0.com",
-  "clitentId": "1oze5bzcb1li73yUuC3oIcgfb3dqrp11"
+  "clientId": "3AEYsPEPWKzUx5Z9MC3F03ZE3K4MdFvK",
+  "redirectUri": "http://localhost:3000/callback"
 }

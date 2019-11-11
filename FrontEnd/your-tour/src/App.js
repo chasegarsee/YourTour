@@ -8,25 +8,42 @@ import NavBar from "./Components/NavBar";
 import styled from "styled-components";
 import HomePage from "./Components/HomePage";
 import { StyledH1 } from "./styles/Elements";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function App(props) {
   const { loading } = useAuth0();
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          backgroundColor: "rgb(26, 29, 33)",
+          height: "100vh",
+          width: "100vw"
+        }}
+      >
+        <Loader type="Triangle" color="blueViolet" height={200} width={200} />{" "}
+        <StyledSpan>Loading...</StyledSpan>
+      </div>
+    );
   }
 
   return (
     <div className="App">
-      {/* <Router> */}
-      <NavBar />
-      <Header>
-        <StyledH1>Please Log In</StyledH1>
-      </Header>
-      {/* <Switch>
+      <Router>
+        <NavBar />
+        <Header>
+          <StyledH1>Please Log In</StyledH1>
+        </Header>
+        <Switch>
           <Route exact path="/" />
           <Route path="/home" component={HomePage} />
         </Switch>
-      </Router> */}
+      </Router>
     </div>
   );
 }
@@ -51,4 +68,9 @@ const Header = styled.header`
 const PackageContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
+`;
+
+const StyledSpan = styled.span`
+  font-size: 2rem;
+  color: greenyellow;
 `;
