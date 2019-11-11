@@ -44,11 +44,11 @@ function App(props) {
           </Header>
         )}
         {isAuthenticated && (
-          <div>
-            <h2>{user.name}</h2>
-            <p>{user.email}</p>
-            <code>{JSON.stringify(user, null, 2)}</code>
-          </div>
+          <StyledDiv>
+            <StyledH1>{user.name}</StyledH1>
+
+            {/* <code>{JSON.stringify(user, null, 2)}</code> */}
+          </StyledDiv>
         )}
         <Switch>
           <Route exact path="/" />
@@ -68,6 +68,11 @@ export default App;
 <Places id="board-2" className="board" />
 </PackageContainer> */
 }
+
+const StyledDiv = styled.div`
+  display: flex;
+  margin-top: 20px;
+`;
 
 const Header = styled.header`
   height: 100vh;
