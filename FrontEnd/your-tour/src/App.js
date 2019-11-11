@@ -40,7 +40,7 @@ function App(props) {
         <NavBar />
         {!isAuthenticated && (
           <Header>
-            <StyledH1>Please Log In</StyledH1>
+            <StyledH1>Your Tour</StyledH1>
           </Header>
         )}
         {isAuthenticated && (
