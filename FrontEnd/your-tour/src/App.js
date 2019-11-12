@@ -45,8 +45,7 @@ function App(props) {
         )}
         {isAuthenticated && (
           <StyledDiv>
-            <StyledH1>{user.name}</StyledH1>
-
+            <StyledH1>Successfully Logged In</StyledH1>
             {/* <code>{JSON.stringify(user, null, 2)}</code> */}
           </StyledDiv>
         )}

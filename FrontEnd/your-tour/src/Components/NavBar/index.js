@@ -7,23 +7,34 @@ import { StyledH1 } from "../../styles/Elements";
 function NavBar(props) {
   const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
   return (
-    <NavBarContainer>
-      <LogoDiv>
-        {!isAuthenticated && <StyledP>YT</StyledP>}
-        {isAuthenticated && <StyledImg src={user.picture} alt="Profile" />}
-      </LogoDiv>
-      <div>
-        <StyledH1>Your Tour</StyledH1>
-      </div>
-      <div>
-        {!isAuthenticated && (
-          <NavButton onClick={() => loginWithRedirect({})}>Log In</NavButton>
-        )}
-        {isAuthenticated && (
-          <NavButton onClick={() => logout()}>Log Out</NavButton>
-        )}
-      </div>
-    </NavBarContainer>
+    <div>
+      {!isAuthenticated && (
+        <NavBarContainer>
+          <LogoDiv>
+            <StyledP>YT</StyledP>
+          </LogoDiv>
+          <div>
+            <StyledH1>Your Tour</StyledH1>
+          </div>
+          <div>
+            <NavButton onClick={() => loginWithRedirect({})}>Log In</NavButton>
+          </div>
+        </NavBarContainer>
+      )}
+      {isAuthenticated && (
+        <NavBarContainer>
+          <LogoDiv>
+            <StyledImg src={user.picture} alt="Profile" />
+          </LogoDiv>
+          <div>
+            <StyledH1>{`Welcome, ${user.given_name}!`}</StyledH1>
+          </div>
+          <div>
+            <NavButton onClick={() => logout()}>Log Out</NavButton>
+          </div>
+        </NavBarContainer>
+      )}
+    </div>
   );
 }
 
