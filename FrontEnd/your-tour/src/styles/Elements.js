@@ -11,14 +11,14 @@ export const PackagesDiv = styled.div`
   width: 500px;
   height: 90vh;
   background-color: #282c34;
-  box-shadow: 0 8px 20px greenyellow;
+  box-shadow: 0 8px 18px greenyellow;
 `;
 
 export const PlacesDiv = styled.div`
   width: 500px;
   height: 90vh;
   background-color: #282c34;
-  box-shadow: 0 8px 20px greenyellow;
+  box-shadow: 0 8px 18px greenyellow;
 `;
 
 export const StyledH1 = styled.h1`
