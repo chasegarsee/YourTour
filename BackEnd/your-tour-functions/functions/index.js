@@ -148,7 +148,7 @@ app.post("/attractions", (req, res) => {
 });
 
 // TODO: Remember to set token using >> firebase functions:config:set stripe.token="SECRET_STRIPE_TOKEN_HERE"
-const stripe = require("stripe")("sk_test_rvy6rdzXDKcwMkpm6JvQxFFO00F5tiWmkp");
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 function charge(req, res) {
   const body = JSON.parse(req.body);
