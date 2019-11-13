@@ -40,12 +40,14 @@ function App(props) {
         <NavBar />
         {!isAuthenticated && (
           <Header>
-            <StyledH1>Your Tour</StyledH1>
+            <StyledH1>Please Log In</StyledH1>
           </Header>
         )}
         {isAuthenticated && (
           <StyledDiv>
-            <StyledH1>Successfully Logged In</StyledH1>
+            <Packages id="board-1" className="board" />
+            <Places id="board-2" className="board" />
+
             {/* <code>{JSON.stringify(user, null, 2)}</code> */}
           </StyledDiv>
         )}
@@ -60,17 +62,10 @@ function App(props) {
 
 export default App;
 
-{
-  /* <NavBar />
-<PackageContainer>
-<Packages id="board-1" className="board" />
-<Places id="board-2" className="board" />
-</PackageContainer> */
-}
-
 const StyledDiv = styled.div`
   display: flex;
-  margin-top: 20px;
+  margin-top: 30px;
+  justify-content: space-evenly;
 `;
 
 const Header = styled.header`
