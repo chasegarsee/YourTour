@@ -31,19 +31,26 @@ function Restaurants(props) {
       onDragOver={dragOver}
     >
       <StyledH1>Restaurants</StyledH1>
-      {props.restaurantData.map(r => (
-        <div
-          id={r.restaurantsId}
-          className="card"
-          draggable="true"
-          key={r.restaurantsId}
-        >
-          <h1>{r.name}</h1>
-          <p>{r.genre}</p>
-          <p>{r.description}</p>
-          <p>{r.address}</p>
-        </div>
-      ))}
+      <div>
+        {props.restaurantData.map(r => (
+          <div
+            style={{
+              margin: "5px",
+              backgroundColor: "rgb(26,29,33)",
+              color: "white"
+            }}
+            id={r.restaurantsId}
+            className="card"
+            draggable="true"
+            key={r.restaurantsId}
+          >
+            <h1>{r.name}</h1>
+            <p>{r.genre}</p>
+            <p>{r.description}</p>
+            <p>{r.address}</p>
+          </div>
+        ))}
+      </div>
     </RestaurantDiv>
   );
 }

@@ -16,8 +16,9 @@ export const PackagesDiv = styled.div`
 
 export const PlacesDiv = styled.div`
   width: 500px;
-  height: 100vh;
+  height: 90vh;
   background-color: #282c34;
+  box-shadow: 0 8px 20px greenyellow;
 `;
 
 export const StyledH1 = styled.h1`
