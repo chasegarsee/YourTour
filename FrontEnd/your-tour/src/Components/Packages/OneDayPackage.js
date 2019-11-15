@@ -24,6 +24,9 @@ function OneDayPackage(props) {
     >
       <StyledH1>One Day Package</StyledH1>
       {props.children}
+      <button>
+        <i class="fas fa-plus"></i>
+      </button>
     </div>
   );
 }
