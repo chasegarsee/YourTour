@@ -16,11 +16,11 @@ function OneDayPackage(props) {
   };
   return (
     <div
-      style={{ width: "500px", height: "100vh" }}
-      id={props.id}
-      className={props.className}
-      onDrop={drop}
-      onDragOver={dragOver}
+    //style={{ width: "500px", height: "100vh" }}
+    //id={props.id}
+    //className={props.className}
+    //onDrop={drop}
+    //onDragOver={dragOver}
     >
       <StyledH1>One Day Package</StyledH1>
       {props.children}
