@@ -7,7 +7,6 @@ import Places from "./Places/Places";
 function HomePage() {
   return (
     <div>
-      <NavBar />
       <PackageContainer>
         <Packages id="board-1" className="board" />
         <Places id="board-2" className="board" />

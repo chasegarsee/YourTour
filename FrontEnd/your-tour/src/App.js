@@ -10,6 +10,8 @@ import HomePage from "./Components/HomePage";
 import { StyledH1 } from "./styles/Elements";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import history from "./utils/history";
+import PrivateRoute from "./Components/PrivateRoute";
 
 function App(props) {
   const { loading, user } = useAuth0();
@@ -36,25 +38,17 @@ function App(props) {
 
   return (
     <div className="App">
-      <Router>
+      <Router history={history}>
         <NavBar />
-        {!isAuthenticated && (
-          <Header>
-            <StyledH1>Please Log In</StyledH1>
-          </Header>
-        )}
-        {isAuthenticated && (
-          <StyledDiv>
-            <Packages id="board-1" className="board" />
-            <Places id="board-2" className="board" />
-
-            {/* <code>{JSON.stringify(user, null, 2)}</code> */}
-          </StyledDiv>
-        )}
-        <Switch>
-          <Route exact path="/" />
-          <Route path="/home" component={HomePage} />
-        </Switch>
+        <StyledDiv>
+          {/* <Packages id="board-1" className="board" />
+            <Places id="board-2" className="board" /> */}
+          {/* <code>{JSON.stringify(user, null, 2)}</code> */}
+          <Switch>
+            <Route exact path="/" />
+            <PrivateRoute path="/home" component={HomePage} />
+          </Switch>
+        </StyledDiv>
       </Router>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useAuth0 } from "../Auth0/Auth0";
 import { NavButton } from "../../styles/Buttons";
@@ -33,6 +34,12 @@ function NavBar(props) {
             <NavButton onClick={() => logout()}>Log Out</NavButton>
           </div>
         </NavBarContainer>
+      )}
+      {isAuthenticated && (
+        <span>
+          <Link to="/">Home</Link>
+          <Link to="/home">Home</Link>
+        </span>
       )}
     </div>
   );
