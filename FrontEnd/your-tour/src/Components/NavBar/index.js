@@ -24,22 +24,24 @@ function NavBar(props) {
       )}
       {isAuthenticated && (
         <NavBarContainer>
-          <LogoDiv>
-            <StyledImg src={user.picture} alt="Profile" />
-          </LogoDiv>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <LogoDiv>
+              <StyledImg src={user.picture} alt="Profile" />
+            </LogoDiv>
+            <NavButton>
+              <Link to="/search-packages">Search Packages</Link>
+            </NavButton>
+          </div>
           <div>
             <StyledH1>{`Welcome, ${user.given_name}!`}</StyledH1>
           </div>
           <div>
+            <NavButton>
+              <Link to="/">Home</Link>
+            </NavButton>
             <NavButton onClick={() => logout()}>Log Out</NavButton>
           </div>
         </NavBarContainer>
-      )}
-      {isAuthenticated && (
-        <span>
-          <Link to="/">Home</Link>
-          <Link to="/home">Home</Link>
-        </span>
       )}
     </div>
   );
@@ -60,6 +62,7 @@ const NavBarContainer = styled.div`
 const LogoDiv = styled.div`
   width: 50px;
   height: 50px;
+  margin: 10px;
 
   animation: pulse 10s infinite;
 

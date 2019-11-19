@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const NavButton = styled.button`
-  width: 100px;
+  width: auto;
   height: 35px;
   border-radius: 6px;
+  margin: 0 10px;
 `;
 
 export const TabButton = styled.button`
