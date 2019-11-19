@@ -20,4 +20,5 @@ export default HomePage;
 const PackageContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
+  width: 100vw;
 `;
