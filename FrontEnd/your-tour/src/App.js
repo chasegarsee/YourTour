@@ -46,7 +46,8 @@ function App(props) {
           {/* <code>{JSON.stringify(user, null, 2)}</code> */}
           <Switch>
             <Route exact path="/" />
-            <PrivateRoute path="/search-packages" component={HomePage} />
+            {/* <PrivateRoute path="/search-packages" component={HomePage} /> */}
+            <Route path="/search-packages" component={HomePage} />
           </Switch>
         </StyledDiv>
       </Router>

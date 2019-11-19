@@ -35,7 +35,11 @@ function Places(props) {
         <PlacesTab placesRoutes={placesRoutes} />
         {props.children}
         {placesRoutes.map(({ id, component: c, key }) => (
-          <Route path={`/one-day-package/${id}`} component={c} key={id} />
+          <Route
+            path={`/search-packages/one-day-package/${id}`}
+            component={c}
+            key={id}
+          />
         ))}
       </PlacesDiv>
     </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Route } from "react-router-dom";
 import styled from "styled-components";
 import NavBar from "./NavBar";
 import Packages from "./Packages/Packages";
@@ -10,6 +11,8 @@ function HomePage() {
       <PackageContainer>
         <Packages id="board-1" className="board" />
         <Places id="board-2" className="board" />
+        {/* <Route path="/one-day-package" component={Packages} />
+        <Route path="/places" component={Places} /> */}
       </PackageContainer>
     </div>
   );

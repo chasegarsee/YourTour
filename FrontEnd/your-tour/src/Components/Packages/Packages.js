@@ -6,9 +6,7 @@ import TwoDayPackage from "./TwoDayPackage";
 import OneDayPackage from "./OneDayPackage";
 import WeekendPackage from "./WeekendPackage";
 
-function Packages(props, { match }) {
-  console.log("AHSDFLJKH???", props.match);
-
+function Packages(props) {
   const drop = e => {
     e.preventDefault();
     const card_id = e.dataTransfer.getData("card_id");
