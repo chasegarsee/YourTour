@@ -12,7 +12,7 @@ function PlacesTab(props) {
           <TabButton>
             <NavLink
               style={{ color: "black", textDecoration: "none" }}
-              to={`/one-day-package/${id}`}
+              to={`/search-packages/one-day-package/${id}`}
             >
               {name}
             </NavLink>
