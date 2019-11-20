@@ -1,38 +1,46 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { getRestaurants } from "../../actions";
 import { StyledH1 } from "../../styles/Elements";
+import axios from "axios";
+import { BASE_URL } from "../../config";
+import { RestaurantContext } from "../../contexts/RestaruantContext";
 
 function Restaurants(props) {
+  const [data, setData] = useState([]);
+
   useEffect(() => {
-    props.getRestaurants();
+    const fetchData = async () => {
+      const result = await axios.get(`${BASE_URL}/restaurants/`);
+      setData(result.data);
+    };
+    fetchData();
   }, []);
+  console.log("DIS THE DATA", data);
 
-  const dragStart = e => {
-    const target = e.target;
-    e.dataTransfer.setData("card_id", target.id);
+  // useEffect(() => {
+  //   props.getRestaurants();
+  // }, []);
 
-    setTimeout(() => {
-      target.style.display = "none";
-    }, 0);
-  };
+  // const dragStart = e => {
+  //   const target = e.target;
+  //   e.dataTransfer.setData("card_id", target.id);
 
-  const dragOver = e => {
-    e.stopPropagation();
-  };
+  //   setTimeout(() => {
+  //     target.style.display = "none";
+  //   }, 0);
+  // };
+
+  // const dragOver = e => {
+  //   e.stopPropagation();
+  // };
 
   return (
-    <RestaurantDiv
-      id={props.id}
-      className={props.className}
-      draggable={props.draggable}
-      onDragStart={dragStart}
-      onDragOver={dragOver}
-    >
+    <RestaurantDiv>
       <StyledH1>Restaurants</StyledH1>
       <div>
-        {props.restaurantData.map(r => (
+        {data.map(r => (
           <div
             style={{
               margin: "5px",
@@ -55,20 +63,22 @@ function Restaurants(props) {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    restaurantData: state.restaruants.restaurantData,
-    restaurantDataStart: state.restaruants.getRestaurantsStart,
-    restaurantDataSuccess: state.restaruants.getRestaurantsSuccess,
-    restaurantDataFailure: state.restaruants.getRestaurantsFailure,
-    error: state.error
-  };
-};
+// const mapStateToProps = state => {
+//   return {
+//     restaurantData: state.restaruants.restaurantData,
+//     restaurantDataStart: state.restaruants.getRestaurantsStart,
+//     restaurantDataSuccess: state.restaruants.getRestaurantsSuccess,
+//     restaurantDataFailure: state.restaruants.getRestaurantsFailure,
+//     error: state.error
+//   };
+// };
 
-export default connect(
-  mapStateToProps,
-  { getRestaurants }
-)(Restaurants);
+// export default connect(
+//   mapStateToProps,
+//   { getRestaurants }
+// )(Restaurants);
+
+export default Restaurants;
 
 const RestaurantDiv = styled.div`
   width: 100%;
