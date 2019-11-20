@@ -1,6 +1,6 @@
 export const BASE_URL = "http://localhost:5500/your-tour-2a49d/us-central1/api";
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyBfo6GsolwHY7TYkzkBMLvz1YTSOvolU-U",
   authDomain: "your-tour-2a49d.firebaseapp.com",
   databaseURL: "https://your-tour-2a49d.firebaseio.com",
