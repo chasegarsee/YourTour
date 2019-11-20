@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { getBars } from "../../actions";
 import { StyledH1 } from "../../styles/Elements";
+
 function Bars(props) {
-  useEffect(() => {
-    props.getBars();
-  }, []);
+  // useEffect(() => {
+  //   props.getBars();
+  // }, []);
 
   const dragStart = e => {
     const target = e.target;

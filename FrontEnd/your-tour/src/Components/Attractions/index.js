@@ -1,14 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { getAttractions } from "../../actions";
 import { StyledH1 } from "../../styles/Elements";
 
 function Attractions(props) {
-  useEffect(() => {
-    props.getAttractions();
-  }, []);
+  // useEffect(() => {
+  //   props.getAttractions();
+  // }, []);
 
-  console.log("PROOOOPS", props);
   return (
     <div>
       <StyledH1>Attractions</StyledH1>
