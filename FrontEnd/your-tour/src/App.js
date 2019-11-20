@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import { useAuth0 } from "./Components/Auth0/Auth0";
 import "./App.css";
 import Packages from "./Components/Packages/Packages";
