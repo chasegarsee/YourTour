@@ -1,11 +1,9 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { connect } from "react-redux";
-import { getRestaurants } from "../../actions";
 import { StyledH1 } from "../../styles/Elements";
 import axios from "axios";
 import { BASE_URL } from "../../config";
-import { RestaurantContext } from "../../contexts/RestaruantContext";
+// import { RestaurantContext } from "../../contexts/RestaruantContext";
 
 function Restaurants(props) {
   const [data, setData] = useState([]);

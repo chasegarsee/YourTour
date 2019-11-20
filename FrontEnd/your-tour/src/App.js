@@ -8,7 +8,7 @@ import HomePage from "./Components/HomePage";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import history from "./utils/history";
-import PrivateRoute from "./Components/PrivateRoute";
+// import PrivateRoute from "./Components/PrivateRoute";
 
 function App(props) {
   // const { loading, user } = useAuth0();
