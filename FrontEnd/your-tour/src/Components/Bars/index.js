@@ -9,28 +9,9 @@ function Bars(props) {
   //   props.getBars();
   // }, []);
 
-  const dragStart = e => {
-    const target = e.target;
-    e.dataTransfer.setData("card_id", target.id);
-
-    setTimeout(() => {
-      target.style.display = "none";
-    }, 0);
-  };
-
-  const dragOver = e => {
-    e.stopPropagation();
-  };
-
   console.log("PROPS", props.info);
   return (
-    <BarDiv
-      id={props.id}
-      className={props.className}
-      draggable={props.draggable}
-      onDragStart={dragStart}
-      onDragOver={dragOver}
-    >
+    <BarDiv>
       <StyledH1>Bars</StyledH1>
       {props.barData.map(b => (
         <div id={b.barId}>
