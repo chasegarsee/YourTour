@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import styled from "styled-components";
 import { connect } from "react-redux";
 import { getAttractions } from "../../actions";
 import { StyledH1 } from "../../styles/Elements";

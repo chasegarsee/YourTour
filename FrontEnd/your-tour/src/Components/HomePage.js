@@ -1,7 +1,5 @@
 import React from "react";
-import { BrowserRouter as Route } from "react-router-dom";
 import styled from "styled-components";
-import NavBar from "./NavBar";
 import Packages from "./Packages/Packages";
 import Places from "./Places/Places";
 
