@@ -2,8 +2,8 @@ import React from "react";
 import { PackagesDiv } from "../../styles/Elements";
 import PackageTab from "./PackageTab";
 import { Route } from "react-router-dom";
-import TwoDayPackage from "./TwoDayPackage";
 import OneDayPackage from "./OneDayPackage";
+import TwoDayPackage from "./TwoDayPackage";
 import WeekendPackage from "./WeekendPackage";
 
 function Packages(props) {
@@ -30,10 +30,15 @@ function Packages(props) {
         onDragOver={dragOver}
       >
         <PackageTab packageRoutes={packageRoutes} />
-        {packageRoutes.map(({ id, component: c, key }) => (
-          <Route path={`/${id}`} component={c} key={key} />
-        ))}
         {props.children}
+        {/* {packageRoutes.map(({ id, component: c, key }) => (
+          <Route path={`search-packages/${id}`} component={c} key={id} />
+        ))} */}
+        <Route
+          path={`/search-packages/one-day-package`}
+          component={OneDayPackage}
+          key={"one-day-package"}
+        />
       </PackagesDiv>
     </div>
   );
@@ -41,7 +46,7 @@ function Packages(props) {
 
 const packageRoutes = [
   {
-    path: `/one-day-package`,
+    path: `/search-packages/one-day-package`,
     component: OneDayPackage,
     name: "One Day Package",
     key: "onedaypackage",

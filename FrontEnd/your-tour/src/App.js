@@ -8,6 +8,7 @@ import HomePage from "./Components/HomePage";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import history from "./utils/history";
+
 // import PrivateRoute from "./Components/PrivateRoute";
 
 function App(props) {
@@ -40,7 +41,7 @@ function App(props) {
         <NavBar />
         <StyledDiv>
           {/* <Packages id="board-1" className="board" />
-            <Places id="board-2" className="board" /> */}
+          <Places id="board-2" className="board" /> */}
           {/* <code>{JSON.stringify(user, null, 2)}</code> */}
           <Switch>
             <Route exact path="/" />

@@ -14,7 +14,7 @@ function PackageTab(props) {
             <NavLink
               style={{ textDecoration: "none", color: "black" }}
               activeClassName="active"
-              to={`/${id}`}
+              to={`/search-packages/${id}`}
             >
               {name}
             </NavLink>
