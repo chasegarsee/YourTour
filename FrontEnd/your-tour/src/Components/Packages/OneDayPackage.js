@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StyledH1 } from "../../styles/Elements";
 import axios from "axios";
 import { BASE_URL } from "../../config";
+import Checkout from "../../Checkout";
 
 function OneDayPackage(props) {
   const [data, setData] = useState([]);
@@ -36,9 +37,13 @@ function OneDayPackage(props) {
     //onDragOver={dragOver}
     >
       <StyledH1>One Day Package</StyledH1>
-      <button>
-        <span>Purchase</span>
-      </button>
+      <div>
+        <Checkout
+          name="Your Tour"
+          description="One Day Package"
+          amount="9.99"
+        />
+      </div>
     </div>
   );
 }

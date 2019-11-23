@@ -8,7 +8,6 @@ import HomePage from "./Components/HomePage";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import history from "./utils/history";
-import Checkout from "./Checkout";
 
 // import PrivateRoute from "./Components/PrivateRoute";
 
@@ -40,14 +39,6 @@ function App(props) {
     <div className="App">
       <Router history={history}>
         <NavBar />
-
-        <div>
-          <Checkout
-            name="Your Tour"
-            description="One Day Package"
-            amount="9.99"
-          />
-        </div>
 
         <StyledDiv>
           {/* <Packages id="board-1" className="board" />
