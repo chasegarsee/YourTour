@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Packages from "./Packages/Packages";
 import Places from "./Places/Places";
-import OneDayPackage from "./Packages/OneDayPackage";
 
 function HomePage() {
   return (
