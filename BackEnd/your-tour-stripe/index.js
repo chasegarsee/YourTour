@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 
 const SERVER_CONFIGS = require("./constants/server");
 
