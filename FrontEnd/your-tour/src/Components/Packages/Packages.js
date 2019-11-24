@@ -31,13 +31,23 @@ function Packages(props) {
       >
         <PackageTab packageRoutes={packageRoutes} />
         {props.children}
-        {/* {packageRoutes.map(({ id, component: c, key }) => (
-          <Route path={`search-packages/${id}`} component={c} key={id} />
+        {/* {packageRoutes.map(({ id, component: c, key, path }) => (
+          <Route path={`search-packages${path}`} component={c} key={id} />
         ))} */}
         <Route
           path={`/search-packages/one-day-package`}
           component={OneDayPackage}
           key={"one-day-package"}
+        />
+        <Route
+          path={`/search-packages/two-day-package`}
+          component={TwoDayPackage}
+          key={"two-day-package"}
+        />
+        <Route
+          path={`/search-packages/weekend-package`}
+          component={WeekendPackage}
+          key={"weekend-package"}
         />
       </PackagesDiv>
     </div>
@@ -46,7 +56,7 @@ function Packages(props) {
 
 const packageRoutes = [
   {
-    path: `/search-packages/one-day-package`,
+    path: `/one-day-package`,
     component: OneDayPackage,
     name: "One Day Package",
     key: "onedaypackage",
