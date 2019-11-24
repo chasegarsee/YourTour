@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
-import "./Checkout.css";
+import "./styles/StripeCheckout.css";
 
 //import STRIPE_PUBLISHABLE from "./constants/stripe";
 import PAYMENT_SERVER_URL from "./constants/server";
@@ -36,6 +36,7 @@ const Checkout = ({ name, description, amount }) => (
   <StripeCheckout
     className="stripe-checkout"
     name={name}
+    image="https://i.ibb.co/ScyvNbX/Screen-Shot-2019-11-23-at-4-02-32-PM.png"
     description={description}
     amount={fromDollarToCent(amount)}
     token={onToken(amount, description)}

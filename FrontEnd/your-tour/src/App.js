@@ -1,13 +1,16 @@
 import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import { useAuth0 } from "./Components/Auth0/Auth0";
-import "./App.css";
+import "./styles/App.css";
 import NavBar from "./Components/NavBar";
 import styled from "styled-components";
 import HomePage from "./Components/HomePage";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import history from "./utils/history";
+import CheckoutForm from "./STRIPE/CheckoutForm";
+import StripeParent from "./STRIPE/StripeParent";
+import Checkout from "./Checkout";
 
 // import PrivateRoute from "./Components/PrivateRoute";
 
@@ -39,6 +42,13 @@ function App(props) {
     <div className="App">
       <Router history={history}>
         <NavBar />
+        <div>
+          <Checkout
+            name="Your Tour"
+            description="One Day Package"
+            amount="9.99"
+          />
+        </div>
 
         <StyledDiv>
           {/* <Packages id="board-1" className="board" />
@@ -48,6 +58,7 @@ function App(props) {
             <Route exact path="/" />
             {/* <PrivateRoute path="/search-packages" component={HomePage} /> */}
             <Route path="/search-packages" component={HomePage} />
+            <Route path="/stripe" component={StripeParent} />
           </Switch>
         </StyledDiv>
       </Router>

@@ -3,6 +3,7 @@ import { StyledH1 } from "../../styles/Elements";
 import axios from "axios";
 import { BASE_URL } from "../../config";
 import Checkout from "../../Checkout";
+import "../../styles/StripeCheckout.css";
 
 function OneDayPackage(props) {
   const [data, setData] = useState([]);
