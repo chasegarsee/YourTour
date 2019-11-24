@@ -10,9 +10,7 @@ function HomePage() {
     <div>
       <PackageContainer>
         <Packages id="board-1" className="board" />
-        <Places id="board-2" className="board" />
-        {/* <Route path="/one-day-package" component={Packages} />
-        <Route path="/places" component={Places} /> */}
+        {/* <Places id="board-2" className="board" /> */}
       </PackageContainer>
     </div>
   );
