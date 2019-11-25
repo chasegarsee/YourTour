@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import styled from "styled-components";
-import { StyledH1, StyledH2 } from "../../styles/Elements";
+import { StyledH1, StyledH2, StyledP } from "../../styles/Elements";
 import axios from "axios";
 import { BASE_URL } from "../../config";
 import Checkout from "../../Checkout";
@@ -20,11 +20,6 @@ function OneDayPackage(props) {
     };
     fetchData();
   }, []);
-  if (isLoading) {
-    console.log("LOADING");
-  } else {
-    console.log("DIS DA PACKAGE DATA", data);
-  }
 
   // const drop = e => {
   //   e.preventDefault();
@@ -50,14 +45,37 @@ function OneDayPackage(props) {
   return (
     <div>
       <StyledH1>One Day Package</StyledH1>
-      <StyledH2>Attractions</StyledH2>
-      {data.map(p => (
-        <div key={p.packagesId}>
-          <StyledH2>{p.attractions.name}</StyledH2>
-          <p>{p.attractions.description}</p>
-          <p>{p.attractions.type}</p>
-        </div>
-      ))}
+      <div style={{ border: "solid 1px white" }}>
+        <StyledH2>Attractions</StyledH2>
+        {data.map(p => (
+          <div key={p.packagesId}>
+            <StyledH2>{p.attractions.name}</StyledH2>
+            <StyledP>{p.attractions.description}</StyledP>
+            <StyledP>{p.attractions.type}</StyledP>
+          </div>
+        ))}
+      </div>
+      <div style={{ border: "solid 1px white" }}>
+        <StyledH2>Restaurants</StyledH2>
+        {data.map(p => (
+          <div key={p.packagesId}>
+            <StyledH2>{p.restaurants.name}</StyledH2>
+            <StyledP>{p.restaurants.description}</StyledP>
+            <StyledP>{p.restaurants.genre}</StyledP>
+            <a href={p.restaurants.website}>{p.restaurants.website}</a>
+          </div>
+        ))}
+      </div>
+      <div style={{ border: "solid 1px white" }}>
+        <StyledH2>Restaurants</StyledH2>
+        {data.map(p => (
+          <div key={p.packagesId}>
+            <StyledH2>{p.bars.name}</StyledH2>
+            <StyledP>{p.bars.description}</StyledP>
+            <a href={p.bars.website}>{p.bars.website}</a>
+          </div>
+        ))}
+      </div>
       <div>
         <Checkout
           name="Your Tour"
