@@ -8,7 +8,7 @@ import HomePage from "./Components/HomePage";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import history from "./utils/history";
-import CheckoutForm from "./STRIPE/CheckoutForm";
+// import CheckoutForm from "./STRIPE/CheckoutForm";
 import StripeParent from "./STRIPE/StripeParent";
 import Checkout from "./Checkout";
 

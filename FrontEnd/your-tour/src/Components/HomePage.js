@@ -2,8 +2,8 @@ import React from "react";
 
 import styled from "styled-components";
 import Packages from "./Packages/Packages";
-import Places from "./Places/Places";
-import Checkout from "../Checkout";
+//import Places from "./Places/Places";
+//import Checkout from "../Checkout";
 
 function HomePage() {
   return (

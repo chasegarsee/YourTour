@@ -30,7 +30,6 @@ const onToken = (amount, description) => token =>
     })
     .then(successPayment)
     .catch(errorPayment);
-console.log(onToken);
 
 const Checkout = ({ name, description, amount }) => (
   <StripeCheckout
