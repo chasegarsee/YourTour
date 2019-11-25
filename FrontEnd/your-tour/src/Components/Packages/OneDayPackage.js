@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { StyledH1 } from "../../styles/Elements";
+import Loader from "react-loader-spinner";
+import styled from "styled-components";
+import { StyledH1, StyledH2 } from "../../styles/Elements";
 import axios from "axios";
 import { BASE_URL } from "../../config";
 import Checkout from "../../Checkout";
@@ -7,15 +9,23 @@ import "../../styles/StripeCheckout.css";
 
 function OneDayPackage(props) {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchData = async () => {
       const result = await axios.get(`${BASE_URL}/packages/`);
       setData(result.data);
+      setIsLoading(false);
     };
     fetchData();
   }, []);
-  console.log("DIS DA Package DATA", data);
+  if (isLoading) {
+    console.log("LOADING");
+  } else {
+    console.log("DIS DA PACKAGE DATA", data);
+  }
+
   // const drop = e => {
   //   e.preventDefault();
   //   const card_id = e.dataTransfer.getData("card_id");
@@ -29,15 +39,25 @@ function OneDayPackage(props) {
   // const dragOver = e => {
   //   e.preventDefault();
   // };
+  if (isLoading) {
+    return (
+      <StyledLoadingDiv>
+        <Loader type="Triangle" color="blueViolet" height={200} width={200} />
+        <StyledSpan>Loading...</StyledSpan>
+      </StyledLoadingDiv>
+    );
+  }
   return (
-    <div
-    //style={{ width: "500px", height: "100vh" }}
-    //id={props.id}
-    //className={props.className}
-    //onDrop={drop}
-    //onDragOver={dragOver}
-    >
+    <div>
       <StyledH1>One Day Package</StyledH1>
+      <StyledH2>Attractions</StyledH2>
+      {data.map(p => (
+        <div key={p.packagesId}>
+          <StyledH2>{p.attractions.name}</StyledH2>
+          <p>{p.attractions.description}</p>
+          <p>{p.attractions.type}</p>
+        </div>
+      ))}
       <div>
         <Checkout
           name="Your Tour"
@@ -50,3 +70,17 @@ function OneDayPackage(props) {
 }
 
 export default OneDayPackage;
+
+const StyledLoadingDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+`;
+
+const StyledSpan = styled.span`
+  font-size: 2rem;
+  color: greenyellow;
+`;
