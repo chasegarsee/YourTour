@@ -42,14 +42,6 @@ function App(props) {
     <div className="App">
       <Router history={history}>
         <NavBar />
-        <div>
-          <Checkout
-            name="Your Tour"
-            description="One Day Package"
-            amount="9.99"
-          />
-        </div>
-
         <StyledDiv>
           {/* <Packages id="board-1" className="board" />
           <Places id="board-2" className="board" /> */}

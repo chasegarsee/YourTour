@@ -45,37 +45,37 @@ function OneDayPackage(props) {
   return (
     <div>
       <StyledH1>One Day Package</StyledH1>
-      <div style={{ border: "solid 1px white" }}>
+      <StyledCard>
         <StyledH2>Attractions</StyledH2>
         {data.map(p => (
-          <div key={p.packagesId}>
-            <StyledH2>{p.attractions.name}</StyledH2>
-            <StyledP>{p.attractions.description}</StyledP>
-            <StyledP>{p.attractions.type}</StyledP>
-          </div>
+          <StyledCard2 key={p.packagesId}>
+            <StyledH2>Name: {p.attractions.name}</StyledH2>
+            <StyledP>Description: {p.attractions.description}</StyledP>
+            <StyledP>Type: {p.attractions.type}</StyledP>
+          </StyledCard2>
         ))}
-      </div>
-      <div style={{ border: "solid 1px white" }}>
+      </StyledCard>
+      <StyledCard>
         <StyledH2>Restaurants</StyledH2>
         {data.map(p => (
-          <div key={p.packagesId}>
-            <StyledH2>{p.restaurants.name}</StyledH2>
-            <StyledP>{p.restaurants.description}</StyledP>
-            <StyledP>{p.restaurants.genre}</StyledP>
-            <a href={p.restaurants.website}>{p.restaurants.website}</a>
-          </div>
+          <StyledCard2 key={p.packagesId}>
+            <StyledH2>Name: {p.restaurants.name}</StyledH2>
+            <StyledP>Description: {p.restaurants.description}</StyledP>
+            <StyledP>Genre: {p.restaurants.genre}</StyledP>
+            <a href={p.restaurants.website}>Website: {p.restaurants.website}</a>
+          </StyledCard2>
         ))}
-      </div>
-      <div style={{ border: "solid 1px white" }}>
-        <StyledH2>Restaurants</StyledH2>
+      </StyledCard>
+      <StyledCard>
+        <StyledH2>Bars</StyledH2>
         {data.map(p => (
-          <div key={p.packagesId}>
-            <StyledH2>{p.bars.name}</StyledH2>
-            <StyledP>{p.bars.description}</StyledP>
-            <a href={p.bars.website}>{p.bars.website}</a>
-          </div>
+          <StyledCard2 key={p.packagesId}>
+            <StyledH2>Name: {p.bars.name}</StyledH2>
+            <StyledP>Description: {p.bars.description}</StyledP>
+            <a href={p.bars.website}>Website: {p.bars.website}</a>
+          </StyledCard2>
         ))}
-      </div>
+      </StyledCard>
       <div>
         <Checkout
           name="Your Tour"
@@ -101,4 +101,14 @@ const StyledLoadingDiv = styled.div`
 const StyledSpan = styled.span`
   font-size: 2rem;
   color: greenyellow;
+`;
+
+const StyledCard = styled.div`
+  border: solid 1px white;
+`;
+
+const StyledCard2 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 `;
