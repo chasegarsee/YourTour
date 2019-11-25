@@ -10,6 +10,7 @@ import "../../styles/StripeCheckout.css";
 function OneDayPackage(props) {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [hasPaid, setHasPaid] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -20,6 +21,8 @@ function OneDayPackage(props) {
     };
     fetchData();
   }, []);
+
+  console.log(props.success);
 
   // const drop = e => {
   //   e.preventDefault();
@@ -104,7 +107,7 @@ const StyledSpan = styled.span`
 `;
 
 const StyledCard = styled.div`
-  border: solid 1px white;
+  border-bottom: solid 1px white;
 `;
 
 const StyledCard2 = styled.div`

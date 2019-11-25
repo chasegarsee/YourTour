@@ -10,7 +10,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import history from "./utils/history";
 // import CheckoutForm from "./STRIPE/CheckoutForm";
 import StripeParent from "./STRIPE/StripeParent";
-import Checkout from "./Checkout";
+//import Checkout from "./Checkout";
 
 // import PrivateRoute from "./Components/PrivateRoute";
 

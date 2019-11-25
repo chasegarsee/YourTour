@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
 import "./styles/StripeCheckout.css";
@@ -11,7 +12,6 @@ const CURRENCY = "USD";
 const fromDollarToCent = amount => parseInt(amount * 100);
 
 const successPayment = data => {
-  alert("Payment Successful. Get Paid, Son", data);
   console.log("Payment Successful. Get Paid, Son", data);
 };
 
@@ -33,6 +33,8 @@ const onToken = (amount, description) => token =>
 
 const Checkout = ({ name, description, amount }) => (
   <StripeCheckout
+    success={successPayment}
+    failure={errorPayment}
     className="stripe-checkout"
     name={name}
     image="https://i.ibb.co/ScyvNbX/Screen-Shot-2019-11-23-at-4-02-32-PM.png"
