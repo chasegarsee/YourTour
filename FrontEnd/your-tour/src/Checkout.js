@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
 import "./styles/StripeCheckout.css";
 
-//import STRIPE_PUBLISHABLE from "./constants/stripe";
+import STRIPE_PUBLISHABLE from "./constants/stripe";
 import PAYMENT_SERVER_URL from "./constants/server";
 
 const CURRENCY = "USD";

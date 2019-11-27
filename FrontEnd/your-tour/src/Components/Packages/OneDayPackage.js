@@ -22,8 +22,6 @@ function OneDayPackage(props) {
     fetchData();
   }, []);
 
-  console.log(props.success);
-
   // const drop = e => {
   //   e.preventDefault();
   //   const card_id = e.dataTransfer.getData("card_id");
