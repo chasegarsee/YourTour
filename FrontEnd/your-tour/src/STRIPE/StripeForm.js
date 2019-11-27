@@ -23,7 +23,7 @@ class StripeForm extends React.Component {
       });
       let amount = this.state.amount;
 
-      await fetch("http://localhost:8800/api/day-package", {
+      await fetch("http://localhost:9900/api/day-package/", {
         method: "POST",
         headers: {
           "Content-type": "application/json"
