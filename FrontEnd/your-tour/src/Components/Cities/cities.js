@@ -41,45 +41,45 @@ function Cities(props) {
           <div style={{ display: "flex" }}>
             <div style={{ border: "solid 3px red" }}>
               <StyledH2>One Day Package</StyledH2>
-              <div style={{ border: "solid 3px skyblue" }}>
+              <div>
                 <StyledH2>Attractions</StyledH2>
                 <StyledH2>{c.OneDayPackage.attractions.name}</StyledH2>
               </div>
-              <div style={{ border: "solid 3px skyblue" }}>
+              <div>
                 <StyledH2>Bars</StyledH2>
                 <StyledH2>{c.OneDayPackage.bars.name}</StyledH2>
               </div>
-              <div style={{ border: "solid 3px skyblue" }}>
+              <div>
                 <StyledH2>Restaurants</StyledH2>
                 <StyledH2>{c.OneDayPackage.restaurants.name}</StyledH2>
               </div>
             </div>
             <div style={{ border: "solid 3px red" }}>
               <StyledH2>Two Day Package</StyledH2>
-              <div style={{ border: "solid 3px skyblue" }}>
-                <StyledH2>Attractions</StyledH2>
+              <div>
+                <StyledH1>Attractions</StyledH1>
                 <StyledH2>{c.TwoDayPackage.attractions.name}</StyledH2>
               </div>
-              <div style={{ border: "solid 3px skyblue" }}>
+              <div>
                 <StyledH2>Bars</StyledH2>
                 <StyledH2>{c.TwoDayPackage.bars.name}</StyledH2>
               </div>
-              <div style={{ border: "solid 3px skyblue" }}>
+              <div>
                 <StyledH2>Restaurants</StyledH2>
                 <StyledH2>{c.TwoDayPackage.restaurants.name}</StyledH2>
               </div>
             </div>
             <div style={{ border: "solid 3px red" }}>
               <StyledH2>Weekend Package</StyledH2>
-              <div style={{ border: "solid 3px skyblue" }}>
+              <div>
                 <StyledH2>Attractions</StyledH2>
                 <StyledH2>{c.WeekendPackage.attractions.name}</StyledH2>
               </div>
-              <div style={{ border: "solid 3px skyblue" }}>
+              <div>
                 <StyledH2>Bars</StyledH2>
                 <StyledH2>{c.WeekendPackage.bars.name}</StyledH2>
               </div>
-              <div style={{ border: "solid 3px skyblue" }}>
+              <div>
                 <StyledH2>Restaurants</StyledH2>
                 <StyledH2>{c.WeekendPackage.restaurants.name}</StyledH2>
               </div>
