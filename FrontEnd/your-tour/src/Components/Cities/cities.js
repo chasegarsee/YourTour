@@ -40,18 +40,35 @@ function Cities(props) {
           </StyledCard2>
           <div style={{ display: "flex" }}>
             <div style={{ border: "solid 3px red" }}>
-              <StyledH2>One Day Package</StyledH2>
+              <StyledH1>One Day Package</StyledH1>
               <div>
-                <StyledH2>Attractions</StyledH2>
+                <StyledH1>Attractions</StyledH1>
                 <StyledH2>{c.OneDayPackage.attractions.name}</StyledH2>
+                <StyledP>
+                  Description: {c.OneDayPackage.attractions.description}
+                </StyledP>
+                <StyledP>Type: {c.OneDayPackage.attractions.type}</StyledP>
               </div>
               <div>
-                <StyledH2>Bars</StyledH2>
+                <StyledH1>Bars</StyledH1>
                 <StyledH2>{c.OneDayPackage.bars.name}</StyledH2>
+                <StyledP>
+                  Description: {c.OneDayPackage.bars.description}
+                </StyledP>
+                <a href={c.OneDayPackage.bars.website}>
+                  Website: {c.OneDayPackage.bars.website}
+                </a>
               </div>
               <div>
-                <StyledH2>Restaurants</StyledH2>
+                <StyledH1>Restaurants</StyledH1>
                 <StyledH2>{c.OneDayPackage.restaurants.name}</StyledH2>
+                <StyledP>
+                  Description: {c.OneDayPackage.restaurants.description}
+                </StyledP>
+                <StyledP>Genre: {c.OneDayPackage.restaurants.genre}</StyledP>
+                <a href={c.OneDayPackage.restaurants.website}>
+                  Website: {c.OneDayPackage.restaurants.website}
+                </a>
               </div>
             </div>
             <div style={{ border: "solid 3px red" }}>
@@ -61,26 +78,26 @@ function Cities(props) {
                 <StyledH2>{c.TwoDayPackage.attractions.name}</StyledH2>
               </div>
               <div>
-                <StyledH2>Bars</StyledH2>
+                <StyledH1>Bars</StyledH1>
                 <StyledH2>{c.TwoDayPackage.bars.name}</StyledH2>
               </div>
               <div>
-                <StyledH2>Restaurants</StyledH2>
+                <StyledH1>Restaurants</StyledH1>
                 <StyledH2>{c.TwoDayPackage.restaurants.name}</StyledH2>
               </div>
             </div>
             <div style={{ border: "solid 3px red" }}>
               <StyledH2>Weekend Package</StyledH2>
               <div>
-                <StyledH2>Attractions</StyledH2>
+                <StyledH1>Attractions</StyledH1>
                 <StyledH2>{c.WeekendPackage.attractions.name}</StyledH2>
               </div>
               <div>
-                <StyledH2>Bars</StyledH2>
+                <StyledH1>Bars</StyledH1>
                 <StyledH2>{c.WeekendPackage.bars.name}</StyledH2>
               </div>
               <div>
-                <StyledH2>Restaurants</StyledH2>
+                <StyledH1>Restaurants</StyledH1>
                 <StyledH2>{c.WeekendPackage.restaurants.name}</StyledH2>
               </div>
             </div>
