@@ -33,6 +33,9 @@ function Cities(props) {
   return (
     <div>
       <h1>Cities</h1>
+      <p>Some Data Here</p>
+      <p>Some Data Here</p>
+      <p>Some Data Here</p>
     </div>
   );
 }
