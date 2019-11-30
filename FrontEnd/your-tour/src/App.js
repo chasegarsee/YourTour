@@ -9,6 +9,7 @@ import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import history from "./utils/history";
 import StripeParent from "./STRIPE/StripeParent";
+import Cities from "./Components/Cities/cities";
 // import CheckoutForm from "./STRIPE/CheckoutForm";
 
 //import Checkout from "./Checkout";
@@ -49,6 +50,7 @@ function App(props) {
           {/* <code>{JSON.stringify(user, null, 2)}</code> */}
           <Switch>
             <Route exact path="/" />
+            <Route path="/cities" component={Cities} />
             {/* <PrivateRoute path="/search-packages" component={HomePage} /> */}
             <Route path="/search-packages" component={HomePage} />
             <Route path="/stripe" component={StripeParent} />

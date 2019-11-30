@@ -17,6 +17,7 @@ function OneDayPackage(props) {
     const fetchData = async () => {
       const result = await axios.get(`${BASE_URL}/packages/`);
       setData(result.data);
+      console.log(result.data);
       setIsLoading(false);
     };
     fetchData();
