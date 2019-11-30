@@ -1,13 +1,14 @@
 import * as express from "express";
 import * as stripeLoader from "stripe";
-
+import dotenv from "dotenv";
+dotenv.config();
 const router = express.Router();
 
 router.get("api/hello", (req, res, next) => {
   res.json("world");
 });
 
-const stripe = new stripeLoader("sk_test_rvy6rdzXDKcwMkpm6JvQxFFO00F5tiWmkp");
+const stripe = new stripeLoader({ STRIPE_SECRET_KEY });
 
 const charge = (token, amt) => {
   return stripe.charges.create({

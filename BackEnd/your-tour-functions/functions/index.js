@@ -15,6 +15,22 @@ app.use(cors({ origin: true }));
 
 const db = admin.firestore();
 
+app.get("/cities", (req, res) => {
+  db.collection("cities")
+    .get()
+    .then(data => {
+      let cities = [];
+      data.forEach(doc => {
+        cities.push({
+          citiesId: doc.id,
+          ...doc.data()
+        });
+      });
+      return res.json(cities);
+    })
+    .catch(err => console.error(err));
+});
+
 app.get("/restaurants", (req, res) => {
   db.collection("restaurants")
     .get()
