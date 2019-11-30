@@ -40,7 +40,7 @@ function Cities(props) {
             <StyledH2>City: {c.City}</StyledH2>
           </StyledCard2>
           <div style={{ display: "flex" }}>
-            <div style={{ border: "solid 3px red" }}>
+            <div style={{ border: "solid 1px red" }}>
               <StyledH1>One Day Package</StyledH1>
               <div>
                 <StyledH1>Attractions</StyledH1>
@@ -72,7 +72,7 @@ function Cities(props) {
                 </a>
               </div>
             </div>
-            <div style={{ border: "solid 3px red" }}>
+            <div style={{ border: "solid 1px red" }}>
               <StyledH1>Two Day Package</StyledH1>
               <div>
                 <StyledH1>Attractions</StyledH1>
@@ -104,7 +104,7 @@ function Cities(props) {
                 </a>
               </div>
             </div>
-            <div style={{ border: "solid 3px red" }}>
+            <div style={{ border: "solid 1px red" }}>
               <StyledH1>Weekend Package</StyledH1>
               <div>
                 <StyledH1>Attractions</StyledH1>
