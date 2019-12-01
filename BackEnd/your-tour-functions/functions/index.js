@@ -15,6 +15,8 @@ app.use(cors({ origin: true }));
 
 const db = admin.firestore();
 
+////////////// ////////////// ////////////// ////////////// //////////////
+
 app.get("/cities", (req, res) => {
   db.collection("cities")
     .get()
@@ -32,80 +34,84 @@ app.get("/cities", (req, res) => {
     .catch(err => console.error(err));
 });
 
+////////////// ////////////// ////////////// //////////////
+
 app.post("/city", (req, res) => {
   console.log("DIS THE POST REQEST", req);
+
   const newCity = {
-    // city: req.body.city,
+    city: req.body.city,
     OneDayPackage: {
-      // price: req.body.price,
+      price: req.body.OneDayPackage.price,
       attractions: {
-        address: req.body.address,
-        description: req.body.description,
-        name: req.body.name,
-        type: req.body.type,
-        website: req.body.website
+        address: req.body.OneDayPackage.attractions.address,
+        description: req.body.OneDayPackage.attractions.description,
+        name: req.body.OneDayPackage.attractions.name,
+        type: req.body.OneDayPackage.attractions.type,
+        website: req.body.OneDayPackage.attractions.website
       },
       bars: {
-        address: req.body.address,
-        description: req.body.description,
-        name: req.body.name,
-        website: req.body.website
+        address: req.body.OneDayPackage.bars.address,
+        description: req.body.OneDayPackage.bars.description,
+        name: req.body.OneDayPackage.bars.name,
+        website: req.body.OneDayPackage.bars.website
       },
       restaurants: {
-        description: req.body.description,
-        name: req.body.name,
-        genre: req.body.genre,
-        website: req.body.website,
-        address: req.body.address
+        description: req.body.OneDayPackage.restaurants.description,
+        name: req.body.OneDayPackage.restaurants.name,
+        genre: req.body.OneDayPackage.restaurants.genre,
+        website: req.body.OneDayPackage.restaurants.website,
+        address: req.body.OneDayPackage.restaurants.address
+      }
+    },
+    TwoDayPackage: {
+      price: req.body.TwoDayPackage.price,
+      attractions: {
+        address: req.body.TwoDayPackage.attractions.address,
+        description: req.body.TwoDayPackage.attractions.description,
+        name: req.body.TwoDayPackage.attractions.name,
+        type: req.body.TwoDayPackage.attractions.type,
+        website: req.body.TwoDayPackage.attractions.website
+      },
+      bars: {
+        address: req.body.TwoDayPackage.bars.address,
+        description: req.body.TwoDayPackage.bars.description,
+        name: req.body.TwoDayPackage.bars.name,
+        website: req.body.TwoDayPackage.bars.website
+      },
+      restaurants: {
+        description: req.body.TwoDayPackage.restaurants.description,
+        name: req.body.TwoDayPackage.restaurants.name,
+        genre: req.body.TwoDayPackage.restaurants.genre,
+        website: req.body.TwoDayPackage.restaurants.website,
+        address: req.body.TwoDayPackage.restaurants.address
+      }
+    },
+    WeekendPackage: {
+      price: req.body.WeekendPackage.price,
+      attractions: {
+        address: req.body.WeekendPackage.attractions.address,
+        description: req.body.WeekendPackage.attractions.description,
+        name: req.body.WeekendPackage.attractions.name,
+        type: req.body.WeekendPackage.attractions.type,
+        website: req.body.WeekendPackage.attractions.website
+      },
+      bars: {
+        address: req.body.WeekendPackage.bars.address,
+        description: req.body.WeekendPackage.bars.description,
+        name: req.body.WeekendPackage.bars.name,
+        website: req.body.WeekendPackage.bars.website
+      },
+      restaurants: {
+        description: req.body.WeekendPackage.restaurants.description,
+        name: req.body.WeekendPackage.restaurants.name,
+        genre: req.body.WeekendPackage.restaurants.genre,
+        website: req.body.WeekendPackage.restaurants.website,
+        address: req.body.WeekendPackage.restaurants.address
       }
     }
-    // TwoDayPackage: {
-    //   //price: req.body.price,
-    //   attractions: {
-    //     address: req.body.address,
-    //     description: req.body.description,
-    //     name: req.body.name,
-    //     type: req.body.type,
-    //     website: req.body.website
-    //   },
-    //   bars: {
-    //     address: req.body.address,
-    //     description: req.body.description,
-    //     name: req.body.name,
-    //     website: req.body.website
-    //   },
-    //   restaurants: {
-    //     description: req.body.description,
-    //     name: req.body.name,
-    //     genre: req.body.genre,
-    //     website: req.body.website,
-    //     address: req.body.address
-    //   }
-    // },
-    // WeekendPackage: {
-    //   //price: req.body.price,
-    //   attractions: {
-    //     address: req.body.address,
-    //     description: req.body.description,
-    //     name: req.body.name,
-    //     type: req.body.type,
-    //     website: req.body.website
-    //   },
-    //   bars: {
-    //     address: req.body.address,
-    //     description: req.body.description,
-    //     name: req.body.name,
-    //     website: req.body.website
-    //   },
-    //   restaurants: {
-    //     description: req.body.description,
-    //     name: req.body.name,
-    //     genre: req.body.genre,
-    //     website: req.body.website,
-    //     address: req.body.address
-    //   }
-    // }
   };
+
   db.collection("cities")
     .add(newCity)
     .then(doc => {
@@ -116,6 +122,8 @@ app.post("/city", (req, res) => {
       console.error("Something Whent Wrong", err);
     });
 });
+
+////////////// ////////////// ////////////// ////////////// //////////////
 
 app.get("/restaurants", (req, res) => {
   db.collection("restaurants")
