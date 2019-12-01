@@ -26,64 +26,18 @@ app.get("/cities", (req, res) => {
           ...doc.data()
         });
       });
-      console.log(req.body);
+      console.log("THIS THE GET REQUEST", req);
       return res.json(cities);
     })
     .catch(err => console.error(err));
 });
 
 app.post("/city", (req, res) => {
-  console.log("DIS THE REQEST", req);
+  console.log("DIS THE POST REQEST", req);
   const newCity = {
-    city: req.body.city,
+    // city: req.body.city,
     OneDayPackage: {
-      price: req.body.price,
-      attractions: {
-        address: req.body.address,
-        description: req.body.description,
-        name: req.body.name,
-        type: req.body.type,
-        website: req.body.website
-      },
-      bars: {
-        address: req.body.address,
-        description: req.body.description,
-        name: req.body.name,
-        website: req.body.website
-      },
-      restaurants: {
-        description: req.body.description,
-        name: req.body.name,
-        genre: req.body.genre,
-        website: req.body.website,
-        address: req.body.address
-      }
-    },
-    TwoDayPackage: {
-      price: req.body.price,
-      attractions: {
-        address: req.body.address,
-        description: req.body.description,
-        name: req.body.name,
-        type: req.body.type,
-        website: req.body.website
-      },
-      bars: {
-        address: req.body.address,
-        description: req.body.description,
-        name: req.body.name,
-        website: req.body.website
-      },
-      restaurants: {
-        description: req.body.description,
-        name: req.body.name,
-        genre: req.body.genre,
-        website: req.body.website,
-        address: req.body.address
-      }
-    },
-    WeekendPackage: {
-      price: req.body.price,
+      // price: req.body.price,
       attractions: {
         address: req.body.address,
         description: req.body.description,
@@ -105,6 +59,52 @@ app.post("/city", (req, res) => {
         address: req.body.address
       }
     }
+    // TwoDayPackage: {
+    //   //price: req.body.price,
+    //   attractions: {
+    //     address: req.body.address,
+    //     description: req.body.description,
+    //     name: req.body.name,
+    //     type: req.body.type,
+    //     website: req.body.website
+    //   },
+    //   bars: {
+    //     address: req.body.address,
+    //     description: req.body.description,
+    //     name: req.body.name,
+    //     website: req.body.website
+    //   },
+    //   restaurants: {
+    //     description: req.body.description,
+    //     name: req.body.name,
+    //     genre: req.body.genre,
+    //     website: req.body.website,
+    //     address: req.body.address
+    //   }
+    // },
+    // WeekendPackage: {
+    //   //price: req.body.price,
+    //   attractions: {
+    //     address: req.body.address,
+    //     description: req.body.description,
+    //     name: req.body.name,
+    //     type: req.body.type,
+    //     website: req.body.website
+    //   },
+    //   bars: {
+    //     address: req.body.address,
+    //     description: req.body.description,
+    //     name: req.body.name,
+    //     website: req.body.website
+    //   },
+    //   restaurants: {
+    //     description: req.body.description,
+    //     name: req.body.name,
+    //     genre: req.body.genre,
+    //     website: req.body.website,
+    //     address: req.body.address
+    //   }
+    // }
   };
   db.collection("cities")
     .add(newCity)
