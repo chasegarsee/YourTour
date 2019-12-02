@@ -31,114 +31,113 @@ function Cities(props) {
     );
   }
 
+  const items = data.slice(0, 1).map(i => (
+    <div key={i.citiesId}>
+      <StyledCard2>
+        <StyledH2>City: {i.city}</StyledH2>
+      </StyledCard2>
+      <div style={{ display: "flex" }}>
+        <div style={{ border: "solid 1px red" }}>
+          <StyledH1>One Day Package</StyledH1>
+          <div>
+            <StyledH1>Attractions</StyledH1>
+            <StyledH2>{i.OneDayPackage.attractions.name}</StyledH2>
+            <StyledP>
+              Description: {i.OneDayPackage.attractions.description}
+            </StyledP>
+            <StyledP>Type: {i.OneDayPackage.attractions.type}</StyledP>
+          </div>
+          <div>
+            <StyledH1>Bars</StyledH1>
+            <StyledH2>{i.OneDayPackage.bars.name}</StyledH2>
+            <StyledP>Description: {i.OneDayPackage.bars.description}</StyledP>
+            <a href={i.OneDayPackage.bars.website}>
+              Website: {i.OneDayPackage.bars.website}
+            </a>
+          </div>
+          <div>
+            <StyledH1>Restaurants</StyledH1>
+            <StyledH2>{i.OneDayPackage.restaurants.name}</StyledH2>
+            <StyledP>
+              Description: {i.OneDayPackage.restaurants.description}
+            </StyledP>
+            <StyledP>Genre: {i.OneDayPackage.restaurants.genre}</StyledP>
+            <a href={i.OneDayPackage.restaurants.website}>
+              Website: {i.OneDayPackage.restaurants.website}
+            </a>
+          </div>
+        </div>
+        <div style={{ border: "solid 1px red" }}>
+          <StyledH1>Two Day Package</StyledH1>
+          <div>
+            <StyledH1>Attractions</StyledH1>
+            <StyledH2>{i.TwoDayPackage.attractions.name}</StyledH2>
+            <StyledP>
+              Description: {i.TwoDayPackage.attractions.description}
+            </StyledP>
+            <StyledP>Type: {i.TwoDayPackage.attractions.type}</StyledP>
+          </div>
+          <div>
+            <StyledH1>Bars</StyledH1>
+            <StyledH2>{i.TwoDayPackage.bars.name}</StyledH2>
+            <StyledP>Description: {i.TwoDayPackage.bars.description}</StyledP>
+            <a href={i.TwoDayPackage.bars.website}>
+              Website: {i.TwoDayPackage.bars.website}
+            </a>
+          </div>
+          <div>
+            <StyledH1>Restaurants</StyledH1>
+            <StyledH2>{i.TwoDayPackage.restaurants.name}</StyledH2>
+            <StyledP>
+              Description: {i.TwoDayPackage.restaurants.description}
+            </StyledP>
+            <StyledP>Genre: {i.TwoDayPackage.restaurants.genre}</StyledP>
+            <a href={i.TwoDayPackage.restaurants.website}>
+              Website: {i.TwoDayPackage.restaurants.website}
+            </a>
+          </div>
+        </div>
+        <div style={{ border: "solid 1px red" }}>
+          <StyledH1>Weekend Package</StyledH1>
+          <div>
+            <StyledH1>Attractions</StyledH1>
+            <StyledH2>{i.WeekendPackage.attractions.name}</StyledH2>
+            <StyledP>
+              Description: {i.WeekendPackage.attractions.description}
+            </StyledP>
+            <StyledP>Type: {i.WeekendPackage.attractions.type}</StyledP>
+          </div>
+          <div>
+            <StyledH1>Bars</StyledH1>
+            <StyledH2>{i.WeekendPackage.bars.name}</StyledH2>
+            <StyledP>Description: {i.WeekendPackage.bars.description}</StyledP>
+            <a href={i.WeekendPackage.bars.website}>
+              Website: {i.WeekendPackage.bars.website}
+            </a>
+          </div>
+          <div>
+            <StyledH1>Restaurants</StyledH1>
+            <StyledH2>{i.WeekendPackage.restaurants.name}</StyledH2>
+            <StyledP>
+              Description: {i.WeekendPackage.restaurants.description}
+            </StyledP>
+            <StyledP>Genre: {i.WeekendPackage.restaurants.genre}</StyledP>
+            <a href={i.WeekendPackage.restaurants.website}>
+              Website: {i.WeekendPackage.restaurants.website}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  ));
+
   return (
     <div>
       <h1>Cities</h1>
-      {data.map(c => (
-        <div key={c.citiesId}>
-          <StyledCard2>
-            <StyledH2>City: {c.City}</StyledH2>
-          </StyledCard2>
-          <div style={{ display: "flex" }}>
-            <div style={{ border: "solid 1px red" }}>
-              <StyledH1>One Day Package</StyledH1>
-              <div>
-                <StyledH1>Attractions</StyledH1>
-                <StyledH2>{c.OneDayPackage.attractions.name}</StyledH2>
-                <StyledP>
-                  Description: {c.OneDayPackage.attractions.description}
-                </StyledP>
-                <StyledP>Type: {c.OneDayPackage.attractions.type}</StyledP>
-              </div>
-              <div>
-                <StyledH1>Bars</StyledH1>
-                <StyledH2>{c.OneDayPackage.bars.name}</StyledH2>
-                <StyledP>
-                  Description: {c.OneDayPackage.bars.description}
-                </StyledP>
-                <a href={c.OneDayPackage.bars.website}>
-                  Website: {c.OneDayPackage.bars.website}
-                </a>
-              </div>
-              <div>
-                <StyledH1>Restaurants</StyledH1>
-                <StyledH2>{c.OneDayPackage.restaurants.name}</StyledH2>
-                <StyledP>
-                  Description: {c.OneDayPackage.restaurants.description}
-                </StyledP>
-                <StyledP>Genre: {c.OneDayPackage.restaurants.genre}</StyledP>
-                <a href={c.OneDayPackage.restaurants.website}>
-                  Website: {c.OneDayPackage.restaurants.website}
-                </a>
-              </div>
-            </div>
-            <div style={{ border: "solid 1px red" }}>
-              <StyledH1>Two Day Package</StyledH1>
-              <div>
-                <StyledH1>Attractions</StyledH1>
-                <StyledH2>{c.TwoDayPackage.attractions.name}</StyledH2>
-                <StyledP>
-                  Description: {c.TwoDayPackage.attractions.description}
-                </StyledP>
-                <StyledP>Type: {c.TwoDayPackage.attractions.type}</StyledP>
-              </div>
-              <div>
-                <StyledH1>Bars</StyledH1>
-                <StyledH2>{c.TwoDayPackage.bars.name}</StyledH2>
-                <StyledP>
-                  Description: {c.TwoDayPackage.bars.description}
-                </StyledP>
-                <a href={c.TwoDayPackage.bars.website}>
-                  Website: {c.TwoDayPackage.bars.website}
-                </a>
-              </div>
-              <div>
-                <StyledH1>Restaurants</StyledH1>
-                <StyledH2>{c.TwoDayPackage.restaurants.name}</StyledH2>
-                <StyledP>
-                  Description: {c.TwoDayPackage.restaurants.description}
-                </StyledP>
-                <StyledP>Genre: {c.TwoDayPackage.restaurants.genre}</StyledP>
-                <a href={c.TwoDayPackage.restaurants.website}>
-                  Website: {c.TwoDayPackage.restaurants.website}
-                </a>
-              </div>
-            </div>
-            <div style={{ border: "solid 1px red" }}>
-              <StyledH1>Weekend Package</StyledH1>
-              <div>
-                <StyledH1>Attractions</StyledH1>
-                <StyledH2>{c.WeekendPackage.attractions.name}</StyledH2>
-                <StyledP>
-                  Description: {c.WeekendPackage.attractions.description}
-                </StyledP>
-                <StyledP>Type: {c.WeekendPackage.attractions.type}</StyledP>
-              </div>
-              <div>
-                <StyledH1>Bars</StyledH1>
-                <StyledH2>{c.WeekendPackage.bars.name}</StyledH2>
-                <StyledP>
-                  Description: {c.WeekendPackage.bars.description}
-                </StyledP>
-                <a href={c.WeekendPackage.bars.website}>
-                  Website: {c.WeekendPackage.bars.website}
-                </a>
-              </div>
-              <div>
-                <StyledH1>Restaurants</StyledH1>
-                <StyledH2>{c.WeekendPackage.restaurants.name}</StyledH2>
-                <StyledP>
-                  Description: {c.WeekendPackage.restaurants.description}
-                </StyledP>
-                <StyledP>Genre: {c.WeekendPackage.restaurants.genre}</StyledP>
-                <a href={c.WeekendPackage.restaurants.website}>
-                  Website: {c.WeekendPackage.restaurants.website}
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
+      {items}
+      {/* {data.map(c => (
+        
+      ))} */}
     </div>
   );
 }
