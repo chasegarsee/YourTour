@@ -36,6 +36,55 @@ app.get("/cities", (req, res) => {
 
 ////////////// ////////////// ////////////// //////////////
 
+app.get("/new-york-city", (req, res) => {
+  db.collection("newYorkCity")
+    .doc("GX5nBGcDrSkGlEpj4Mkq")
+    .collection("oneDayPackage")
+    .get()
+    .then(data => {
+      let newYorkCity = [];
+      data.forEach(doc => {
+        newYorkCity.push({
+          newYorkCityId: doc.id,
+          ...doc.data()
+        });
+      });
+      console.log("THIS THE GET REQUEST", req);
+      return res.json(newYorkCity);
+    })
+    .catch(err => console.error(err));
+});
+
+////////////// ////////////// ////////////// //////////////
+
+app.post("/new-one-day-package", (req, res) => {
+  const newOneDayPackage = {
+    name: req.body.name,
+    attractionOne: {
+      name: req.body.attractionOne.name
+    },
+    entertainmentOne: {
+      name: req.body.entertainmentOne.name
+    },
+    foodOne: {
+      name: req.body.foodOne.name
+    }
+  };
+  db.collection("newYorkCity")
+    .doc("GX5nBGcDrSkGlEpj4Mkq")
+    .collection("oneDayPackage")
+    .add(newOneDayPackage)
+    .then(doc => {
+      res.json({ message: `document ${doc.id} created successfully` });
+    })
+    .catch(err => {
+      res.status(500).json({ error: "Something went Wrong" });
+      console.error(err);
+    });
+});
+
+////////////// ////////////// ////////////// //////////////
+
 app.post("/city", (req, res) => {
   console.log("DIS THE POST REQEST", req);
 
