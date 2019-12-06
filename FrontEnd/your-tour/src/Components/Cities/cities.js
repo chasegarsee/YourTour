@@ -19,20 +19,16 @@ function Cities(props) {
       const result2 = await axios.get(`${BASE_URL}/nashville/`);
       const result3 = await axios.get(`${BASE_URL}/boston/`);
       allResults.push(result, result2, result3);
-      setData(allResults);
-      console.log(allResults);
+      const finalDataModel = allResults.map(i => {
+        return i.data;
+      });
+      setData(finalDataModel);
+      console.log(finalDataModel);
       setIsLoading(false);
     };
     fetchData();
   }, []);
 
-  const someData = data.map(i => {
-    i.data.map(x => {
-      return x;
-    });
-  });
-
-  console.log("THIS SOME DATA", someData);
   if (isLoading) {
     return (
       <StyledLoadingDiv>
@@ -43,9 +39,9 @@ function Cities(props) {
   }
 
   const items = data.map(i => (
-    <div>
+    <div key={i[0].cityId}>
       <StyledCard2>
-        <p>This a city</p>
+        <p>This a city: {i[0].cityName}</p>
       </StyledCard2>
     </div>
   ));
