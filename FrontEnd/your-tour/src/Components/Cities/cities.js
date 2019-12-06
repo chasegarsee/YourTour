@@ -5,7 +5,6 @@ import { StyledH1, StyledH2, StyledP } from "../../styles/Text";
 import { CityButton } from "../../styles/Buttons";
 import axios from "axios";
 import { BASE_URL } from "../../config";
-import Checkout from "../../Checkout";
 import "../../styles/StripeCheckout.css";
 
 function Cities(props) {
@@ -13,7 +12,6 @@ function Cities(props) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
     const fetchData = async () => {
       const allResults = [];
       const result = await axios.get(`${BASE_URL}/new-york-city/`);
