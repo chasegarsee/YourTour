@@ -14,3 +14,7 @@ export const TabButton = styled.button`
   color: black;
   padding: 0;
 `;
+
+export const CityButton = styled.button`
+  border-radius: 6px;
+`;

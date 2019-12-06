@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useAuth0 } from "../Auth0/Auth0";
 import { NavButton } from "../../styles/Buttons";
-import { StyledH1 } from "../../styles/Elements";
+import { StyledH1 } from "../../styles/Text";
 
 function NavBar(props) {
   const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();

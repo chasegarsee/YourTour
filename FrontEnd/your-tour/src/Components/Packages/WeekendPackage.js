@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledH1 } from "../../styles/Elements";
+import { StyledH1 } from "../../styles/Text";
 
 function WeekendPackage(props) {
   const drop = e => {

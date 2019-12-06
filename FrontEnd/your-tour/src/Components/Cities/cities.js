@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import styled from "styled-components";
-import { StyledH1, StyledH2, StyledP } from "../../styles/Elements";
+import { StyledH1, StyledH2, StyledP } from "../../styles/Text";
+import { CityButton } from "../../styles/Buttons";
 import axios from "axios";
 import { BASE_URL } from "../../config";
 import Checkout from "../../Checkout";
@@ -41,19 +42,20 @@ function Cities(props) {
   const items = data.map(i => (
     <div key={i[0].cityId}>
       <StyledCard2>
-        <p>This a city: {i[0].cityName}</p>
+        <StyledH2>{i[0].cityName}</StyledH2>
+        <StyledP>{i[0].description}</StyledP>
+        <CityButton>
+          <a href={i[0].hyperlink}>See Packages</a>
+        </CityButton>
       </StyledCard2>
     </div>
   ));
 
   return (
-    <div>
-      <h1>Cities</h1>
-      {items}
-      {/* {data.map(c => (
-        
-      ))} */}
-    </div>
+    <StyledCard>
+      <StyledH1 style={{ width: "100vw" }}>Cities</StyledH1>
+      <div style={{ display: "flex" }}>{items}</div>
+    </StyledCard>
   );
 }
 
@@ -74,10 +76,17 @@ const StyledSpan = styled.span`
 `;
 
 const StyledCard = styled.div`
-  border-bottom: solid 1px white;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 `;
 
 const StyledCard2 = styled.div`
+  width: 300px;
+  height: 300px;
+  border: solid 1px white;
+  border-radius: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

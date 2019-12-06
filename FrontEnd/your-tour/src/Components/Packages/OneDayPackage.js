@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import styled from "styled-components";
-import { StyledH1, StyledH2, StyledP } from "../../styles/Elements";
+import { StyledH1, StyledH2, StyledP } from "../../styles/Text";
 import axios from "axios";
 import { BASE_URL } from "../../config";
 import Checkout from "../../Checkout";
