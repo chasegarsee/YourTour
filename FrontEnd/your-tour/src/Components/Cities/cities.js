@@ -42,7 +42,7 @@ function Cities(props) {
   const items = data.map(i => (
     <div key={i[0].cityId}>
       <StyledCard2>
-        <StyledH2>{i[0].cityName}</StyledH2>
+        <StyledH2 style={{ margin: "10px" }}>{i[0].cityName}</StyledH2>
         <StyledP>{i[0].description}</StyledP>
         <CityButton>
           <a href={i[0].hyperlink}>See Packages</a>
@@ -54,7 +54,9 @@ function Cities(props) {
   return (
     <StyledCard>
       <StyledH1 style={{ width: "100vw" }}>Cities</StyledH1>
-      <div style={{ display: "flex" }}>{items}</div>
+      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+        {items}
+      </div>
     </StyledCard>
   );
 }
@@ -83,13 +85,14 @@ const StyledCard = styled.div`
 `;
 
 const StyledCard2 = styled.div`
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   border: solid 1px white;
   border-radius: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  padding: 30px;
 `;
 
 {
