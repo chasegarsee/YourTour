@@ -14,14 +14,25 @@ function Cities(props) {
   useEffect(() => {
     setIsLoading(true);
     const fetchData = async () => {
-      const result = await axios.get(`${BASE_URL}/cities/`);
-      setData(result.data);
-      console.log(result.data);
+      const allResults = [];
+      const result = await axios.get(`${BASE_URL}/new-york-city/`);
+      const result2 = await axios.get(`${BASE_URL}/nashville/`);
+      const result3 = await axios.get(`${BASE_URL}/boston/`);
+      allResults.push(result, result2, result3);
+      setData(allResults);
+      console.log(allResults);
       setIsLoading(false);
     };
     fetchData();
   }, []);
 
+  const someData = data.map(i => {
+    i.data.map(x => {
+      return x;
+    });
+  });
+
+  console.log("THIS SOME DATA", someData);
   if (isLoading) {
     return (
       <StyledLoadingDiv>
@@ -31,12 +42,53 @@ function Cities(props) {
     );
   }
 
-  const items = data.slice(0, 1).map(i => (
-    <div key={i.citiesId}>
+  const items = data.map(i => (
+    <div>
       <StyledCard2>
-        <StyledH2>City: {i.city}</StyledH2>
+        <p>This a city</p>
       </StyledCard2>
-      <div style={{ display: "flex" }}>
+    </div>
+  ));
+
+  return (
+    <div>
+      <h1>Cities</h1>
+      {items}
+      {/* {data.map(c => (
+        
+      ))} */}
+    </div>
+  );
+}
+
+export default Cities;
+
+const StyledLoadingDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+`;
+
+const StyledSpan = styled.span`
+  font-size: 2rem;
+  color: greenyellow;
+`;
+
+const StyledCard = styled.div`
+  border-bottom: solid 1px white;
+`;
+
+const StyledCard2 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+{
+  /* <div style={{ display: "flex" }}>
         <div style={{ border: "solid 1px red" }}>
           <StyledH1>One Day Package</StyledH1>
           <div>
@@ -127,43 +179,5 @@ function Cities(props) {
             </a>
           </div>
         </div>
-      </div>
-    </div>
-  ));
-
-  return (
-    <div>
-      <h1>Cities</h1>
-      {items}
-      {/* {data.map(c => (
-        
-      ))} */}
-    </div>
-  );
+      </div> */
 }
-
-export default Cities;
-
-const StyledLoadingDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-`;
-
-const StyledSpan = styled.span`
-  font-size: 2rem;
-  color: greenyellow;
-`;
-
-const StyledCard = styled.div`
-  border-bottom: solid 1px white;
-`;
-
-const StyledCard2 = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
