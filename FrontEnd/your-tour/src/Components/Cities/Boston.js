@@ -33,7 +33,7 @@ export default function Boston(props) {
     <div>
       <h1>New York City</h1>
       {data.map(p => (
-        <StyledCard2 key={p.packagesId}>
+        <StyledCard2 key={p.bostonId}>
           <StyledH1>{p.name}</StyledH1>
           <StyledH2>Name: {p.attractionOne.name}</StyledH2>
         </StyledCard2>
