@@ -11,9 +11,17 @@ function NavBar(props) {
     <div>
       {!isAuthenticated && (
         <NavBarContainer>
-          <LogoDiv>
-            <StyledP>YT</StyledP>
-          </LogoDiv>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <LogoDiv>
+              <StyledP>YT</StyledP>
+            </LogoDiv>
+            <div>
+              <NavButton>
+                <Link to="/cities">Cities</Link>
+              </NavButton>
+            </div>
+          </div>
+
           <div>
             <StyledH1>Your Tour</StyledH1>
           </div>
@@ -29,7 +37,7 @@ function NavBar(props) {
               <StyledImg src={user.picture} alt="Profile" />
             </LogoDiv>
             <NavButton>
-              <Link to="/search-packages">Search Packages</Link>
+              <Link to="/cities">Cities</Link>
             </NavButton>
           </div>
           <div>
