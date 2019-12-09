@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Route } from "react-router-dom";
 import Loader from "react-loader-spinner";
 import styled from "styled-components";
 import { StyledH1, StyledH2, StyledP } from "../../styles/Text";
@@ -6,6 +7,7 @@ import { CityButton } from "../../styles/Buttons";
 import axios from "axios";
 import { BASE_URL } from "../../config";
 import "../../styles/StripeCheckout.css";
+import Nashville from "./Nashville";
 
 function Cities(props) {
   const [data, setData] = useState([]);

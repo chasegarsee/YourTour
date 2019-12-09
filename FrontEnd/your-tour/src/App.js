@@ -10,6 +10,9 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import history from "./utils/history";
 import StripeParent from "./STRIPE/StripeParent";
 import Cities from "./Components/Cities/cities";
+import Nashville from "./Components/Cities/Nashville";
+import NewYork from "./Components/Cities/NewYork";
+import Boston from "./Components/Cities/Boston";
 // import CheckoutForm from "./STRIPE/CheckoutForm";
 
 //import Checkout from "./Checkout";
@@ -51,9 +54,14 @@ function App(props) {
           <Switch>
             <Route exact path="/" />
             <Route path="/cities" component={Cities} />
-            {/* <PrivateRoute path="/search-packages" component={HomePage} /> */}
+
+            <Route path="/nashville" component={Nashville} />
+            <Route path="/new-york-city" component={NewYork} />
+            <Route path="/boston" component={Boston} />
+
             <Route path="/search-packages" component={HomePage} />
             <Route path="/stripe" component={StripeParent} />
+            {/* <PrivateRoute path="/search-packages" component={HomePage} /> */}
           </Switch>
         </StyledDiv>
       </Router>
