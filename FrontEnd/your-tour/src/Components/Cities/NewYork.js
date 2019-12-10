@@ -49,7 +49,7 @@ const NewYork = props => {
         {data.map(p => (
           <StyledCard2 key={p.id}>
             <StyledH1>{p.name}</StyledH1>
-            <StyledH2>Name: {p.attractionOne.name}</StyledH2>
+            <StyledH2>{p.packageDescription}</StyledH2>
           </StyledCard2>
         ))}
       </div>
