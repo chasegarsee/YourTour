@@ -13,6 +13,10 @@ import Cities from "./Components/Cities/cities";
 import Nashville from "./Components/Cities/Nashville";
 import NewYork from "./Components/Cities/NewYork";
 import Boston from "./Components/Cities/Boston";
+import newYorkCityOneDayPackageForm from "./Forms/newYorkCityOneDayPackageForm";
+
+import firebase from "./firebase";
+
 // import CheckoutForm from "./STRIPE/CheckoutForm";
 
 //import Checkout from "./Checkout";
@@ -55,9 +59,14 @@ function App(props) {
             <Route exact path="/" />
             <Route path="/cities" component={Cities} />
 
-            <Route path="/nashville" component={Nashville} />
-            <Route path="/new-york-city" component={NewYork} />
-            <Route path="/boston" component={Boston} />
+            <Route exact path="/nashville" component={Nashville} />
+            <Route exact path="/new-york-city" component={NewYork} />
+            <Route
+              exact
+              path="/new-york-city/add-one-day-package"
+              component={newYorkCityOneDayPackageForm}
+            />
+            <Route exact path="/boston" component={Boston} />
 
             <Route path="/search-packages" component={HomePage} />
             <Route path="/stripe" component={StripeParent} />

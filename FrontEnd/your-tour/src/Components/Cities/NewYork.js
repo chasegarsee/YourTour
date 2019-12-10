@@ -4,23 +4,34 @@ import Loader from "react-loader-spinner";
 import { BASE_URL } from "../../config";
 import styled from "styled-components";
 import { StyledH1, StyledH2, StyledP } from "../../styles/Text";
+import firebase from "../../firebase";
 
-export default function NewYork(props) {
+function useTimes() {
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
-    const fetchData = async () => {
-      const result = await axios.get(
-        `${BASE_URL}/new-york-city/one-day-package`
-      );
-      setData(result.data);
-      console.log(result.data);
-      setIsLoading(false);
-    };
-    fetchData();
+    //unsubscribe callback
+    // setIsLoading(true);
+    firebase
+      .firestore()
+      .collection("newYorkCity")
+      .doc("GX5nBGcDrSkGlEpj4Mkq")
+      .collection("oneDayPackage")
+      .onSnapshot(snapshot => {
+        const newData = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setData(newData);
+        console.log(newData);
+      });
   }, []);
+  return data;
+}
+
+const NewYork = props => {
+  const data = useTimes();
+  const [isLoading, setIsLoading] = useState(false);
 
   if (isLoading) {
     return (
@@ -34,15 +45,24 @@ export default function NewYork(props) {
   return (
     <div>
       <h1>New York City</h1>
-      {data.map(p => (
-        <StyledCard2 key={p.newYorkCityId}>
-          <StyledH1>{p.name}</StyledH1>
-          <StyledH2>Name: {p.attractionOne.name}</StyledH2>
-        </StyledCard2>
-      ))}
+      <div style={{ display: "flex" }}>
+        {data.map(p => (
+          <StyledCard2 key={p.id}>
+            <StyledH1>{p.name}</StyledH1>
+            <StyledH2>Name: {p.attractionOne.name}</StyledH2>
+          </StyledCard2>
+        ))}
+      </div>
+      <button>
+        <a href="/new-york-city/add-one-day-package">
+          <i className="fas fa-plus"></i>
+        </a>
+      </button>
     </div>
   );
-}
+};
+
+export default NewYork;
 
 const StyledLoadingDiv = styled.div`
   display: flex;
@@ -63,7 +83,13 @@ const StyledCard = styled.div`
 `;
 
 const StyledCard2 = styled.div`
+  width: 400px;
+  height: 400px;
+  border: solid 1px white;
+  border-radius: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 30px;
 `;
