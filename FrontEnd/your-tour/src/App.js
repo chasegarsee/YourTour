@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { BASE_URL } from "./config";
+
 import { Router, Route, Switch } from "react-router-dom";
 import { useAuth0 } from "./Components/Auth0/Auth0";
 import "./styles/App.css";
@@ -14,8 +17,9 @@ import Nashville from "./Components/Cities/Nashville/Nashville";
 import NewYork from "./Components/Cities/NewYorkCity/NewYork";
 import Boston from "./Components/Cities/Boston/Boston";
 import newYorkCityOneDayPackageForm from "./Components/Cities/NewYorkCity/newYorkCityOneDayPackageForm";
+import Packages from "./Components/Cities/NewYorkCity/Packages";
 
-import firebase from "./firebase";
+// import firebase from "./firebase";
 
 // import CheckoutForm from "./STRIPE/CheckoutForm";
 
@@ -26,8 +30,38 @@ import firebase from "./firebase";
 function App(props) {
   // const { loading, user } = useAuth0();
   // const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const allResults = [];
+      const newYork = await axios.get(`${BASE_URL}/new-york-city/`);
+      const nashville = await axios.get(`${BASE_URL}/nashville/`);
+      const boston = await axios.get(`${BASE_URL}/boston/`);
+      allResults.push(newYork, nashville, boston);
+      const finalDataModel = allResults.map(i => {
+        return i.data;
+      });
+      setData(finalDataModel);
+      console.log(data);
+      setIsLoading(false);
+    };
+    fetchData();
+  }, []);
+
   const { loading } = useAuth0();
 
+  ///////////////////////////////////////////////
+  const [message, setMessage] = useState([]);
+
+  const callbackFunction = childData => {
+    setMessage(childData);
+  };
+
+  console.log("DIS THE CHILD DATA", message);
+  ///////////////////////////////////////////////
   if (loading) {
     return (
       <div
@@ -57,17 +91,41 @@ function App(props) {
           {/* <code>{JSON.stringify(user, null, 2)}</code> */}
           <Switch>
             <Route exact path="/" />
-            <Route path="/cities" component={Cities} />
+            <Route
+              path="/cities"
+              render={props => (
+                <Cities
+                  {...props}
+                  data={data}
+                  parentCallback={callbackFunction}
+                />
+              )}
+            />
 
+            {/* ///// NASHVILLE ROUTES ///// */}
             <Route exact path="/nashville" component={Nashville} />
-            <Route exact path="/new-york-city" component={NewYork} />
+            {/* ///// NEW YORK CITY ROUTES ///// */}
+            <Route
+              exact
+              path="/new-york-city"
+              render={props => (
+                <NewYork {...props} parentCallback={callbackFunction} />
+              )}
+            />
             <Route
               exact
               path="/new-york-city/add-one-day-package"
               component={newYorkCityOneDayPackageForm}
             />
-            <Route exact path="/boston" component={Boston} />
 
+            <Route
+              exact
+              path={message.id}
+              render={props => <Packages {...props} data={data} />}
+            />
+
+            {/* ///// BOSTON ROUTES ROUTES ///// */}
+            <Route exact path="/boston" component={Boston} />
             <Route path="/search-packages" component={HomePage} />
             <Route path="/stripe" component={StripeParent} />
             {/* <PrivateRoute path="/search-packages" component={HomePage} /> */}

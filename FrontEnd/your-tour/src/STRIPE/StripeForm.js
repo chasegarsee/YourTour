@@ -1,10 +1,6 @@
 import React from "react";
-import {
-  CardElement,
-  injectStripe,
-  ReactStripeElements
-} from "react-stripe-elements";
-import { thisTypeAnnotation } from "@babel/types";
+import { CardElement, injectStripe } from "react-stripe-elements";
+// import { thisTypeAnnotation } from "@babel/types";
 
 class StripeForm extends React.Component {
   constructor(props) {

@@ -3,7 +3,7 @@ import axios from "axios";
 import Loader from "react-loader-spinner";
 import { BASE_URL } from "../../../config";
 import styled from "styled-components";
-import { StyledH1, StyledH2, StyledP } from "../../../styles/Text";
+import { StyledH1, StyledH2 } from "../../../styles/Text";
 
 export default function Nashville(props) {
   const [data, setData] = useState([]);
@@ -54,10 +54,6 @@ const StyledLoadingDiv = styled.div`
 const StyledSpan = styled.span`
   font-size: 2rem;
   color: greenyellow;
-`;
-
-const StyledCard = styled.div`
-  border-bottom: solid 1px white;
 `;
 
 const StyledCard2 = styled.div`

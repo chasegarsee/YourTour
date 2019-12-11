@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { BASE_URL } from "../../../config";
-import axios from "axios";
+import React, { useState } from "react";
+// import { BASE_URL } from "../../../config";
+// import axios from "axios";
 import "./forms.css";
 
 import firebase from "../../../firebase";

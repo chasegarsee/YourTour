@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+
+import { Link } from "react-router-dom";
+
 import Loader from "react-loader-spinner";
-import { BASE_URL } from "../../../config";
+
 import styled from "styled-components";
-import { StyledH1, StyledH2, StyledP } from "../../../styles/Text";
+import { StyledH1, StyledH2 } from "../../../styles/Text";
 import firebase from "../../../firebase";
+import Packages from "./Packages";
 
 function useTimes() {
   const [data, setData] = useState([]);
@@ -31,7 +34,14 @@ function useTimes() {
 
 const NewYork = props => {
   const data = useTimes();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
+
+  console.log("NEW YORK PROPS", props);
+
+  const sendData = () => {
+    props.parentCallback(data);
+  };
+  sendData();
 
   if (isLoading) {
     return (
@@ -44,12 +54,16 @@ const NewYork = props => {
 
   return (
     <div>
-      <h1>New York City</h1>
+      <StyledH1>New York City</StyledH1>
       <div style={{ display: "flex" }}>
         {data.map(p => (
           <StyledCard2 key={p.id}>
             <StyledH1>{p.name}</StyledH1>
             <StyledH2>{p.packageDescription}</StyledH2>
+
+            <button>
+              <Link to={p.id}>View Package</Link>
+            </button>
           </StyledCard2>
         ))}
       </div>
@@ -76,10 +90,6 @@ const StyledLoadingDiv = styled.div`
 const StyledSpan = styled.span`
   font-size: 2rem;
   color: greenyellow;
-`;
-
-const StyledCard = styled.div`
-  border-bottom: solid 1px white;
 `;
 
 const StyledCard2 = styled.div`

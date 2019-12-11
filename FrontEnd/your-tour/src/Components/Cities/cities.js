@@ -1,45 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Route } from "react-router-dom";
-import Loader from "react-loader-spinner";
+import { Router, Route } from "react-router-dom";
 import styled from "styled-components";
 import { StyledH1, StyledH2, StyledP } from "../../styles/Text";
 import { CityButton } from "../../styles/Buttons";
-import axios from "axios";
-import { BASE_URL } from "../../config";
 import "../../styles/StripeCheckout.css";
-import Nashville from "./Nashville/Nashville";
+// import Nashville from "./Nashville/Nashville";
 
 function Cities(props) {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const allResults = [];
-      const result = await axios.get(`${BASE_URL}/new-york-city/`);
-      const result2 = await axios.get(`${BASE_URL}/nashville/`);
-      const result3 = await axios.get(`${BASE_URL}/boston/`);
-      allResults.push(result, result2, result3);
-      const finalDataModel = allResults.map(i => {
-        return i.data;
-      });
-      setData(finalDataModel);
-      console.log(finalDataModel);
-      setIsLoading(false);
-    };
-    fetchData();
-  }, []);
-
-  if (isLoading) {
-    return (
-      <StyledLoadingDiv>
-        <Loader type="Triangle" color="blueViolet" height={200} width={200} />
-        <StyledSpan>Loading...</StyledSpan>
-      </StyledLoadingDiv>
-    );
-  }
-
-  const items = data.map(i => (
+  console.log(props.data);
+  const items = props.data.map(i => (
     <div key={i[0].cityId}>
       <StyledCard2>
         <StyledH2 style={{ margin: "10px" }}>{i[0].cityName}</StyledH2>
@@ -62,20 +31,6 @@ function Cities(props) {
 }
 
 export default Cities;
-
-const StyledLoadingDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-`;
-
-const StyledSpan = styled.span`
-  font-size: 2rem;
-  color: greenyellow;
-`;
 
 const StyledCard = styled.div`
   width: 100vw;
