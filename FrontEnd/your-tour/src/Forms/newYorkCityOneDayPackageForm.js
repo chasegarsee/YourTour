@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BASE_URL } from "../config";
 import axios from "axios";
+import "./forms.css";
 
 import firebase from "../firebase";
 
@@ -66,7 +67,7 @@ const NewYorkCityOneDayPackageForm = props => {
   }
 
   return (
-    <div>
+    <div className="form-container">
       <div>
         <h1>Add New Package</h1>
       </div>
@@ -86,89 +87,128 @@ const NewYorkCityOneDayPackageForm = props => {
             placeholder="Package Description"
           ></input>
           {/* ///////////// Package Details //////////////           */}
-          {/* ///////////// Attraction Details //////////////           */}
+          {/* ///////////// Attraction Details //////////////        */}
         </div>
-        <div>
-          <input
-            type="text"
-            value={a1Name}
-            onChange={e => setA1Name(e.target.value)}
-            placeholder="Freedom Tower"
-          />
-          <input
-            type="text"
-            value={a1Description}
-            onChange={e => setA1Description(e.target.value)}
-            placeholder="One World Trade Center"
-          />
-          <input
-            type="text"
-            value={a1Address}
-            onChange={e => setA1Address(e.target.value)}
-            placeholder="e.g. 285 Fulton St, New York, NY 10007"
-          />
-          <input
-            type="text"
-            value={a1Website}
-            onChange={e => setA1Website(e.target.value)}
-            placeholder="e.g. https://www.wtc.com/about/buildings/1-world-trade-center"
-          />
+        <div className="attraction-container" className="forms">
+          <span>Attraction One: </span>
+          <div className="form-fields">
+            <span>Name: </span>
+            <input
+              type="text"
+              value={a1Name}
+              onChange={e => setA1Name(e.target.value)}
+              placeholder="Freedom Tower"
+            />
+          </div>
+          <div className="form-fields">
+            <span>Description: </span>
+            <input
+              type="text"
+              value={a1Description}
+              onChange={e => setA1Description(e.target.value)}
+              placeholder="One World Trade Center"
+            />
+          </div>
+          <div className="form-fields">
+            <span>Address: </span>
+            <input
+              type="text"
+              value={a1Address}
+              onChange={e => setA1Address(e.target.value)}
+              placeholder="e.g. 285 Fulton St, New York, NY 10007"
+            />
+          </div>
+          <div className="form-fields">
+            <span>Website: </span>
+            <input
+              type="text"
+              value={a1Website}
+              onChange={e => setA1Website(e.target.value)}
+              placeholder="e.g. https://www.wtc.com/about/buildings/1-world-trade-center"
+            />
+          </div>
         </div>
         {/* ///////////// Attraction Details //////////////           */}
-        {/* ///////////// Entertainment Details //////////////           */}
-        <div>
-          <input
-            type="text"
-            value={e1Name}
-            onChange={e => setE1Name(e.target.value)}
-            placeholder="Daniel"
-          />
-          <input
-            type="text"
-            value={e1Description}
-            onChange={e => setE1Description(e.target.value)}
-            placeholder="Daniel Boulud's elegant French flagship where jackets are required & expense accounts come in handy."
-          />
-          <input
-            type="text"
-            value={e1Address}
-            onChange={e => setE1Address(e.target.value)}
-            placeholder="e.g. 60 E 65th St, New York, NY 10065"
-          />
-          <input
-            type="text"
-            value={e1Website}
-            onChange={e => setE1Website(e.target.value)}
-            placeholder="e.g. danielnyc.com"
-          />
+        {/* ///////////// Entertainment Details //////////////        */}
+        <div className="entertainment-container" className="forms">
+          <div className="form-fields">
+            <span>Name: </span>
+            <input
+              type="text"
+              value={e1Name}
+              onChange={e => setE1Name(e.target.value)}
+              placeholder="Daniel"
+            />
+          </div>
+          <div className="form-fields">
+            <span>Description: </span>
+            <input
+              type="text"
+              value={e1Description}
+              onChange={e => setE1Description(e.target.value)}
+              placeholder="Daniel Boulud's elegant French flagship where jackets are required & expense accounts come in handy."
+            />
+          </div>
+          <div className="form-fields">
+            <span>Address: </span>
+            <input
+              type="text"
+              value={e1Address}
+              onChange={e => setE1Address(e.target.value)}
+              placeholder="e.g. 60 E 65th St, New York, NY 10065"
+            />
+          </div>
+          <div className="form-fields">
+            <span>Website: </span>
+            <input
+              type="text"
+              value={e1Website}
+              onChange={e => setE1Website(e.target.value)}
+              placeholder="e.g. danielnyc.com"
+            />
+          </div>
         </div>
         {/* ///////////// Entertainment Details //////////////           */}
-        <div>
-          <input
-            type="text"
-            value={f1Name}
-            onChange={e => setF1Name(e.target.value)}
-            placeholder="Time Square"
-          />
-          <input
-            type="text"
-            value={f1Description}
-            onChange={e => setF1Description(e.target.value)}
-            placeholder="The Theater District is the teeming heart of Midtown West."
-          />
-          <input
-            type="text"
-            value={f1Address}
-            onChange={e => setF1Address(e.target.value)}
-            placeholder="e.g. Manhattan, NY 10036"
-          />
-          <input
-            type="text"
-            value={f1Website}
-            onChange={e => setF1Website(e.target.value)}
-            placeholder="e.g. https://www.timessquarenyc.org/"
-          />
+        {/* ///////////// Food Details ///////////////////////           */}
+        <div className="food-container" className="forms">
+          <div className="form-fields">
+            <span>Name: </span>
+            <input
+              type="text"
+              value={f1Name}
+              onChange={e => setF1Name(e.target.value)}
+              placeholder="Time Square"
+            />
+          </div>
+          <div className="form-fields">
+            <span>Description: </span>
+            <input
+              type="text"
+              value={f1Description}
+              onChange={e => setF1Description(e.target.value)}
+              placeholder="The Theater District is the teeming heart of Midtown West."
+            />
+          </div>
+          <div className="form-fields">
+            <span>Address: </span>
+            <input
+              type="text"
+              value={f1Address}
+              onChange={e => setF1Address(e.target.value)}
+              placeholder="e.g. Manhattan, NY 10036"
+            />
+          </div>
+          <div className="form-fields">
+            <span>Website: </span>
+            <input
+              type="text"
+              value={f1Website}
+              onChange={e => setF1Website(e.target.value)}
+              placeholder="e.g. https://www.timessquarenyc.org/"
+            />
+          </div>
         </div>
+        {/* ///////////// Food Details ///////////////////           */}
         <button onClick={submitHandler}>Add</button>
       </form>
     </div>
