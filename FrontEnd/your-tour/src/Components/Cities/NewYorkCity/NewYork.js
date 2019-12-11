@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from "react-loader-spinner";
-import { BASE_URL } from "../../config";
+import { BASE_URL } from "../../../config";
 import styled from "styled-components";
-import { StyledH1, StyledH2, StyledP } from "../../styles/Text";
-import firebase from "../../firebase";
+import { StyledH1, StyledH2, StyledP } from "../../../styles/Text";
+import firebase from "../../../firebase";
 
 function useTimes() {
   const [data, setData] = useState([]);

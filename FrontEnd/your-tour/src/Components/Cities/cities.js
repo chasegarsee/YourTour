@@ -7,7 +7,7 @@ import { CityButton } from "../../styles/Buttons";
 import axios from "axios";
 import { BASE_URL } from "../../config";
 import "../../styles/StripeCheckout.css";
-import Nashville from "./Nashville";
+import Nashville from "./Nashville/Nashville";
 
 function Cities(props) {
   const [data, setData] = useState([]);

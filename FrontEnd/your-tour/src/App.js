@@ -10,10 +10,10 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import history from "./utils/history";
 import StripeParent from "./STRIPE/StripeParent";
 import Cities from "./Components/Cities/cities";
-import Nashville from "./Components/Cities/Nashville";
-import NewYork from "./Components/Cities/NewYork";
-import Boston from "./Components/Cities/Boston";
-import newYorkCityOneDayPackageForm from "./Forms/newYorkCityOneDayPackageForm";
+import Nashville from "./Components/Cities/Nashville/Nashville";
+import NewYork from "./Components/Cities/NewYorkCity/NewYork";
+import Boston from "./Components/Cities/Boston/Boston";
+import newYorkCityOneDayPackageForm from "./Components/Cities/NewYorkCity/newYorkCityOneDayPackageForm";
 
 import firebase from "./firebase";
 
