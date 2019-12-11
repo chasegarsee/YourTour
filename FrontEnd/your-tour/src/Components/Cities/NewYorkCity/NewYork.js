@@ -9,34 +9,33 @@ import { StyledH1, StyledH2 } from "../../../styles/Text";
 import firebase from "../../../firebase";
 import Packages from "./Packages";
 
-function useTimes() {
+const NewYork = props => {
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    //unsubscribe callback
-    // setIsLoading(true);
-    firebase
-      .firestore()
-      .collection("newYorkCity")
-      .doc("GX5nBGcDrSkGlEpj4Mkq")
-      .collection("oneDayPackage")
-      .onSnapshot(snapshot => {
-        const newData = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        setData(newData);
-        console.log(newData);
-      });
-  }, []);
-  return data;
-}
+  function useCollections() {
+    useEffect(() => {
+      //unsubscribe callback
+      setIsLoading(true);
+      firebase
+        .firestore()
+        .collection("newYorkCity")
+        .doc("GX5nBGcDrSkGlEpj4Mkq")
+        .collection("oneDayPackage")
+        .onSnapshot(snapshot => {
+          const newData = snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+          }));
+          setData(newData);
+          setIsLoading(false);
+          console.log(newData);
+        });
+    }, []);
+    return data;
+  }
 
-const NewYork = props => {
-  const data = useTimes();
-  const [isLoading] = useState(false);
-
-  console.log("NEW YORK PROPS", props);
+  const dataArr = useCollections();
 
   const sendData = () => {
     props.parentCallback(data);
@@ -56,7 +55,7 @@ const NewYork = props => {
     <div>
       <StyledH1>New York City</StyledH1>
       <div style={{ display: "flex" }}>
-        {data.map(p => (
+        {dataArr.map(p => (
           <StyledCard2 key={p.id}>
             <StyledH1>{p.name}</StyledH1>
             <StyledH2>{p.packageDescription}</StyledH2>

@@ -121,7 +121,9 @@ function App(props) {
             <Route
               exact
               path={message.id}
-              render={props => <Packages {...props} data={data} />}
+              render={props => (
+                <Packages {...props} data={data} message={message} />
+              )}
             />
 
             {/* ///// BOSTON ROUTES ROUTES ///// */}

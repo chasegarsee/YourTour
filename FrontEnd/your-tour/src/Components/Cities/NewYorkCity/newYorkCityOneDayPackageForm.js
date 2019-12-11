@@ -86,7 +86,7 @@ const NewYorkCityOneDayPackageForm = props => {
               ></input>
             </div>
             <div className="form-fields">
-              <span>Package Name</span>
+              <span>Package Description</span>
               <input
                 type="text"
                 value={packageDescription}
