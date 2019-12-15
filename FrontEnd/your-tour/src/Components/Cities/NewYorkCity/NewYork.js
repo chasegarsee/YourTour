@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Loader from "react-loader-spinner";
 
 import styled from "styled-components";
-import { StyledH1, StyledH2 } from "../../../styles/Text";
+import { StyledH1, StyledH2, StyledP } from "../../../styles/Text";
 import firebase from "../../../firebase";
 import Packages from "./Packages";
 
@@ -23,6 +23,7 @@ const NewYork = props => {
         .doc("GX5nBGcDrSkGlEpj4Mkq")
         .collection("oneDayPackage")
         .onSnapshot(snapshot => {
+          console.log("OH SNAPSHOT", snapshot);
           const newData = snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
@@ -59,7 +60,7 @@ const NewYork = props => {
           <StyledCard2 key={p.id}>
             <StyledH1>{p.name}</StyledH1>
             <StyledH2>{p.packageDescription}</StyledH2>
-
+            <StyledP>{p.attractionOne.name}</StyledP>
             <button>
               <Link to={p.id}>View Package</Link>
             </button>
