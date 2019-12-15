@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Loader from "react-loader-spinner";
 import { StyledH1, StyledP } from "../../../styles/Text";
 import firebase from "../../../firebase";
 
@@ -9,16 +10,15 @@ const Packages = props => {
     "pV52NlSP1R0Wx249LbgY"
   ];
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  function useCollections() {
-    useEffect(() => {
+  useEffect(() => {
+    const useingCollections = async () => {
       for (let i = 0; i < paths.length; i++) {
         if (window.location.pathname == `/${paths[i]}`) {
           console.log("PATHS BISH", paths[i]);
 
-          setIsLoading(true);
-          firebase
+          await firebase
             .firestore()
             .collection("newYorkCity")
             .doc("GX5nBGcDrSkGlEpj4Mkq")
@@ -26,31 +26,44 @@ const Packages = props => {
             .doc(paths[i])
             .onSnapshot(snapshot => {
               let data = snapshot.data();
-              let attractionOne = snapshot.data().attractionOne;
-              let entertainmentOne = snapshot.data().entertainmentOne;
-              let foodOne = snapshot.data().foodOne;
-              setData(attractionOne, entertainmentOne, foodOne);
+              setData(data);
               setIsLoading(false);
             });
         }
       }
-    }, []);
-    return data;
-  }
+    };
+    useingCollections();
+  }, []);
 
-  const dataArr = useCollections();
-  console.log("THE DATA", dataArr.name);
-  // //dataArr.push(useCollections());
+  // const dataArr = useCollections();
+  console.log("THE DATA", data);
+  // // //dataArr.push(useCollections());
   // console.log("DATAAAAAAAAA", dataArr.attractionOne);
 
-  // let attractionData = [];
-  // attractionData.push(dataArr.attractionOne);
-  // console.log("ADATA", attractionData);
+  if (isLoading == true) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+          backgroundColor: "rgb(26, 29, 33)",
+          height: "100vh",
+          width: "100vw"
+        }}
+      >
+        <Loader type="Triangle" color="blueViolet" height={200} width={200} />{" "}
+        <StyledP>Loading...</StyledP>
+      </div>
+    );
+  }
 
   return (
     <div>
-      <h1>hello</h1>
-      <StyledP>{dataArr.name}</StyledP>
+      <h1></h1>
+      <StyledP>{data.name}</StyledP>
+      <StyledP>{data.attractionOne.name}</StyledP>
     </div>
   );
 };
