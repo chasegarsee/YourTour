@@ -54,9 +54,16 @@ const Packages = props => {
 
   return (
     <div>
-      <h1></h1>
-      <StyledP>{data.name}</StyledP>
-      <StyledP>{data.attractionOne.name}</StyledP>
+      <StyledH1>{data.name}</StyledH1>
+      <div className="attractions">
+        <StyledP>{data.attractionOne.name}</StyledP>
+      </div>
+      <div className="attractions">
+        <StyledP>{data.entertainmentOne.name}</StyledP>
+      </div>
+      <div className="attractions">
+        <StyledP>{data.foodOne.name}</StyledP>
+      </div>
     </div>
   );
 };
