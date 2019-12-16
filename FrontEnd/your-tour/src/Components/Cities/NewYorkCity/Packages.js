@@ -4,26 +4,24 @@ import { StyledH1, StyledP } from "../../../styles/Text";
 import firebase from "../../../firebase";
 
 const Packages = props => {
-  let paths = [
-    "MyksmA6ebQRFhuON7Jq7",
-    "U5ykXIoc7manAkV8vZ8c",
-    "pV52NlSP1R0Wx249LbgY"
-  ];
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  let urls = [];
+  for (let i = 0; i < props.message.length; i++) {
+    urls.push(props.message[i].id);
+  }
+
   useEffect(() => {
     const useingCollections = async () => {
-      for (let i = 0; i < paths.length; i++) {
-        if (window.location.pathname == `/${paths[i]}`) {
-          console.log("PATHS BISH", paths[i]);
-
+      for (let i = 0; i < urls.length; i++) {
+        if (window.location.pathname == `/${urls[i]}`) {
           await firebase
             .firestore()
             .collection("newYorkCity")
             .doc("GX5nBGcDrSkGlEpj4Mkq")
             .collection("oneDayPackage")
-            .doc(paths[i])
+            .doc(urls[i])
             .onSnapshot(snapshot => {
               let data = snapshot.data();
               setData(data);
@@ -34,11 +32,6 @@ const Packages = props => {
     };
     useingCollections();
   }, []);
-
-  // const dataArr = useCollections();
-  console.log("THE DATA", data);
-  // // //dataArr.push(useCollections());
-  // console.log("DATAAAAAAAAA", dataArr.attractionOne);
 
   if (isLoading == true) {
     return (
