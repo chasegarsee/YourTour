@@ -2,7 +2,6 @@ import React, { useState } from "react";
 // import { BASE_URL } from "../../../config";
 // import axios from "axios";
 import "./forms.css";
-import Loader from "react-loader-spinner";
 import firebase from "../../../firebase";
 import { StyledH1, StyledP } from "../../../styles/Text";
 
@@ -30,7 +29,6 @@ const NewYorkCityOneDayPackageForm = props => {
   function addPointCategories(e) {
     e.preventDefault();
     setAttractions([...attractions, ""]);
-    console.log("ATTERS", attractions);
   }
 
   // console.log(
@@ -47,7 +45,7 @@ const NewYorkCityOneDayPackageForm = props => {
       .doc("GX5nBGcDrSkGlEpj4Mkq")
       .collection("oneDayPackage")
       .add({
-        packageDescription,
+        packageDescription: packageDescription,
         name: packageName,
         attractionOne: {
           name: a1Address
@@ -80,32 +78,12 @@ const NewYorkCityOneDayPackageForm = props => {
       });
   }
 
-  // if (isLoading == true) {
-  //   return (
-  //     <div
-  //       style={{
-  //         display: "flex",
-  //         justifyContent: "center",
-  //         alignItems: "center",
-  //         flexDirection: "column",
-  //         backgroundColor: "rgb(26, 29, 33)",
-  //         height: "100vh",
-  //         width: "100vw"
-  //       }}
-  //     >
-  //       <Loader type="Triangle" color="blueViolet" height={200} width={200} />{" "}
-  //       <StyledP>Loading...</StyledP>
-  //     </div>
-  //   );
-  // }
-
   return (
     <div className="form-container">
       <div>
         <StyledH1>Add New Package</StyledH1>
       </div>
-      {/* <form onSubmit={submitHandler}> */}
-      <form>
+      <form onSubmit={submitHandler}>
         {/* ///////////// Package Details //////////////           */}
         <div className="forms">
           <div className="form-fields-container">
@@ -172,20 +150,56 @@ const NewYorkCityOneDayPackageForm = props => {
               />
             </div>
           </div>
-          {attractions.map(index => (
-            <div key={index} className="form-fields">
-              <span>Description </span>
-              <input
-                type="text"
-                value=""
-                //onChange={e => setA1Description(e.target.value)}
-                placeholder="One World Trade Center"
-              />
+        </div>
+        {attractions.map(index => (
+          <div
+            key={Math.random()}
+            className="attraction-container"
+            className="forms"
+          >
+            <span>Attraction One </span>
+            <div className="form-fields-container">
+              <div className="form-fields">
+                <span>Name </span>
+                <input
+                  type="text"
+                  value={a1Name}
+                  onChange={e => setA1Name(e.target.value)}
+                  placeholder="Freedom Tower"
+                />
+              </div>
+              <div className="form-fields">
+                <span>Description </span>
+                <input
+                  type="text"
+                  value={a1Description}
+                  onChange={e => setA1Description(e.target.value)}
+                  placeholder="One World Trade Center"
+                />
+              </div>
+              <div className="form-fields">
+                <span>Address </span>
+                <input
+                  type="text"
+                  value={a1Address}
+                  onChange={e => setA1Address(e.target.value)}
+                  placeholder="e.g. 285 Fulton St, New York, NY 10007"
+                />
+              </div>
+              <div className="form-fields">
+                <span>Website </span>
+                <input
+                  type="text"
+                  value={a1Website}
+                  onChange={e => setA1Website(e.target.value)}
+                  placeholder="e.g. https://www.wtc.com/about/buildings/1-world-trade-center"
+                />
+              </div>
             </div>
-          ))}
-          <div>
-            <button onClick={e => addPointCategories(e)}>Add New</button>
           </div>
+        ))}
+        <div>
+          <button onClick={e => addPointCategories(e)}>Add New</button>
         </div>
         {/* ///////////// Attraction Details //////////////           */}
         {/* ///////////// Entertainment Details //////////////        */}
