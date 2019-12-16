@@ -90,30 +90,30 @@ app.get("/boston", (req, res) => {
 
 ////////////// ////////////// ////////////// //////////////
 
-// app.get("/new-york-city", (req, res) => {
-//   db.collection("newYorkCity")
-//     .doc("GX5nBGcDrSkGlEpj4Mkq")
-//     .collection("oneDayPackage")
-//     .get()
-//     .then(data => {
-//       let newYorkCity = [];
-//       data.forEach(doc => {
-//         newYorkCity.push({
-//           newYorkCityId: doc.id,
-//           ...doc.data()
-//         });
-//       });
-//       console.log("THIS THE GET REQUEST", req);
-//       return res.json(newYorkCity);
-//     })
-//     .catch(err => console.error(err));
-// });
+app.get("/new-york-city/one-day-package", (req, res) => {
+  db.collection("newYorkCity")
+    .doc("GX5nBGcDrSkGlEpj4Mkq")
+    .collection("oneDayPackage")
+    .get()
+    .then(data => {
+      let newYorkCity = [];
+      data.forEach(doc => {
+        newYorkCity.push({
+          newYorkCityId: doc.id,
+          ...doc.data()
+        });
+      });
+      console.log("THIS THE GET REQUEST", req);
+      return res.json(newYorkCity);
+    })
+    .catch(err => console.error(err));
+});
 
 ////////////// ////////////// ////////////// //////////////
 
 // ADD NEW ONE DAY PACKAGE
 
-app.post("/new-one-day-package", (req, res) => {
+app.post("/new-york-city/new-one-day-package", (req, res) => {
   const newOneDayPackage = {
     name: req.body.name,
     attractionOne: {
