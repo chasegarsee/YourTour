@@ -48,13 +48,22 @@ const NewYorkCityOneDayPackageForm = props => {
         packageDescription: packageDescription,
         name: packageName,
         attractionOne: {
-          name: a1Address
+          name: a1Name,
+          address: a1Address,
+          description: a1Description,
+          website: a1Website
         },
         entertainmentOne: {
-          name: e1Name
+          name: e1Name,
+          address: e1Address,
+          description: e1Description,
+          website: e1Website
         },
         foodOne: {
-          name: f1Name
+          name: f1Name,
+          address: f1Address,
+          description: f1Description,
+          website: f1Website
         }
       })
       .then(() => {
@@ -151,7 +160,7 @@ const NewYorkCityOneDayPackageForm = props => {
             </div>
           </div>
         </div>
-        {attractions.map(index => (
+        {attractions.map(() => (
           <div
             key={Math.random()}
             className="attraction-container"
@@ -199,7 +208,9 @@ const NewYorkCityOneDayPackageForm = props => {
           </div>
         ))}
         <div>
-          <button onClick={e => addPointCategories(e)}>Add New</button>
+          <button onClick={e => addPointCategories(e)}>
+            Add Another Attraction
+          </button>
         </div>
         {/* ///////////// Attraction Details //////////////           */}
         {/* ///////////// Entertainment Details //////////////        */}

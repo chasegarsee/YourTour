@@ -71,7 +71,7 @@ function App(props) {
           alignItems: "center",
           flexDirection: "column",
           backgroundColor: "rgb(26, 29, 33)",
-          height: "100vh",
+          height: "100%",
           width: "100vw"
         }}
       >
