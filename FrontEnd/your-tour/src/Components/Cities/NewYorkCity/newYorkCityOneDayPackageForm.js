@@ -2,11 +2,13 @@ import React, { useState } from "react";
 // import { BASE_URL } from "../../../config";
 // import axios from "axios";
 import "./forms.css";
-
+import Loader from "react-loader-spinner";
 import firebase from "../../../firebase";
-import { StyledH1 } from "../../../styles/Text";
+import { StyledH1, StyledP } from "../../../styles/Text";
 
 const NewYorkCityOneDayPackageForm = props => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [attractions, setAttractions] = useState([]);
   const [packageName, setPackageName] = useState("");
   const [packageDescription, setPackageDescription] = useState("");
 
@@ -24,6 +26,17 @@ const NewYorkCityOneDayPackageForm = props => {
   const [f1Address, setF1Address] = useState("");
   const [f1Description, setF1Description] = useState("");
   const [f1Website, setF1Website] = useState("");
+
+  function addPointCategories(e) {
+    e.preventDefault();
+    setAttractions([...attractions, ""]);
+    console.log("ATTERS", attractions);
+  }
+
+  // console.log(
+  //   "ATTRS",
+  //   attractions.map(i => i)
+  // );
 
   function submitHandler(e) {
     e.preventDefault();
@@ -67,12 +80,32 @@ const NewYorkCityOneDayPackageForm = props => {
       });
   }
 
+  // if (isLoading == true) {
+  //   return (
+  //     <div
+  //       style={{
+  //         display: "flex",
+  //         justifyContent: "center",
+  //         alignItems: "center",
+  //         flexDirection: "column",
+  //         backgroundColor: "rgb(26, 29, 33)",
+  //         height: "100vh",
+  //         width: "100vw"
+  //       }}
+  //     >
+  //       <Loader type="Triangle" color="blueViolet" height={200} width={200} />{" "}
+  //       <StyledP>Loading...</StyledP>
+  //     </div>
+  //   );
+  // }
+
   return (
     <div className="form-container">
       <div>
         <StyledH1>Add New Package</StyledH1>
       </div>
-      <form onSubmit={submitHandler}>
+      {/* <form onSubmit={submitHandler}> */}
+      <form>
         {/* ///////////// Package Details //////////////           */}
         <div className="forms">
           <div className="form-fields-container">
@@ -138,6 +171,20 @@ const NewYorkCityOneDayPackageForm = props => {
                 placeholder="e.g. https://www.wtc.com/about/buildings/1-world-trade-center"
               />
             </div>
+          </div>
+          {attractions.map(index => (
+            <div key={index} className="form-fields">
+              <span>Description </span>
+              <input
+                type="text"
+                value=""
+                //onChange={e => setA1Description(e.target.value)}
+                placeholder="One World Trade Center"
+              />
+            </div>
+          ))}
+          <div>
+            <button onClick={e => addPointCategories(e)}>Add New</button>
           </div>
         </div>
         {/* ///////////// Attraction Details //////////////           */}

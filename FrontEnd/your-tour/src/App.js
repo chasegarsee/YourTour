@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "./config";
-
+import Loader from "react-loader-spinner";
 import { Router, Route, Switch } from "react-router-dom";
 import { useAuth0 } from "./Components/Auth0/Auth0";
 import "./styles/App.css";
 import NavBar from "./Components/NavBar";
 import styled from "styled-components";
 import HomePage from "./Components/HomePage";
-import Loader from "react-loader-spinner";
+
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import history from "./utils/history";
 import StripeParent from "./STRIPE/StripeParent";
