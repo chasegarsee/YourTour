@@ -16,6 +16,11 @@ const NewYorkCityOneDayPackageForm = props => {
   const [a1Description, setA1Description] = useState("");
   const [a1Website, setA1Website] = useState("");
 
+  const [aName0, setAName0] = useState("");
+  const [aAddress0, setAAddress0] = useState("");
+  const [aDescription0, setADescription0] = useState("");
+  const [aWebsite0, setAWebsite0] = useState("");
+
   const [e1Name, setE1Name] = useState("");
   const [e1Address, setE1Address] = useState("");
   const [e1Description, setE1Description] = useState("");
@@ -28,7 +33,8 @@ const NewYorkCityOneDayPackageForm = props => {
 
   function addPointCategories(e) {
     e.preventDefault();
-    setAttractions([...attractions, ""]);
+    let count = 0;
+    setAttractions([...attractions, (count = attractions.length)]);
   }
 
   // console.log(
@@ -53,6 +59,12 @@ const NewYorkCityOneDayPackageForm = props => {
           description: a1Description,
           website: a1Website
         },
+        attractionTwo: {
+          name: aName0,
+          address: aAddress0,
+          description: aDescription0,
+          website: aWebsite0
+        },
         entertainmentOne: {
           name: e1Name,
           address: e1Address,
@@ -75,6 +87,11 @@ const NewYorkCityOneDayPackageForm = props => {
         setA1Description("");
         setA1Website("");
 
+        setAName0("");
+        setAAddress0("");
+        setADescription0("");
+        setAWebsite0("");
+
         setE1Name("");
         setE1Address("");
         setE1Description("");
@@ -92,7 +109,8 @@ const NewYorkCityOneDayPackageForm = props => {
       <div>
         <StyledH1>Add New Package</StyledH1>
       </div>
-      <form onSubmit={submitHandler}>
+      {/* <form onSubmit={submitHandler}> */}
+      <form>
         {/* ///////////// Package Details //////////////           */}
         <div className="forms">
           <div className="form-fields-container">
@@ -120,7 +138,7 @@ const NewYorkCityOneDayPackageForm = props => {
         {/* ///////////// Package Details //////////////           */}
         {/* ///////////// Attraction Details //////////////        */}
         <div className="attraction-container" className="forms">
-          <span>Attraction One </span>
+          <span>Attraction One</span>
           <div className="form-fields-container">
             <div className="form-fields">
               <span>Name </span>
@@ -160,20 +178,20 @@ const NewYorkCityOneDayPackageForm = props => {
             </div>
           </div>
         </div>
-        {attractions.map(() => (
+        {attractions.map(i => (
           <div
             key={Math.random()}
             className="attraction-container"
             className="forms"
           >
-            <span>Attraction One </span>
+            <span>{`Attraction ${i}`}</span>
             <div className="form-fields-container">
               <div className="form-fields">
                 <span>Name </span>
                 <input
                   type="text"
-                  value={a1Name}
-                  onChange={e => setA1Name(e.target.value)}
+                  value={aName0}
+                  onChange={e => setAName0(e.target.value)}
                   placeholder="Freedom Tower"
                 />
               </div>
@@ -200,7 +218,7 @@ const NewYorkCityOneDayPackageForm = props => {
                 <input
                   type="text"
                   value={a1Website}
-                  onChange={e => setA1Website(e.target.value)}
+                  onClick={e => setA1Website(e.target.value)}
                   placeholder="e.g. https://www.wtc.com/about/buildings/1-world-trade-center"
                 />
               </div>
