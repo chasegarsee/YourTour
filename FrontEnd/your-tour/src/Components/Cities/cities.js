@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Router, Route } from "react-router-dom";
+import React from "react";
+
 import styled from "styled-components";
 import { StyledH1, StyledH2, StyledP } from "../../styles/Text";
 import { CityButton } from "../../styles/Buttons";
