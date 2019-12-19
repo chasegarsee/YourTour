@@ -15,7 +15,7 @@ const Packages = props => {
   useEffect(() => {
     const useingCollections = async () => {
       for (let i = 0; i < urls.length; i++) {
-        if (window.location.pathname == `/${urls[i]}`) {
+        if (window.location.pathname === `/${urls[i]}`) {
           await firebase
             .firestore()
             .collection("newYorkCity")
@@ -33,7 +33,7 @@ const Packages = props => {
     useingCollections();
   }, []);
 
-  if (isLoading == true) {
+  if (isLoading === true) {
     return (
       <div
         style={{
