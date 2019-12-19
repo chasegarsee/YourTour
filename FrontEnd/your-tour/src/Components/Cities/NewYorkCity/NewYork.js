@@ -7,7 +7,6 @@ import Loader from "react-loader-spinner";
 import styled from "styled-components";
 import { StyledH1, StyledH2, StyledP } from "../../../styles/Text";
 import firebase from "../../../firebase";
-import Packages from "./Packages";
 
 const NewYork = props => {
   const [isLoading, setIsLoading] = useState(false);
