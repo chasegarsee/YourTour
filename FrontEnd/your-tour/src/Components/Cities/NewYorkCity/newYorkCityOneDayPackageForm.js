@@ -3,10 +3,10 @@ import React, { useState } from "react";
 // import axios from "axios";
 import "./forms.css";
 import firebase from "../../../firebase";
-import { StyledH1, StyledP } from "../../../styles/Text";
+import { StyledH1 } from "../../../styles/Text";
 
 const NewYorkCityOneDayPackageForm = props => {
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   const [attractions, setAttractions] = useState([]);
   const [packageName, setPackageName] = useState("");
   const [packageDescription, setPackageDescription] = useState("");

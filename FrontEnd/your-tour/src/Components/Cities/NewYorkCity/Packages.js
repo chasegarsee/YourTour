@@ -31,7 +31,7 @@ const Packages = props => {
       }
     };
     useingCollections();
-  }, []);
+  }, [urls]);
 
   if (isLoading === true) {
     return (
