@@ -137,7 +137,7 @@ const NewYorkCityOneDayPackageForm = props => {
 
         {/* ///////////// Package Details //////////////           */}
         {/* ///////////// Attraction Details //////////////        */}
-        <div className="attraction-container" className="forms">
+        <div className="attraction-container forms">
           <span>Attraction One</span>
           <div className="form-fields-container">
             <div className="form-fields">
@@ -232,7 +232,7 @@ const NewYorkCityOneDayPackageForm = props => {
         </div>
         {/* ///////////// Attraction Details //////////////           */}
         {/* ///////////// Entertainment Details //////////////        */}
-        <div className="entertainment-container" className="forms">
+        <div className="entertainment-container forms">
           <span>Entertainment One</span>
           <div className="form-fields-container">
             <div className="form-fields">
@@ -275,7 +275,7 @@ const NewYorkCityOneDayPackageForm = props => {
         </div>
         {/* ///////////// Entertainment Details //////////////           */}
         {/* ///////////// Food Details ///////////////////////           */}
-        <div className="food-container" className="forms">
+        <div className="food-container forms">
           <span>Restaurant One</span>
           <div className="form-fields-container">
             <div className="form-fields">
