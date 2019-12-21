@@ -5,7 +5,7 @@ import "./forms.css";
 import firebase from "../../../firebase";
 import { StyledH1 } from "../../../styles/Text";
 
-const NewYorkCityOneDayPackageForm = props => {
+const NewYorkCity1DayPackageForm = props => {
   // const [isLoading, setIsLoading] = useState(true);
   const [attractions, setAttractions] = useState([]);
   const [packageName, setPackageName] = useState("");
@@ -53,7 +53,7 @@ const NewYorkCityOneDayPackageForm = props => {
       .add({
         packageDescription: packageDescription,
         name: packageName,
-        attractionOne: {
+        attraction1: {
           name: a1Name,
           address: a1Address,
           description: a1Description,
@@ -65,13 +65,13 @@ const NewYorkCityOneDayPackageForm = props => {
           description: aDescription0,
           website: aWebsite0
         },
-        entertainmentOne: {
+        entertainment1: {
           name: e1Name,
           address: e1Address,
           description: e1Description,
           website: e1Website
         },
-        foodOne: {
+        food1: {
           name: f1Name,
           address: f1Address,
           description: f1Description,
@@ -138,7 +138,7 @@ const NewYorkCityOneDayPackageForm = props => {
         {/* ///////////// Package Details //////////////           */}
         {/* ///////////// Attraction Details //////////////        */}
         <div className="attraction-container forms">
-          <span>Attraction One</span>
+          <span>Attraction 1</span>
           <div className="form-fields-container">
             <div className="form-fields">
               <span>Name </span>
@@ -155,7 +155,7 @@ const NewYorkCityOneDayPackageForm = props => {
                 type="text"
                 value={a1Description}
                 onChange={e => setA1Description(e.target.value)}
-                placeholder="One World Trade Center"
+                placeholder="1 World Trade Center"
               />
             </div>
             <div className="form-fields">
@@ -184,7 +184,7 @@ const NewYorkCityOneDayPackageForm = props => {
             className="attraction-container"
             className="forms"
           >
-            <span>{`Attraction ${i}`}</span>
+            <span>{`Attraction ${i + 2}`}</span>
             <div className="form-fields-container">
               <div className="form-fields">
                 <span>Name </span>
@@ -201,7 +201,7 @@ const NewYorkCityOneDayPackageForm = props => {
                   type="text"
                   value={a1Description}
                   onChange={e => setA1Description(e.target.value)}
-                  placeholder="One World Trade Center"
+                  placeholder="1 World Trade Center"
                 />
               </div>
               <div className="form-fields">
@@ -233,7 +233,7 @@ const NewYorkCityOneDayPackageForm = props => {
         {/* ///////////// Attraction Details //////////////           */}
         {/* ///////////// Entertainment Details //////////////        */}
         <div className="entertainment-container forms">
-          <span>Entertainment One</span>
+          <span>Entertainment 1</span>
           <div className="form-fields-container">
             <div className="form-fields">
               <span>Name</span>
@@ -276,7 +276,7 @@ const NewYorkCityOneDayPackageForm = props => {
         {/* ///////////// Entertainment Details //////////////           */}
         {/* ///////////// Food Details ///////////////////////           */}
         <div className="food-container forms">
-          <span>Restaurant One</span>
+          <span>Restaurant 1</span>
           <div className="form-fields-container">
             <div className="form-fields">
               <span>Name</span>
@@ -323,4 +323,4 @@ const NewYorkCityOneDayPackageForm = props => {
   );
 };
 
-export default NewYorkCityOneDayPackageForm;
+export default NewYorkCity1DayPackageForm;
