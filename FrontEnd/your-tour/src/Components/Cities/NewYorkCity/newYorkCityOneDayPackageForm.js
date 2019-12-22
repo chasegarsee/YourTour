@@ -4,17 +4,19 @@ import React, { useState } from "react";
 import "./forms.css";
 import firebase from "../../../firebase";
 import { StyledH1 } from "../../../styles/Text";
+import { Alert, Button } from "react-bootstrap";
 
 const NewYorkCity1DayPackageForm = props => {
   // const [isLoading, setIsLoading] = useState(true);
+  const [show, setShow] = useState(true);
   const [attractions, setAttractions] = useState([]);
   const [packageName, setPackageName] = useState("");
   const [packageDescription, setPackageDescription] = useState("");
 
-  const [a1Name, setA1Name] = useState("");
-  const [a1Address, setA1Address] = useState("");
-  const [a1Description, setA1Description] = useState("");
-  const [a1Website, setA1Website] = useState("");
+  const [a1Name, setAName] = useState("");
+  const [a1Address, setAAddress] = useState("");
+  const [a1Description, setADescription] = useState("");
+  const [a1Website, setAWebsite] = useState("");
 
   const [aName0, setAName0] = useState("");
   const [aAddress0, setAAddress0] = useState("");
@@ -82,10 +84,10 @@ const NewYorkCity1DayPackageForm = props => {
         setPackageName("");
         setPackageDescription("");
 
-        setA1Name("");
-        setA1Address("");
-        setA1Description("");
-        setA1Website("");
+        setAName("");
+        setAAddress("");
+        setADescription("");
+        setAWebsite("");
 
         setAName0("");
         setAAddress0("");
@@ -103,6 +105,7 @@ const NewYorkCity1DayPackageForm = props => {
         setF1Website("");
       });
   }
+  console.log(attractions.length);
 
   return (
     <div className="form-container">
@@ -145,7 +148,7 @@ const NewYorkCity1DayPackageForm = props => {
               <input
                 type="text"
                 value={a1Name}
-                onChange={e => setA1Name(e.target.value)}
+                onChange={e => setAName(e.target.value)}
                 placeholder="Freedom Tower"
               />
             </div>
@@ -154,7 +157,7 @@ const NewYorkCity1DayPackageForm = props => {
               <input
                 type="text"
                 value={a1Description}
-                onChange={e => setA1Description(e.target.value)}
+                onChange={e => setADescription(e.target.value)}
                 placeholder="1 World Trade Center"
               />
             </div>
@@ -163,7 +166,7 @@ const NewYorkCity1DayPackageForm = props => {
               <input
                 type="text"
                 value={a1Address}
-                onChange={e => setA1Address(e.target.value)}
+                onChange={e => setAAddress(e.target.value)}
                 placeholder="e.g. 285 Fulton St, New York, NY 10007"
               />
             </div>
@@ -172,64 +175,87 @@ const NewYorkCity1DayPackageForm = props => {
               <input
                 type="text"
                 value={a1Website}
-                onChange={e => setA1Website(e.target.value)}
+                onChange={e => setAWebsite(e.target.value)}
                 placeholder="e.g. https://www.wtc.com/about/buildings/1-world-trade-center"
               />
             </div>
           </div>
         </div>
-        {attractions.map(i => (
-          <div
-            key={Math.random()}
-            className="attraction-container"
-            className="forms"
-          >
-            <span>{`Attraction ${i + 2}`}</span>
-            <div className="form-fields-container">
-              <div className="form-fields">
-                <span>Name </span>
-                <input
-                  type="text"
-                  value={aName0}
-                  onChange={e => setAName0(e.target.value)}
-                  placeholder="Freedom Tower"
-                />
-              </div>
-              <div className="form-fields">
-                <span>Description </span>
-                <input
-                  type="text"
-                  value={a1Description}
-                  onChange={e => setA1Description(e.target.value)}
-                  placeholder="1 World Trade Center"
-                />
-              </div>
-              <div className="form-fields">
-                <span>Address </span>
-                <input
-                  type="text"
-                  value={a1Address}
-                  onChange={e => setA1Address(e.target.value)}
-                  placeholder="e.g. 285 Fulton St, New York, NY 10007"
-                />
-              </div>
-              <div className="form-fields">
-                <span>Website </span>
-                <input
-                  type="text"
-                  value={a1Website}
-                  onClick={e => setA1Website(e.target.value)}
-                  placeholder="e.g. https://www.wtc.com/about/buildings/1-world-trade-center"
-                />
+
+        {attractions.map(i =>
+          i < 2 ? (
+            <div
+              key={Math.random()}
+              className="attraction-container"
+              className="forms"
+            >
+              <span>{`Attraction ${i + 2}`}</span>
+              <div className="form-fields-container">
+                <div className="form-fields">
+                  <span>Name </span>
+                  <input
+                    type="text"
+                    value={aName0}
+                    onChange={e => setAName0(e.target.value)}
+                    placeholder="Freedom Tower"
+                  />
+                </div>
+                <div className="form-fields">
+                  <span>Description </span>
+                  <input
+                    type="text"
+                    value={a1Description}
+                    onChange={e => setADescription(e.target.value)}
+                    placeholder="1 World Trade Center"
+                  />
+                </div>
+                <div className="form-fields">
+                  <span>Address </span>
+                  <input
+                    type="text"
+                    value={a1Address}
+                    onChange={e => setAAddress(e.target.value)}
+                    placeholder="e.g. 285 Fulton St, New York, NY 10007"
+                  />
+                </div>
+                <div className="form-fields">
+                  <span>Website </span>
+                  <input
+                    type="text"
+                    value={a1Website}
+                    onClick={e => setAWebsite(e.target.value)}
+                    placeholder="e.g. https://www.wtc.com/about/buildings/1-world-trade-center"
+                  />
+                </div>
               </div>
             </div>
+          ) : (
+            <Alert show={show} variant="danger">
+              <Alert.Heading>Oops</Alert.Heading>
+              <p>
+                Looks like you have reached the maximum amount of attractions
+                for this package type. if you would like to add additional
+                attractions, please select the Two Day, or Weekend Package
+              </p>
+              <hr />
+              <div className="d-flex justify-content-end">
+                <Button onClick={() => setShow(false)} variant="outline-danger">
+                  X
+                </Button>
+              </div>
+            </Alert>
+          )
+        )}
+        {attractions.length <= 2 ? (
+          <div>
+            <button onClick={e => addPointCategories(e)}>
+              Add Another Attraction
+            </button>
           </div>
-        ))}
-        <div>
-          <button onClick={e => addPointCategories(e)}>
-            Add Another Attraction
-          </button>
-        </div>
+        ) : (
+          <div></div>
+        )}
+
         {/* ///////////// Attraction Details //////////////           */}
         {/* ///////////// Entertainment Details //////////////        */}
         <div className="entertainment-container forms">
@@ -324,3 +350,51 @@ const NewYorkCity1DayPackageForm = props => {
 };
 
 export default NewYorkCity1DayPackageForm;
+
+// {attractions.map(i => (
+//   <div
+//     key={Math.random()}
+//     className="attraction-container"
+//     className="forms"
+//   >
+//     <span>{`Attraction ${i + 2}`}</span>
+//     <div className="form-fields-container">
+//       <div className="form-fields">
+//         <span>Name </span>
+//         <input
+//           type="text"
+//           value={aName0}
+//           onChange={e => setAName0(e.target.value)}
+//           placeholder="Freedom Tower"
+//         />
+//       </div>
+//       <div className="form-fields">
+//         <span>Description </span>
+//         <input
+//           type="text"
+//           value={a1Description}
+//           onChange={e => setADescription(e.target.value)}
+//           placeholder="1 World Trade Center"
+//         />
+//       </div>
+//       <div className="form-fields">
+//         <span>Address </span>
+//         <input
+//           type="text"
+//           value={a1Address}
+//           onChange={e => setAAddress(e.target.value)}
+//           placeholder="e.g. 285 Fulton St, New York, NY 10007"
+//         />
+//       </div>
+//       <div className="form-fields">
+//         <span>Website </span>
+//         <input
+//           type="text"
+//           value={a1Website}
+//           onClick={e => setAWebsite(e.target.value)}
+//           placeholder="e.g. https://www.wtc.com/about/buildings/1-world-trade-center"
+//         />
+//       </div>
+//     </div>
+//   </div>
+// ))}
