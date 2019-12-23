@@ -239,7 +239,7 @@ const NewYorkCity1DayPackageForm = props => {
               </p>
               <hr />
               <div className="d-flex justify-content-end">
-                <Button onClick={() => setShow(false)} variant="outline-danger">
+                <Button onClick={() => setShow(false)} variant="outline-dark">
                   X
                 </Button>
               </div>
@@ -343,58 +343,10 @@ const NewYorkCity1DayPackageForm = props => {
           </div>
         </div>
         {/* ///////////// Food Details ///////////////////           */}
-        <button onClick={submitHandler}>Add</button>
+        <button onClick={submitHandler}>Add Package</button>
       </form>
     </div>
   );
 };
 
 export default NewYorkCity1DayPackageForm;
-
-// {attractions.map(i => (
-//   <div
-//     key={Math.random()}
-//     className="attraction-container"
-//     className="forms"
-//   >
-//     <span>{`Attraction ${i + 2}`}</span>
-//     <div className="form-fields-container">
-//       <div className="form-fields">
-//         <span>Name </span>
-//         <input
-//           type="text"
-//           value={aName0}
-//           onChange={e => setAName0(e.target.value)}
-//           placeholder="Freedom Tower"
-//         />
-//       </div>
-//       <div className="form-fields">
-//         <span>Description </span>
-//         <input
-//           type="text"
-//           value={a1Description}
-//           onChange={e => setADescription(e.target.value)}
-//           placeholder="1 World Trade Center"
-//         />
-//       </div>
-//       <div className="form-fields">
-//         <span>Address </span>
-//         <input
-//           type="text"
-//           value={a1Address}
-//           onChange={e => setAAddress(e.target.value)}
-//           placeholder="e.g. 285 Fulton St, New York, NY 10007"
-//         />
-//       </div>
-//       <div className="form-fields">
-//         <span>Website </span>
-//         <input
-//           type="text"
-//           value={a1Website}
-//           onClick={e => setAWebsite(e.target.value)}
-//           placeholder="e.g. https://www.wtc.com/about/buildings/1-world-trade-center"
-//         />
-//       </div>
-//     </div>
-//   </div>
-// ))}
