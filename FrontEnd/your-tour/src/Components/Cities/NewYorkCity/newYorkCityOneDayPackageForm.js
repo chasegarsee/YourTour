@@ -64,13 +64,12 @@ const NewYorkCity1DayPackageForm = props => {
     setAttractions([...attractions, (count = attractions.length)]);
   }
 
-
   // console.log(
   //   "ATTRS",
   //   attractions.map(i => i)
   // );
 
-  const formValidation = () => {
+  function formValidation() {
     let packageNameError = "";
     let packageDescriptionError = "";
 
@@ -94,59 +93,147 @@ const NewYorkCity1DayPackageForm = props => {
     let f1DescriptionError = "";
     let f1WebsiteError = "";
 
-    if (packageName.length == 0) { packageNameError = "Must Provide a Package Name" }
-    if (packageDescription.length == 0) { packageDescriptionError = "Must Provide a Package Description"; }
-    if (a1Name.length == 0) { a1NameError = "Must Provide a Name"; }
-    if (a1Address.length == 0) { a1AddressError = "Must Provide an Address"; }
-    if (a1Description.length == 0) { a1DescriptionError = "Must Provide a Description"; }
-    if (a1Website.length == 0) { a1WebsiteError = "Must Provide a Website"; }
-    if (aName0.length == 0) { aName0Error = "Must Provide a Name"; }
-    if (aAddress0.length == 0) { aAddress0Error = "Must Provide an Address"; }
-    if (aDescription0.length == 0) { aDescription0Error = "Must Provide a Description"; }
-    if (aWebsite0.length == 0) { aWebsite0Error = "Must Provide a Website"; }
-    if (e1Name.length == 0) { e1NameError = "Must Provide a Name"; }
-    if (e1Address.length == 0) { e1AddressError = "Must Provide an Address"; }
-    if (e1Description.length == 0) { e1DescriptionError = "Must Provide a Description"; }
-    if (e1Website.length == 0) { e1WebsiteError = "Must Provide a Website"; }
-    if (f1Name.length == 0) { f1NameError = "Must Provide a Name"; }
-    if (f1Address.length == 0) { f1AddressError = "Must Provide an Address"; }
-    if (f1Description.length == 0) { f1DescriptionError = "Must Provide a Description"; }
-    if (f1Website.length == 0) { f1WebsiteError = "Must Provide a Website"; }
+    if (packageName.length == 0) {
+      packageNameError = "Must Provide a Package Name";
+    }
+    if (packageDescription.length == 0) {
+      packageDescriptionError = "Must Provide a Package Description";
+    }
+    if (a1Name.length == 0) {
+      a1NameError = "Must Provide a Name";
+    }
+    if (a1Address.length == 0) {
+      a1AddressError = "Must Provide an Address";
+    }
+    if (a1Description.length == 0) {
+      a1DescriptionError = "Must Provide a Description";
+    }
+    if (a1Website.length == 0) {
+      a1WebsiteError = "Must Provide a Web Address";
+    }
 
-    {
-      if (packageNameError) { setPackageNameError(packageNameError); }
-      if (packageDescriptionError) { setPackageDescriptionError(packageDescriptionError); }
-      //////////////////////////////////////////////////////////
+    if (!a1Website.includes(".") && a1Website.length > 0) {
+      a1WebsiteError = "Must Provide a Valid Web Address";
+    }
 
-      //////////////////////////////////////////////////////////
-      if (a1NameError) { setA1NameError(a1NameError); }
-      if (a1AddressError) { setA1AddressError(a1AddressError); }
-      if (a1DescriptionError) { setA1DescriptionError(a1DescriptionError); }
-      if (a1WebsiteError) { setA1WebsiteError(a1WebsiteError); }
-      //////////////////////////////////////////////////////////
+    if (aName0.length == 0) {
+      aName0Error = "Must Provide a Name";
+    }
+    if (aAddress0.length == 0) {
+      aAddress0Error = "Must Provide an Address";
+    }
+    if (aDescription0.length == 0) {
+      aDescription0Error = "Must Provide a Description";
+    }
+    if (aWebsite0.length == 0) {
+      aWebsite0Error = "Must Provide a Web Address";
+    }
 
-      //////////////////////////////////////////////////////////
-      if (aName0Error) { setAName0Error(aName0Error); }
-      if (aAddress0Error) { setAAddress0Error(aAddress0Error); }
-      if (aDescription0Error) { setADescription0Error(aDescription0Error); }
-      if (aWebsite0Error) { setAWebsite0Error(aWebsite0Error); }
-      //////////////////////////////////////////////////////////
+    if (!aWebsite0.includes(".") && aWebsite0.length > 0) {
+      aWebsite0Error = "Must Provide a Valid Web Address";
+    }
+    if (e1Name.length == 0) {
+      e1NameError = "Must Provide a Name";
+    }
+    if (e1Address.length == 0) {
+      e1AddressError = "Must Provide an Address";
+    }
+    if (e1Description.length == 0) {
+      e1DescriptionError = "Must Provide a Description";
+    }
+    if (e1Website.length == 0) {
+      e1WebsiteError = "Must Provide a Web Address";
+    }
 
-      //////////////////////////////////////////////////////////
-      if (e1NameError) { setE1NameError(e1NameError); }
-      if (e1AddressError) { setE1AddressError(e1AddressError); }
-      if (e1DescriptionError) { setE1DescriptionError(e1DescriptionError); }
-      if (e1WebsiteError) { setE1WebsiteError(e1WebsiteError); }
-      //////////////////////////////////////////////////////////
+    if (!e1Website.includes(".") && e1Website.length > 0) {
+      e1WebsiteError = "Must Provide a Valid Web Address";
+    }
 
-      //////////////////////////////////////////////////////////
-      if (f1NameError) { setF1NameError(f1NameError); }
-      if (f1AddressError) { setF1AddressError(f1AddressError); }
-      if (f1DescriptionError) { setF1DescriptionError(f1DescriptionError); }
-      if (f1WebsiteError) { setF1WebsiteError(f1WebsiteError) }
-      return false;
+    if (f1Name.length == 0) {
+      f1NameError = "Must Provide a Name";
+    }
+    if (f1Address.length == 0) {
+      f1AddressError = "Must Provide an Address";
+    }
+    if (f1Description.length == 0) {
+      f1DescriptionError = "Must Provide a Description";
+    }
+    if (f1Website.length == 0) {
+      f1WebsiteError = "Must Provide a Web Address";
+    }
+
+    if (!f1Website.includes(".") && f1Website.length > 0) {
+      f1WebsiteError = "Must Provide a Valid Web Address";
+    }
+
+    if (packageNameError) {
+      setPackageNameError(packageNameError);
+    }
+    if (packageDescriptionError) {
+      setPackageDescriptionError(packageDescriptionError);
     }
     //////////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////
+    if (a1NameError) {
+      setA1NameError(a1NameError);
+    }
+    if (a1AddressError) {
+      setA1AddressError(a1AddressError);
+    }
+    if (a1DescriptionError) {
+      setA1DescriptionError(a1DescriptionError);
+    }
+    if (a1WebsiteError) {
+      setA1WebsiteError(a1WebsiteError);
+    }
+    //////////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////
+    if (aName0Error) {
+      setAName0Error(aName0Error);
+    }
+    if (aAddress0Error) {
+      setAAddress0Error(aAddress0Error);
+    }
+    if (aDescription0Error) {
+      setADescription0Error(aDescription0Error);
+    }
+    if (aWebsite0Error) {
+      setAWebsite0Error(aWebsite0Error);
+    }
+    //////////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////
+    if (e1NameError) {
+      setE1NameError(e1NameError);
+    }
+    if (e1AddressError) {
+      setE1AddressError(e1AddressError);
+    }
+    if (e1DescriptionError) {
+      setE1DescriptionError(e1DescriptionError);
+    }
+    if (e1WebsiteError) {
+      setE1WebsiteError(e1WebsiteError);
+    }
+    //////////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////
+    if (f1NameError) {
+      setF1NameError(f1NameError);
+    }
+    if (f1AddressError) {
+      setF1AddressError(f1AddressError);
+    }
+    if (f1DescriptionError) {
+      setF1DescriptionError(f1DescriptionError);
+    }
+    if (f1WebsiteError) {
+      setF1WebsiteError(f1WebsiteError);
+      return false;
+    }
+
     return true;
   }
 
@@ -236,9 +323,7 @@ const NewYorkCity1DayPackageForm = props => {
           setF1WebsiteError("");
         });
     }
-
   }
-
 
   return (
     <div className="form-container">
@@ -369,21 +454,21 @@ const NewYorkCity1DayPackageForm = props => {
               </div>
             </div>
           ) : (
-              <Alert show={show} variant="danger">
-                <Alert.Heading>Oops</Alert.Heading>
-                <p>
-                  Looks like you have reached the maximum amount of attractions
-                  for this package type. if you would like to add additional
-                  attractions, please select the Two Day, or Weekend Package
+            <Alert show={show} variant="danger">
+              <Alert.Heading>Oops</Alert.Heading>
+              <p>
+                Looks like you have reached the maximum amount of attractions
+                for this package type. if you would like to add additional
+                attractions, please select the Two Day, or Weekend Package
               </p>
-                <hr />
-                <div className="d-flex justify-content-end">
-                  <Button onClick={() => setShow(false)} variant="outline-dark">
-                    X
+              <hr />
+              <div className="d-flex justify-content-end">
+                <Button onClick={() => setShow(false)} variant="outline-dark">
+                  X
                 </Button>
-                </div>
-              </Alert>
-            )
+              </div>
+            </Alert>
+          )
         )}
         {attractions.length <= 2 ? (
           <div>
@@ -492,7 +577,7 @@ const NewYorkCity1DayPackageForm = props => {
       </form>
     </div>
   );
-}
+};
 
 export default NewYorkCity1DayPackageForm;
 
