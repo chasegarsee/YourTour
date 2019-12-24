@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 // import { BASE_URL } from "../../../config";
 // import axios from "axios";
 import "./forms.css";
@@ -10,6 +11,7 @@ const NewYorkCity1DayPackageForm = props => {
   // const [isLoading, setIsLoading] = useState(true);
   const [show, setShow] = useState(true);
   const [attractions, setAttractions] = useState([]);
+
   const [packageName, setPackageName] = useState("");
   const [packageDescription, setPackageDescription] = useState("");
 
@@ -33,79 +35,210 @@ const NewYorkCity1DayPackageForm = props => {
   const [f1Description, setF1Description] = useState("");
   const [f1Website, setF1Website] = useState("");
 
+  const [packageNameError, setPackageNameError] = useState("");
+  const [packageDescriptionError, setPackageDescriptionError] = useState("");
+
+  const [a1NameError, setA1NameError] = useState("");
+  const [a1AddressError, setA1AddressError] = useState("");
+  const [a1DescriptionError, setA1DescriptionError] = useState("");
+  const [a1WebsiteError, setA1WebsiteError] = useState("");
+
+  const [aName0Error, setAName0Error] = useState("");
+  const [aAddress0Error, setAAddress0Error] = useState("");
+  const [aDescription0Error, setADescription0Error] = useState("");
+  const [aWebsite0Error, setAWebsite0Error] = useState("");
+
+  const [e1NameError, setE1NameError] = useState("");
+  const [e1AddressError, setE1AddressError] = useState("");
+  const [e1DescriptionError, setE1DescriptionError] = useState("");
+  const [e1WebsiteError, setE1WebsiteError] = useState("");
+
+  const [f1NameError, setF1NameError] = useState("");
+  const [f1AddressError, setF1AddressError] = useState("");
+  const [f1DescriptionError, setF1DescriptionError] = useState("");
+  const [f1WebsiteError, setF1WebsiteError] = useState("");
+
   function addPointCategories(e) {
     e.preventDefault();
     let count = 0;
     setAttractions([...attractions, (count = attractions.length)]);
   }
 
+
   // console.log(
   //   "ATTRS",
   //   attractions.map(i => i)
   // );
 
+  const formValidation = () => {
+    let packageNameError = "";
+    let packageDescriptionError = "";
+
+    let a1NameError = "";
+    let a1AddressError = "";
+    let a1DescriptionError = "";
+    let a1WebsiteError = "";
+
+    let aName0Error = "";
+    let aAddress0Error = "";
+    let aDescription0Error = "";
+    let aWebsite0Error = "";
+
+    let e1NameError = "";
+    let e1AddressError = "";
+    let e1DescriptionError = "";
+    let e1WebsiteError = "";
+
+    let f1NameError = "";
+    let f1AddressError = "";
+    let f1DescriptionError = "";
+    let f1WebsiteError = "";
+
+    if (packageName.length == 0) { packageNameError = "Must Provide a Package Name" }
+    if (packageDescription.length == 0) { packageDescriptionError = "Must Provide a Package Description"; }
+    if (a1Name.length == 0) { a1NameError = "Must Provide a Name"; }
+    if (a1Address.length == 0) { a1AddressError = "Must Provide an Address"; }
+    if (a1Description.length == 0) { a1DescriptionError = "Must Provide a Description"; }
+    if (a1Website.length == 0) { a1WebsiteError = "Must Provide a Website"; }
+    if (aName0.length == 0) { aName0Error = "Must Provide a Name"; }
+    if (aAddress0.length == 0) { aAddress0Error = "Must Provide an Address"; }
+    if (aDescription0.length == 0) { aDescription0Error = "Must Provide a Description"; }
+    if (aWebsite0.length == 0) { aWebsite0Error = "Must Provide a Website"; }
+    if (e1Name.length == 0) { e1NameError = "Must Provide a Name"; }
+    if (e1Address.length == 0) { e1AddressError = "Must Provide an Address"; }
+    if (e1Description.length == 0) { e1DescriptionError = "Must Provide a Description"; }
+    if (e1Website.length == 0) { e1WebsiteError = "Must Provide a Website"; }
+    if (f1Name.length == 0) { f1NameError = "Must Provide a Name"; }
+    if (f1Address.length == 0) { f1AddressError = "Must Provide an Address"; }
+    if (f1Description.length == 0) { f1DescriptionError = "Must Provide a Description"; }
+    if (f1Website.length == 0) { f1WebsiteError = "Must Provide a Website"; }
+
+    {
+      if (packageNameError) { setPackageNameError(packageNameError); }
+      if (packageDescriptionError) { setPackageDescriptionError(packageDescriptionError); }
+      //////////////////////////////////////////////////////////
+
+      //////////////////////////////////////////////////////////
+      if (a1NameError) { setA1NameError(a1NameError); }
+      if (a1AddressError) { setA1AddressError(a1AddressError); }
+      if (a1DescriptionError) { setA1DescriptionError(a1DescriptionError); }
+      if (a1WebsiteError) { setA1WebsiteError(a1WebsiteError); }
+      //////////////////////////////////////////////////////////
+
+      //////////////////////////////////////////////////////////
+      if (aName0Error) { setAName0Error(aName0Error); }
+      if (aAddress0Error) { setAAddress0Error(aAddress0Error); }
+      if (aDescription0Error) { setADescription0Error(aDescription0Error); }
+      if (aWebsite0Error) { setAWebsite0Error(aWebsite0Error); }
+      //////////////////////////////////////////////////////////
+
+      //////////////////////////////////////////////////////////
+      if (e1NameError) { setE1NameError(e1NameError); }
+      if (e1AddressError) { setE1AddressError(e1AddressError); }
+      if (e1DescriptionError) { setE1DescriptionError(e1DescriptionError); }
+      if (e1WebsiteError) { setE1WebsiteError(e1WebsiteError); }
+      //////////////////////////////////////////////////////////
+
+      //////////////////////////////////////////////////////////
+      if (f1NameError) { setF1NameError(f1NameError); }
+      if (f1AddressError) { setF1AddressError(f1AddressError); }
+      if (f1DescriptionError) { setF1DescriptionError(f1DescriptionError); }
+      if (f1WebsiteError) { setF1WebsiteError(f1WebsiteError) }
+      return false;
+    }
+    //////////////////////////////////////////////////////////
+    return true;
+  }
+
   function submitHandler(e) {
     e.preventDefault();
+    const isValid = formValidation();
+    if (isValid) {
+      console.log(useState);
+      firebase
+        .firestore()
+        .collection("newYorkCity")
+        .doc("GX5nBGcDrSkGlEpj4Mkq")
+        .collection("oneDayPackage")
+        .add({
+          packageDescription: packageDescription,
+          name: packageName,
+          attraction1: {
+            name: a1Name,
+            address: a1Address,
+            description: a1Description,
+            website: a1Website
+          },
+          attractionTwo: {
+            name: aName0,
+            address: aAddress0,
+            description: aDescription0,
+            website: aWebsite0
+          },
+          entertainment1: {
+            name: e1Name,
+            address: e1Address,
+            description: e1Description,
+            website: e1Website
+          },
+          food1: {
+            name: f1Name,
+            address: f1Address,
+            description: f1Description,
+            website: f1Website
+          }
+        })
+        .then(() => {
+          setPackageName("");
+          setPackageDescription("");
 
-    firebase
-      .firestore()
-      .collection("newYorkCity")
-      .doc("GX5nBGcDrSkGlEpj4Mkq")
-      .collection("oneDayPackage")
-      .add({
-        packageDescription: packageDescription,
-        name: packageName,
-        attraction1: {
-          name: a1Name,
-          address: a1Address,
-          description: a1Description,
-          website: a1Website
-        },
-        attractionTwo: {
-          name: aName0,
-          address: aAddress0,
-          description: aDescription0,
-          website: aWebsite0
-        },
-        entertainment1: {
-          name: e1Name,
-          address: e1Address,
-          description: e1Description,
-          website: e1Website
-        },
-        food1: {
-          name: f1Name,
-          address: f1Address,
-          description: f1Description,
-          website: f1Website
-        }
-      })
-      .then(() => {
-        setPackageName("");
-        setPackageDescription("");
+          setAName("");
+          setAAddress("");
+          setADescription("");
+          setAWebsite("");
 
-        setAName("");
-        setAAddress("");
-        setADescription("");
-        setAWebsite("");
+          setAName0("");
+          setAAddress0("");
+          setADescription0("");
+          setAWebsite0("");
 
-        setAName0("");
-        setAAddress0("");
-        setADescription0("");
-        setAWebsite0("");
+          setE1Name("");
+          setE1Address("");
+          setE1Description("");
+          setE1Website("");
 
-        setE1Name("");
-        setE1Address("");
-        setE1Description("");
-        setE1Website("");
+          setF1Name("");
+          setF1Address("");
+          setF1Description("");
+          setF1Website("");
 
-        setF1Name("");
-        setF1Address("");
-        setF1Description("");
-        setF1Website("");
-      });
+          setPackageNameError("");
+          setPackageDescriptionError("");
+
+          setA1NameError("");
+          setA1AddressError("");
+          setA1DescriptionError("");
+          setA1WebsiteError("");
+
+          setAName0Error("");
+          setAAddress0Error("");
+          setADescription0Error("");
+          setAWebsite0Error("");
+
+          setE1NameError("");
+          setE1AddressError("");
+          setE1DescriptionError("");
+          setE1WebsiteError("");
+
+          setF1NameError("");
+          setF1AddressError("");
+          setF1DescriptionError("");
+          setF1WebsiteError("");
+        });
+    }
+
   }
-  console.log(attractions.length);
+
 
   return (
     <div className="form-container">
@@ -119,15 +252,17 @@ const NewYorkCity1DayPackageForm = props => {
           <div className="form-fields-container">
             <div className="form-fields">
               <span>Package Name</span>
+              <ErrorSpan>{packageNameError}</ErrorSpan>
               <input
                 type="text"
                 value={packageName}
                 onChange={e => setPackageName(e.target.value)}
                 placeholder="Package Name"
-              ></input>
+              />
             </div>
             <div className="form-fields">
               <span>Package Description</span>
+              <ErrorSpan>{packageDescriptionError}</ErrorSpan>
               <input
                 type="text"
                 value={packageDescription}
@@ -145,6 +280,7 @@ const NewYorkCity1DayPackageForm = props => {
           <div className="form-fields-container">
             <div className="form-fields">
               <span>Name </span>
+              <ErrorSpan>{a1NameError}</ErrorSpan>
               <input
                 type="text"
                 value={a1Name}
@@ -154,6 +290,7 @@ const NewYorkCity1DayPackageForm = props => {
             </div>
             <div className="form-fields">
               <span>Description </span>
+              <ErrorSpan>{a1DescriptionError}</ErrorSpan>
               <input
                 type="text"
                 value={a1Description}
@@ -163,6 +300,7 @@ const NewYorkCity1DayPackageForm = props => {
             </div>
             <div className="form-fields">
               <span>Address </span>
+              <ErrorSpan>{a1AddressError}</ErrorSpan>
               <input
                 type="text"
                 value={a1Address}
@@ -172,6 +310,7 @@ const NewYorkCity1DayPackageForm = props => {
             </div>
             <div className="form-fields">
               <span>Website </span>
+              <ErrorSpan>{a1WebsiteError}</ErrorSpan>
               <input
                 type="text"
                 value={a1Website}
@@ -230,21 +369,21 @@ const NewYorkCity1DayPackageForm = props => {
               </div>
             </div>
           ) : (
-            <Alert show={show} variant="danger">
-              <Alert.Heading>Oops</Alert.Heading>
-              <p>
-                Looks like you have reached the maximum amount of attractions
-                for this package type. if you would like to add additional
-                attractions, please select the Two Day, or Weekend Package
+              <Alert show={show} variant="danger">
+                <Alert.Heading>Oops</Alert.Heading>
+                <p>
+                  Looks like you have reached the maximum amount of attractions
+                  for this package type. if you would like to add additional
+                  attractions, please select the Two Day, or Weekend Package
               </p>
-              <hr />
-              <div className="d-flex justify-content-end">
-                <Button onClick={() => setShow(false)} variant="outline-dark">
-                  X
+                <hr />
+                <div className="d-flex justify-content-end">
+                  <Button onClick={() => setShow(false)} variant="outline-dark">
+                    X
                 </Button>
-              </div>
-            </Alert>
-          )
+                </div>
+              </Alert>
+            )
         )}
         {attractions.length <= 2 ? (
           <div>
@@ -252,9 +391,7 @@ const NewYorkCity1DayPackageForm = props => {
               Add Another Attraction
             </button>
           </div>
-        ) : (
-          <div></div>
-        )}
+        ) : null}
 
         {/* ///////////// Attraction Details //////////////           */}
         {/* ///////////// Entertainment Details //////////////        */}
@@ -263,6 +400,7 @@ const NewYorkCity1DayPackageForm = props => {
           <div className="form-fields-container">
             <div className="form-fields">
               <span>Name</span>
+              <ErrorSpan>{e1NameError}</ErrorSpan>
               <input
                 type="text"
                 value={e1Name}
@@ -272,6 +410,7 @@ const NewYorkCity1DayPackageForm = props => {
             </div>
             <div className="form-fields">
               <span>Description</span>
+              <ErrorSpan>{e1DescriptionError}</ErrorSpan>
               <input
                 type="text"
                 value={e1Description}
@@ -281,6 +420,7 @@ const NewYorkCity1DayPackageForm = props => {
             </div>
             <div className="form-fields">
               <span>Address</span>
+              <ErrorSpan>{e1AddressError}</ErrorSpan>
               <input
                 type="text"
                 value={e1Address}
@@ -290,6 +430,7 @@ const NewYorkCity1DayPackageForm = props => {
             </div>
             <div className="form-fields">
               <span>Website</span>
+              <ErrorSpan>{e1WebsiteError}</ErrorSpan>
               <input
                 type="text"
                 value={e1Website}
@@ -306,6 +447,7 @@ const NewYorkCity1DayPackageForm = props => {
           <div className="form-fields-container">
             <div className="form-fields">
               <span>Name</span>
+              <ErrorSpan>{f1NameError}</ErrorSpan>
               <input
                 type="text"
                 value={f1Name}
@@ -315,6 +457,7 @@ const NewYorkCity1DayPackageForm = props => {
             </div>
             <div className="form-fields">
               <span>Description</span>
+              <ErrorSpan>{f1DescriptionError}</ErrorSpan>
               <input
                 type="text"
                 value={f1Description}
@@ -324,6 +467,7 @@ const NewYorkCity1DayPackageForm = props => {
             </div>
             <div className="form-fields">
               <span>Address</span>
+              <ErrorSpan>{f1AddressError}</ErrorSpan>
               <input
                 type="text"
                 value={f1Address}
@@ -333,6 +477,7 @@ const NewYorkCity1DayPackageForm = props => {
             </div>
             <div className="form-fields">
               <span>Website</span>
+              <ErrorSpan>{f1WebsiteError}</ErrorSpan>
               <input
                 type="text"
                 value={f1Website}
@@ -347,6 +492,10 @@ const NewYorkCity1DayPackageForm = props => {
       </form>
     </div>
   );
-};
+}
 
 export default NewYorkCity1DayPackageForm;
+
+const ErrorSpan = styled.span`
+  color: red;
+`;
