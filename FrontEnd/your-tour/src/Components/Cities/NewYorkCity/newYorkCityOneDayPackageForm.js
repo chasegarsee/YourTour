@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-// import { BASE_URL } from "../../../config";
-// import axios from "axios";
+
 import "./forms.css";
 import firebase from "../../../firebase";
 import { StyledH1 } from "../../../styles/Text";
 import { Alert, Button } from "react-bootstrap";
 
 const NewYorkCity1DayPackageForm = props => {
-  // const [isLoading, setIsLoading] = useState(true);
   const [show, setShow] = useState(true);
   const [attractions, setAttractions] = useState([]);
 
@@ -63,11 +61,6 @@ const NewYorkCity1DayPackageForm = props => {
     let count = 0;
     setAttractions([...attractions, (count = attractions.length)]);
   }
-
-  // console.log(
-  //   "ATTRS",
-  //   attractions.map(i => i)
-  // );
 
   function formValidation() {
     let packageNameError = "";
@@ -233,7 +226,6 @@ const NewYorkCity1DayPackageForm = props => {
       setF1WebsiteError(f1WebsiteError);
       return false;
     }
-
     return true;
   }
 
