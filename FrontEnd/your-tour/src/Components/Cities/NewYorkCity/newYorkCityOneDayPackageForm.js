@@ -242,7 +242,7 @@ const NewYorkCity1DayPackageForm = props => {
         .add({
           packageDescription: packageDescription,
           name: packageName,
-          attraction1: {
+          attractionOne: {
             name: a1Name,
             address: a1Address,
             description: a1Description,
@@ -254,13 +254,13 @@ const NewYorkCity1DayPackageForm = props => {
             description: aDescription0,
             website: aWebsite0
           },
-          entertainment1: {
+          entertainmentOne: {
             name: e1Name,
             address: e1Address,
             description: e1Description,
             website: e1Website
           },
-          food1: {
+          foodOne: {
             name: f1Name,
             address: f1Address,
             description: f1Description,
@@ -314,6 +314,7 @@ const NewYorkCity1DayPackageForm = props => {
           setF1DescriptionError("");
           setF1WebsiteError("");
         });
+      props.history.push("/new-york-city");
     }
   }
 
