@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import { StyledH1, StyledP } from "../../../styles/Text";
+import styled from "styled-components";
 import firebase from "../../../firebase";
+import StripeParent from "../../../STRIPE/StripeParent";
 
 const Packages = props => {
   const [data, setData] = useState([]);
@@ -33,6 +35,14 @@ const Packages = props => {
     useingCollections();
   }, [urls]);
 
+  if (window.location.pathname.includes("stripe")) {
+    return (
+      <div>
+        <StripeParent />
+      </div>
+    );
+  }
+
   if (isLoading === true) {
     return (
       <div
@@ -42,12 +52,13 @@ const Packages = props => {
           alignItems: "center",
           flexDirection: "column",
           backgroundColor: "rgb(26, 29, 33)",
-          height: "100vh",
+          minHeight: "100vh",
+          height: "100%",
           width: "100vw"
         }}
       >
         <Loader type="Triangle" color="blueViolet" height={200} width={200} />{" "}
-        <StyledP>Loading...</StyledP>
+        <StyledSpan>Loading...</StyledSpan>
       </div>
     );
   }
@@ -69,3 +80,8 @@ const Packages = props => {
 };
 
 export default Packages;
+
+const StyledSpan = styled.span`
+  font-size: 2rem;
+  color: greenyellow;
+`;

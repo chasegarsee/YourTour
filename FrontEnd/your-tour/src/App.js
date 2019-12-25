@@ -59,8 +59,6 @@ function App(props) {
   const callbackFunction = childData => {
     setMessage(childData);
   };
-
-  console.log("DIS THE CHILD DATA", message);
   ///////////////////////////////////////////////
   if (loading) {
     return (
@@ -80,62 +78,66 @@ function App(props) {
       </div>
     );
   }
-
-  return (
-    <div className="App">
-      <Router history={history}>
-        <NavBar />
-        <StyledDiv>
-          {/* <Packages id="board-1" className="board" />
+  if (!loading) {
+    return (
+      <div className="App">
+        <Router history={history}>
+          <NavBar />
+          <StyledDiv>
+            {/* <Packages id="board-1" className="board" />
           <Places id="board-2" className="board" /> */}
-          {/* <code>{JSON.stringify(user, null, 2)}</code> */}
-          <Switch>
-            <Route exact path="/" />
-            <Route
-              path="/cities"
-              render={props => (
-                <Cities
-                  {...props}
-                  data={data}
-                  parentCallback={callbackFunction}
-                />
-              )}
-            />
+            {/* <code>{JSON.stringify(user, null, 2)}</code> */}
+            <Switch>
+              <Route exact path="/" />
+              <Route
+                path="/cities"
+                render={props => (
+                  <Cities
+                    {...props}
+                    data={data}
+                    parentCallback={callbackFunction}
+                  />
+                )}
+              />
 
-            {/* ///// NASHVILLE ROUTES ///// */}
-            <Route exact path="/nashville" component={Nashville} />
-            {/* ///// NEW YORK CITY ROUTES ///// */}
-            <Route
-              exact
-              path="/new-york-city"
-              render={props => (
-                <NewYork {...props} parentCallback={callbackFunction} />
-              )}
-            />
-            <Route
-              exact
-              path="/new-york-city/add-one-day-package"
-              component={newYorkCityOneDayPackageForm}
-            />
+              {/* ///// NASHVILLE ROUTES ///// */}
+              <Route exact path="/nashville" component={Nashville} />
+              {/* ///// NEW YORK CITY ROUTES ///// */}
+              <Route
+                exact
+                path="/new-york-city"
+                render={props => (
+                  <NewYork {...props} parentCallback={callbackFunction} />
+                )}
+              />
+              <Route
+                exact
+                path="/new-york-city/add-one-day-package"
+                component={newYorkCityOneDayPackageForm}
+              />
 
-            <Route
-              exact
-              path={message.id}
-              render={props => (
-                <Packages {...props} data={data} message={message} />
-              )}
-            />
+              <Route
+                exact
+                path={message.id}
+                render={props => (
+                  <Packages {...props} data={data} message={message} />
+                )}
+              />
 
-            {/* ///// BOSTON ROUTES ROUTES ///// */}
-            <Route exact path="/boston" component={Boston} />
-            <Route path="/search-packages" component={HomePage} />
-            <Route path="/stripe" component={StripeParent} />
-            {/* <PrivateRoute path="/search-packages" component={HomePage} /> */}
-          </Switch>
-        </StyledDiv>
-      </Router>
-    </div>
-  );
+              {/* ///// BOSTON ROUTES ROUTES ///// */}
+              <Route exact path="/boston" component={Boston} />
+              <Route path="/search-packages" component={HomePage} />
+              <Route
+                path="/new-york-city/stripe/MyksmA6ebQRFhuON7Jq7"
+                component={StripeParent}
+              />
+              {/* <PrivateRoute path="/search-packages" component={HomePage} /> */}
+            </Switch>
+          </StyledDiv>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
@@ -145,18 +147,6 @@ const StyledDiv = styled.div`
   margin-top: 30px;
   justify-content: space-evenly;
 `;
-
-// const Header = styled.header`
-//   height: 100vh;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// `;
-
-// const PackageContainer = styled.div`
-//   display: flex;
-//   justify-content: space-evenly;
-// `;
 
 const StyledSpan = styled.span`
   font-size: 2rem;

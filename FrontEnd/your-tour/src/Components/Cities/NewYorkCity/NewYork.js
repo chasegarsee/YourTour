@@ -7,6 +7,7 @@ import Loader from "react-loader-spinner";
 import styled from "styled-components";
 import { StyledH1, StyledH2, StyledP } from "../../../styles/Text";
 import firebase from "../../../firebase";
+import StripeParent from "../../../STRIPE/StripeParent";
 
 const NewYork = props => {
   const [isLoading, setIsLoading] = useState(false);
@@ -61,7 +62,12 @@ const NewYork = props => {
             <StyledH2>{p.packageDescription}</StyledH2>
             <StyledP>{p.attractionOne.name}</StyledP>
             <button>
-              <Link to={p.id}>View Package</Link>
+              <Link to={`/${p.id}`}>View Package</Link>
+            </button>
+            <button>
+              <Link to={"/new-york-city/stripe/MyksmA6ebQRFhuON7Jq7"}>
+                Buy Me
+              </Link>
             </button>
           </StyledCard2>
         ))}
