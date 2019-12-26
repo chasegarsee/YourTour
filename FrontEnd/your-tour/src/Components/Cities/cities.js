@@ -7,7 +7,7 @@ import "../../styles/StripeCheckout.css";
 // import Nashville from "./Nashville/Nashville";
 
 function Cities(props) {
-  console.log(props.data);
+  console.log("PROOOPS DATA", props.data);
   const items = props.data.map(i => (
     <div key={i[0].cityId}>
       <StyledCard2>
