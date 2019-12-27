@@ -38,7 +38,7 @@ const Packages = props => {
   if (window.location.pathname.includes("stripe")) {
     return (
       <div>
-        <StripeParent />
+        <StripeParent data={data} history={props.history} />
       </div>
     );
   }

@@ -79,7 +79,6 @@ function App(props) {
     );
   }
 
-  console.log("PROOOPS", props);
   if (!loading) {
     return (
       <div className="App">
@@ -129,10 +128,10 @@ function App(props) {
               {/* ///// BOSTON ROUTES ROUTES ///// */}
               <Route exact path="/boston" component={Boston} />
               <Route path="/search-packages" component={HomePage} />
-              {/* <Route
+              <Route
                 path="/new-york-city/stripe/MyksmA6ebQRFhuON7Jq7"
                 component={StripeParent}
-              /> */}
+              />
               {/* <PrivateRoute path="/search-packages" component={HomePage} /> */}
             </Switch>
           </StyledDiv>

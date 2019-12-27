@@ -29,7 +29,11 @@ class StripeForm extends React.Component {
     } catch (e) {
       throw e;
     }
-    console.log("test");
+
+    let lastURLSegment = window.location.href.substr(
+      window.location.href.lastIndexOf("/") + 1
+    );
+    this.props.history.push(`/${lastURLSegment}`);
   };
 
   render() {

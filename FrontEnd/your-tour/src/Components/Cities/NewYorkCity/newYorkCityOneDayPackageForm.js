@@ -86,22 +86,22 @@ const NewYorkCity1DayPackageForm = props => {
     let f1DescriptionError = "";
     let f1WebsiteError = "";
 
-    if (packageName.length == 0) {
+    if (packageName.length === 0) {
       packageNameError = "Must Provide a Package Name";
     }
-    if (packageDescription.length == 0) {
+    if (packageDescription.length === 0) {
       packageDescriptionError = "Must Provide a Package Description";
     }
-    if (a1Name.length == 0) {
+    if (a1Name.length === 0) {
       a1NameError = "Must Provide a Name";
     }
-    if (a1Address.length == 0) {
+    if (a1Address.length === 0) {
       a1AddressError = "Must Provide an Address";
     }
-    if (a1Description.length == 0) {
+    if (a1Description.length === 0) {
       a1DescriptionError = "Must Provide a Description";
     }
-    if (a1Website.length == 0) {
+    if (a1Website.length === 0) {
       a1WebsiteError = "Must Provide a Web Address";
     }
 
@@ -109,32 +109,32 @@ const NewYorkCity1DayPackageForm = props => {
       a1WebsiteError = "Must Provide a Valid Web Address";
     }
 
-    if (aName0.length == 0) {
+    if (aName0.length === 0) {
       aName0Error = "Must Provide a Name";
     }
-    if (aAddress0.length == 0) {
+    if (aAddress0.length === 0) {
       aAddress0Error = "Must Provide an Address";
     }
-    if (aDescription0.length == 0) {
+    if (aDescription0.length === 0) {
       aDescription0Error = "Must Provide a Description";
     }
-    if (aWebsite0.length == 0) {
+    if (aWebsite0.length === 0) {
       aWebsite0Error = "Must Provide a Web Address";
     }
 
     if (!aWebsite0.includes(".") && aWebsite0.length > 0) {
       aWebsite0Error = "Must Provide a Valid Web Address";
     }
-    if (e1Name.length == 0) {
+    if (e1Name.length === 0) {
       e1NameError = "Must Provide a Name";
     }
-    if (e1Address.length == 0) {
+    if (e1Address.length === 0) {
       e1AddressError = "Must Provide an Address";
     }
-    if (e1Description.length == 0) {
+    if (e1Description.length === 0) {
       e1DescriptionError = "Must Provide a Description";
     }
-    if (e1Website.length == 0) {
+    if (e1Website.length === 0) {
       e1WebsiteError = "Must Provide a Web Address";
     }
 
@@ -142,16 +142,16 @@ const NewYorkCity1DayPackageForm = props => {
       e1WebsiteError = "Must Provide a Valid Web Address";
     }
 
-    if (f1Name.length == 0) {
+    if (f1Name.length === 0) {
       f1NameError = "Must Provide a Name";
     }
-    if (f1Address.length == 0) {
+    if (f1Address.length === 0) {
       f1AddressError = "Must Provide an Address";
     }
-    if (f1Description.length == 0) {
+    if (f1Description.length === 0) {
       f1DescriptionError = "Must Provide a Description";
     }
-    if (f1Website.length == 0) {
+    if (f1Website.length === 0) {
       f1WebsiteError = "Must Provide a Web Address";
     }
 
