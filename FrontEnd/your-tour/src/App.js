@@ -33,6 +33,7 @@ function App(props) {
 
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
+  const [matchingURL, setMatchingUrl] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,6 +60,22 @@ function App(props) {
   const callbackFunction = childData => {
     setMessage(childData);
   };
+
+  console.log("DA MESSAGE", message);
+
+  let URLS = [];
+
+  {
+    message.map(m => {
+      URLS.push(m.id);
+    });
+  }
+
+  console.log("URLS", URLS);
+
+  // for (let i = 0; i < message.id.length; i++) {
+  //   correctPath = message.id[i];
+  // }
   ///////////////////////////////////////////////
   if (loading) {
     return (
