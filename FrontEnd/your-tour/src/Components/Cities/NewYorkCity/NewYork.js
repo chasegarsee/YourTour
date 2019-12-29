@@ -37,7 +37,6 @@ const NewYork = props => {
   }
 
   const dataArr = useCollections();
-
   const sendData = () => {
     props.parentCallback(data);
   };
@@ -65,9 +64,7 @@ const NewYork = props => {
               <Link to={`/${p.id}`}>View Package</Link>
             </button>
             <button>
-              <Link to={"/new-york-city/stripe/MyksmA6ebQRFhuON7Jq7"}>
-                Buy Me
-              </Link>
+              <Link to={`/new-york-city/stripe/${p.id}`}>Buy Me</Link>
             </button>
           </StyledCard2>
         ))}
