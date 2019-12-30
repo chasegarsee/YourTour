@@ -11,7 +11,7 @@ function NavBar(props) {
     <div>
       {!isAuthenticated && (
         <NavBarContainer>
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
             <LogoDiv>
               <StyledP>YT</StyledP>
             </LogoDiv>
@@ -22,10 +22,16 @@ function NavBar(props) {
             </div>
           </div>
 
-          <div>
+          <div style={{ width: "100%" }}>
             <StyledH1>Your Tour</StyledH1>
           </div>
-          <div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              width: "100%"
+            }}
+          >
             <NavButton onClick={() => loginWithRedirect({})}>Log In</NavButton>
           </div>
         </NavBarContainer>
