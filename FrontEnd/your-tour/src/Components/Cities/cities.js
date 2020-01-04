@@ -4,12 +4,21 @@ import styled from "styled-components";
 import { StyledH1, StyledH2, StyledP } from "../../styles/Text";
 import { CityButton } from "../../styles/Buttons";
 import "../../styles/StripeCheckout.css";
+import boston from "../Assets/Boston_night.jpg";
+import nashville from "../Assets/Nashville_night.jpg";
+import newYork from "../Assets/NY__night.jpg";
+
 // import Nashville from "./Nashville/Nashville";
 
+const cities = ["", newYork, nashville, boston];
+
 function Cities(props) {
+  console.log("PROOPS", props.data);
+
   const items = props.data.map(i => (
-    <div key={i[0].cityId}>
+    <div key={i[0].cityId} style={{ width: "33%" }}>
       <StyledCard2>
+        <StyledImg src={cities[i[0].cityId]} className="images" />
         <StyledH2 style={{ margin: "10px" }}>{i[0].cityName}</StyledH2>
         <StyledP>{i[0].description}</StyledP>
         <CityButton>
@@ -22,7 +31,13 @@ function Cities(props) {
   return (
     <StyledCard>
       <StyledH1 style={{ width: "100vw" }}>Cities</StyledH1>
-      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          margin: "0rem 1.5rem"
+        }}
+      >
         {items}
       </div>
     </StyledCard>
@@ -39,12 +54,13 @@ const StyledCard = styled.div`
 `;
 
 const StyledCard2 = styled.div`
-  width: 400px;
-  height: 400px;
-  border: solid 1px white;
-  border-radius: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 30px;
+`;
+
+const StyledImg = styled.img`
+  width: 400px;
+  height: 400px;
 `;
