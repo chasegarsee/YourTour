@@ -4,13 +4,39 @@ import styled from "styled-components";
 import { StyledH1, StyledH2, StyledP } from "../../styles/Text";
 import { CityButton } from "../../styles/Buttons";
 import "../../styles/StripeCheckout.css";
-import boston from "../Assets/Boston_night.jpg";
-import nashville from "../Assets/Nashville_night.jpg";
-import newYork from "../Assets/NY__night.jpg";
+/* === Night  === */
+import bostonNight from "../Assets/Boston_night.jpg";
+import nashvilleNight from "../Assets/Nashville_night.jpg";
+import newYorkNight from "../Assets/NY__night.jpg";
 
-// import Nashville from "./Nashville/Nashville";
+/* === Sunset === */
 
-const cities = ["", newYork, nashville, boston];
+import bostonSunset from "../Assets/Boston_sunset.jpg";
+import nashvilleSunset from "../Assets/Nashville_sunset.jpg";
+import newYorkSunset from "../Assets/NY_sunset.jpg";
+
+/* === Day === */
+
+import boston from "../Assets/Boston.jpg";
+import nashville from "../Assets/Nashville.jpg";
+import newYork from "../Assets/NY_illustration.jpg";
+
+let d = new Date();
+function getTimes(t) {
+  let currentTimeOfDay = [];
+  if (t >= 15 && t <= 18) {
+    let sunset = ["", newYorkSunset, nashvilleSunset, bostonSunset];
+    currentTimeOfDay = sunset;
+  } else if ((t >= 19 && t <= 23) || (t >= 0 && t <= 4)) {
+    let night = ["", newYorkNight, nashvilleNight, bostonNight];
+    currentTimeOfDay = night;
+  } else if (t >= 5 && t <= 14) {
+    let day = ["", newYork, nashville, boston];
+    currentTimeOfDay = day;
+  }
+  return currentTimeOfDay;
+}
+let cities = getTimes(d.getHours());
 
 function Cities(props) {
   console.log("PROOPS", props.data);
