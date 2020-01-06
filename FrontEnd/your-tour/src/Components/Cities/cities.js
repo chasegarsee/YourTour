@@ -25,14 +25,11 @@ let d = new Date();
 function getTimes(t) {
   let currentTimeOfDay = [];
   if (t >= 15 && t <= 18) {
-    let sunset = ["", newYorkSunset, nashvilleSunset, bostonSunset];
-    currentTimeOfDay = sunset;
+    currentTimeOfDay = ["", newYorkSunset, nashvilleSunset, bostonSunset];
   } else if ((t >= 19 && t <= 23) || (t >= 0 && t <= 4)) {
-    let night = ["", newYorkNight, nashvilleNight, bostonNight];
-    currentTimeOfDay = night;
+    currentTimeOfDay = ["", newYorkNight, nashvilleNight, bostonNight];
   } else if (t >= 5 && t <= 14) {
-    let day = ["", newYork, nashville, boston];
-    currentTimeOfDay = day;
+    currentTimeOfDay = ["", newYork, nashville, boston];
   }
   return currentTimeOfDay;
 }
