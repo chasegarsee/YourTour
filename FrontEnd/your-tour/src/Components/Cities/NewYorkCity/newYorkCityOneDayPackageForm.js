@@ -233,7 +233,6 @@ const NewYorkCity1DayPackageForm = props => {
     e.preventDefault();
     const isValid = formValidation();
     if (isValid) {
-      console.log(useState);
       firebase
         .firestore()
         .collection("newYorkCity")

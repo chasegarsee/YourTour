@@ -1,4 +1,5 @@
-export const BASE_URL = "http://localhost:5000/your-tour-2a49d/us-central1/api";
+export const BASE_URL =
+  "https://us-central1-your-tour-2a49d.cloudfunctions.net/api";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBfo6GsolwHY7TYkzkBMLvz1YTSOvolU-U",
