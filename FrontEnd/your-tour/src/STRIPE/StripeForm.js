@@ -45,7 +45,7 @@ class StripeForm extends React.Component {
           color: "white",
           backgroundColor: "#1f303b",
           width: "100%",
-          fontSize: "25px",
+          fontSize: "1.6rem",
           fontWeight: "100",
           letterSpacing: "0.025em",
           "::placeholder": {
@@ -83,7 +83,9 @@ class StripeForm extends React.Component {
 
           <CardElement {...this.createOptions()} />
 
-          <CityButton>Pay</CityButton>
+          <CityButton style={{ margin: "2%" }} className="btn">
+            Purhcase Package
+          </CityButton>
         </form>
       </div>
     );

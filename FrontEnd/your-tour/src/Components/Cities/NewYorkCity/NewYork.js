@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { Link } from "react-router-dom";
+
 import Loader from "react-loader-spinner";
 import "./nyc.scss";
 
@@ -57,17 +59,20 @@ const NewYork = props => {
           <StyledCard2 key={p.id}>
             <StyledH1 style={{ margin: "2%" }}>{p.name}</StyledH1>
             <StyledH2 style={{ margin: "2%" }}>{p.packageDescription}</StyledH2>
+            <Link className="btn" to={`/${p.id}`}>
+              View Package
+            </Link>
 
-            <a className="btn" href={`/new-york-city/stripe/${p.id}`}>
+            <Link className="btn" to={`/new-york-city/stripe/${p.id}`}>
               Purchase Package
-            </a>
+            </Link>
           </StyledCard2>
         ))}
       </div>
 
-      <a className="btn" href="/new-york-city/add-one-day-package">
+      <Link className="btn" to="/new-york-city/add-one-day-package">
         <i className="fas fa-plus"></i>
-      </a>
+      </Link>
     </div>
   );
 };
