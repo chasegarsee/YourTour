@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import "./forms.css";
+import "./nyc.scss";
 import firebase from "../../../firebase";
 import { StyledH1 } from "../../../styles/Text";
 import { Alert, Button } from "react-bootstrap";
@@ -320,7 +321,7 @@ const NewYorkCity1DayPackageForm = props => {
   return (
     <div className="form-container">
       <div>
-        <StyledH1>Add New Package</StyledH1>
+        <StyledH1 className="header-top">Add New Package</StyledH1>
       </div>
       {/* <form onSubmit={submitHandler}> */}
       <form>
@@ -353,7 +354,7 @@ const NewYorkCity1DayPackageForm = props => {
         {/* ///////////// Package Details //////////////           */}
         {/* ///////////// Attraction Details //////////////        */}
         <div className="attraction-container forms">
-          <span>Attraction 1</span>
+          <span className="header">Attraction 1</span>
           <div className="form-fields-container">
             <div className="form-fields">
               <span>Name </span>
@@ -405,7 +406,7 @@ const NewYorkCity1DayPackageForm = props => {
               className="attraction-container"
               className="forms"
             >
-              <span>{`Attraction ${i + 2}`}</span>
+              <span className="header">{`Attraction ${i + 2}`}</span>
               <div className="form-fields-container">
                 <div className="form-fields">
                   <span>Name </span>
@@ -464,7 +465,7 @@ const NewYorkCity1DayPackageForm = props => {
         )}
         {attractions.length <= 2 ? (
           <div>
-            <button onClick={e => addPointCategories(e)}>
+            <button className="btn" onClick={e => addPointCategories(e)}>
               Add Another Attraction
             </button>
           </div>
@@ -473,7 +474,7 @@ const NewYorkCity1DayPackageForm = props => {
         {/* ///////////// Attraction Details //////////////           */}
         {/* ///////////// Entertainment Details //////////////        */}
         <div className="entertainment-container forms">
-          <span>Entertainment 1</span>
+          <span className="header">Entertainment 1</span>
           <div className="form-fields-container">
             <div className="form-fields">
               <span>Name</span>
@@ -520,7 +521,7 @@ const NewYorkCity1DayPackageForm = props => {
         {/* ///////////// Entertainment Details //////////////           */}
         {/* ///////////// Food Details ///////////////////////           */}
         <div className="food-container forms">
-          <span>Restaurant 1</span>
+          <span className="header">Restaurant 1</span>
           <div className="form-fields-container">
             <div className="form-fields">
               <span>Name</span>
@@ -565,7 +566,13 @@ const NewYorkCity1DayPackageForm = props => {
           </div>
         </div>
         {/* ///////////// Food Details ///////////////////           */}
-        <button onClick={submitHandler}>Add Package</button>
+        <button
+          className="btn"
+          style={{ margin: "5%" }}
+          onClick={submitHandler}
+        >
+          Add Package
+        </button>
       </form>
     </div>
   );
