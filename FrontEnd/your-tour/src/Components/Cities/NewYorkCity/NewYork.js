@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-import { Link } from "react-router-dom";
-
 import Loader from "react-loader-spinner";
+import "./nyc.scss";
 
 import styled from "styled-components";
 import { StyledH1, StyledH2, StyledP } from "../../../styles/Text";
 import firebase from "../../../firebase";
-import StripeParent from "../../../STRIPE/StripeParent";
 
 const NewYork = props => {
   const [isLoading, setIsLoading] = useState(false);
@@ -57,23 +55,19 @@ const NewYork = props => {
       <div style={{ display: "flex" }}>
         {dataArr.map(p => (
           <StyledCard2 key={p.id}>
-            <StyledH1>{p.name}</StyledH1>
-            <StyledH2>{p.packageDescription}</StyledH2>
-            <StyledP>{p.attractionOne.name}</StyledP>
-            <button>
-              <Link to={`/${p.id}`}>View Package</Link>
-            </button>
-            <button>
-              <Link to={`/new-york-city/stripe/${p.id}`}>Buy Me</Link>
-            </button>
+            <StyledH1 style={{ margin: "2%" }}>{p.name}</StyledH1>
+            <StyledH2 style={{ margin: "2%" }}>{p.packageDescription}</StyledH2>
+
+            <a className="btn" href={`/new-york-city/stripe/${p.id}`}>
+              Purchase Package
+            </a>
           </StyledCard2>
         ))}
       </div>
-      <button>
-        <a href="/new-york-city/add-one-day-package">
-          <i className="fas fa-plus"></i>
-        </a>
-      </button>
+
+      <a className="btn" href="/new-york-city/add-one-day-package">
+        <i className="fas fa-plus"></i>
+      </a>
     </div>
   );
 };
@@ -95,10 +89,11 @@ const StyledSpan = styled.span`
 `;
 
 const StyledCard2 = styled.div`
-  width: 400px;
-  height: 400px;
-  border: solid 1px white;
-  border-radius: 100%;
+  margin: 10px;
+  width: 100%;
+  height: 100%px;
+  box-shadow: 11px 10px 10px 1px #00000055;
+
   display: flex;
   flex-direction: column;
   align-items: center;
