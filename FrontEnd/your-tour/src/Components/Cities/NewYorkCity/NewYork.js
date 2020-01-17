@@ -59,18 +59,14 @@ const NewYork = props => {
           <StyledCard2 key={p.id}>
             <StyledH1 style={{ margin: "2%" }}>{p.name}</StyledH1>
             <StyledH2 style={{ margin: "2%" }}>{p.packageDescription}</StyledH2>
-            <Link className="btn" to={`/${p.id}`}>
-              View Package
-            </Link>
+            <Link to={`/${p.id}`}>View Package</Link>
 
-            <Link className="btn" to={`/new-york-city/stripe/${p.id}`}>
-              Purchase Package
-            </Link>
+            <Link to={`/new-york-city/stripe/${p.id}`}>Purchase Package</Link>
           </StyledCard2>
         ))}
       </div>
 
-      <Link className="btn" to="/new-york-city/add-one-day-package">
+      <Link to="/new-york-city/add-one-day-package">
         <i className="fas fa-plus"></i>
       </Link>
     </div>
