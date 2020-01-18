@@ -1,1 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Inconsolata");
+.btn {
+  color: black;
+  margin: 2%;
+  border-radius: 6px;
+  background-color: whitesmoke;
+}

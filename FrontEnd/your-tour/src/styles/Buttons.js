@@ -19,4 +19,5 @@ export const CityButton = styled.button`
   color: white;
   margin: 2%;
   border-radius: 6px;
+  background-color: white;
 `;
