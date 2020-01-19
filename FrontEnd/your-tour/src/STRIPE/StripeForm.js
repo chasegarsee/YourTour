@@ -83,9 +83,7 @@ class StripeForm extends React.Component {
 
           <CardElement {...this.createOptions()} />
 
-          <CityButton style={{ margin: "2%" }} className="btn">
-            Purhcase Package
-          </CityButton>
+          <CityButton className="btn">Purhcase Package</CityButton>
         </form>
       </div>
     );
