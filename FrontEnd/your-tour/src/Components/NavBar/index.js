@@ -43,7 +43,9 @@ function NavBar(props) {
               <StyledImg src={user.picture} alt="Profile" />
             </LogoDiv>
             <NavButton>
-              <Link to="/cities">Cities</Link>
+              <Link style={{ color: "black" }} to="/cities">
+                Cities
+              </Link>
             </NavButton>
           </div>
           <div>

@@ -45,7 +45,9 @@ function Cities(props) {
         <StyledH2 style={{ margin: "10px" }}>{i[0].cityName}</StyledH2>
         <StyledP>{i[0].description}</StyledP>
         <CityButton>
-          <a href={i[0].hyperlink}>See Packages</a>
+          <a style={{ color: "black" }} href={i[0].hyperlink}>
+            View Packages
+          </a>
         </CityButton>
       </StyledCard2>
     </div>

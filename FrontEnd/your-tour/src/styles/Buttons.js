@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const NavButton = styled.button`
+  color: black;
   width: auto;
   height: 35px;
   border-radius: 6px;
@@ -16,8 +17,8 @@ export const TabButton = styled.button`
 `;
 
 export const CityButton = styled.button`
-  color: white;
   margin: 2%;
   border-radius: 6px;
   background-color: white;
+  text-decoration: none;
 `;
