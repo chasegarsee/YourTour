@@ -14,7 +14,6 @@ export default function Nashville(props) {
     const fetchData = async () => {
       const result = await axios.get(`${BASE_URL}/nashville/one-day-package`);
       setData(result.data);
-      console.log(result.data);
       setIsLoading(false);
     };
     fetchData();

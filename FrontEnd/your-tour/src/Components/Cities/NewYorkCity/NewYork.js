@@ -23,14 +23,12 @@ const NewYork = props => {
         .doc("GX5nBGcDrSkGlEpj4Mkq")
         .collection("oneDayPackage")
         .onSnapshot(snapshot => {
-          console.log("OH SNAPSHOT", snapshot);
           const newData = snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
           }));
           setData(newData);
           setIsLoading(false);
-          console.log(newData);
         });
     }, []);
     return data;
