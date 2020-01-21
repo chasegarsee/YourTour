@@ -36,8 +36,6 @@ function getTimes(t) {
 let cities = getTimes(d.getHours());
 
 function Cities(props) {
-  console.log("PROOPS", props.data);
-
   const items = props.data.map(i => (
     <div key={i[0].cityId} style={{ width: "33%" }}>
       <StyledCard2>

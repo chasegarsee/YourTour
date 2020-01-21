@@ -46,7 +46,7 @@ function App(props) {
         return i.data;
       });
       setData(finalDataModel);
-      console.log(data);
+
       setIsLoading(false);
     };
     fetchData();
