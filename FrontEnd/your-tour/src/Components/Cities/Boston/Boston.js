@@ -14,7 +14,6 @@ export default function Boston(props) {
     const fetchData = async () => {
       const result = await axios.get(`${BASE_URL}/boston/one-day-package`);
       setData(result.data);
-      console.log(result.data);
       setIsLoading(false);
     };
     fetchData();

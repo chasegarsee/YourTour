@@ -11,7 +11,7 @@ const CURRENCY = "USD";
 const fromDollarToCent = amount => parseInt(amount * 100);
 
 const successPayment = data => {
-  console.log("Payment Successful. Get Paid, Son", data);
+  console.log("Payment Successful.", data);
 };
 
 const errorPayment = data => {
