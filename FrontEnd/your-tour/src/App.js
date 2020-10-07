@@ -19,18 +19,7 @@ import Boston from "./Components/Cities/Boston/Boston";
 import newYorkCityOneDayPackageForm from "./Components/Cities/NewYorkCity/newYorkCityOneDayPackageForm";
 import Packages from "./Components/Cities/NewYorkCity/Packages";
 
-// import firebase from "./firebase";
-
-// import CheckoutForm from "./STRIPE/CheckoutForm";
-
-//import Checkout from "./Checkout";
-
-// import PrivateRoute from "./Components/PrivateRoute";
-
 function App(props) {
-  // const { loading, user } = useAuth0();
-  // const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
-
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
   const [matchingURL, setMatchingUrl] = useState("");

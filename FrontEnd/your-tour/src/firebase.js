@@ -10,7 +10,7 @@ var firebaseConfig = {
   storageBucket: "your-tour-2a49d.appspot.com",
   messagingSenderId: "111817442024",
   appId: "1:111817442024:web:46166f64281fc1e34f3f5d",
-  measurementId: "G-XHYVKC6K4K"
+  measurementId: "G-XHYVKC6K4K",
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
